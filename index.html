@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <title>Nima Zahiri – CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sivilingeniør, ph.d. i trekonstruksjon">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <style>
+    .job, .section#utdanning .job {
+      transition: background 0.25s, box-shadow 0.25s, transform 0.18s;
+      background: #fff;
+      will-change: transform, box-shadow, background;
+      box-shadow: none;
+    }
+    .job:hover, .section#utdanning .job:hover {
+      background: #eaf6ff;
+      box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+      transform: translateY(-2px) scale(1.01);
+    }
+    .publikasjon {
+      margin-bottom: 2px;
+      margin-top: 0;
+      transition: background 0.25s, box-shadow 0.25s, transform 0.18s;
+      background: #fff;
+      will-change: transform, box-shadow, background;
+      padding: 18px 22px;
+      border-radius: 0;
+      box-shadow: none;
+      display: block;
+    }
+    .publikasjon:hover {
+      background: #eaf6ff;
+      box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+      transform: translateY(-2px) scale(1.01);
+    }
+    .edu-tight {
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1.7;
+      display: block;
+    }
+    .edu-gap {
+      margin-top: 0.5em !important;
+    }
+    .edu-gap {
+      margin-top: 1em;
+    }
+    :root {
+      --max: 900px;
+      --accent: #0077ff;
+      --accent-bg: #f5faff;
+      --section-bg: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 300;
+      line-height: 1.7;
+      color: #222;
+      background: var(--accent-bg);
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      display: block;
+      background: none;
+      color: #222;
+      margin-bottom: 32px;
+      border-bottom: 1px solid #eee;
+      padding-top: 32px;
+    }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .menu {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 24px;
+  background: none;
+  border-bottom: 1px solid #eee;
+  font-size: 0.85em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+    }
+    .menu a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 6px 10px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+  font-size: 0.95em;
+  position: relative;
+  display: inline-block;
+    }
+    .menu a:not(:last-child)::after {
+  content: "";
+    }
+    .menu a:hover {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    }
+    .menu a {
+      color: #222;
+      text-decoration: none;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 12px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .menu a:hover {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid #0077ff22;
+      transition: border-color 0.2s;
+    }
+    a:hover {
+      border-color: var(--accent);
+    }
+    .hero {
+      padding: 32px 0 16px 0;
+      border-bottom: none;
+      background: none;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px,4vw,36px);
+      line-height: 1.2;
+      color: #222;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .hero p {
+      margin: 4px 0;
+      color: #555;
+      font-size: 1em;
+    }
+    main {
+      width: 100%;
+      display: block;
+    }
+    section.section {
+      background: var(--section-bg);
+      margin-bottom: 28px;
+      padding: 28px 24px 18px 24px;
+      border: 1px solid #f0f0f0;
+      box-shadow: none;
+    }
+    h2 {
+      margin: 0 0 16px 0;
+      color: var(--accent);
+      font-size: 1.15em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      background: none;
+      border: none;
+    }
+    ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+    .card {
+      padding: 16px;
+      border: 1px solid #eee;
+      background: #fff;
+      box-shadow: none;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      padding: 2px 8px;
+      border: none;
+      border-radius: 0;
+      margin-right: 6px;
+      background: var(--accent-bg);
+      color: var(--accent);
+    }
+    .muted {
+      color: #888;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .job .muted + .muted + .muted + p {
+      margin-top: 0.7em;
+    }
+    .publikasjon .muted {
+      display: block;
+      margin-bottom: 18px;
+    }
+    .inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+    }
+    .inline-list span {
+      white-space: nowrap;
+    }
+    .kvp {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px 16px;
+    }
+    .kvp div.label {
+      color: #555;
+    }
+    .job h3 {
+      margin: 0 0 2px 0;
+      font-size: 1em;
+      font-weight: 400;
+      color: #222;
+    }
+    .job {
+  margin-bottom: 16px;
+  background: none;
+  box-shadow: none;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--accent);
+    }
+    .job ul {
+      margin-top: 6px;
+    }
+    .job p {
+      margin: 2px 0;
+    }
+    footer {
+      border-top: 1px solid #eee;
+      margin-top: 32px;
+      color: #888;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 18px 0;
+      text-align: center;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav class="menu">
+      <a href="#sammendrag">Sammendrag</a>
+      <a href="#kvalifikasjoner">Kvalifikasjoner</a>
+      <a href="#arbeidserfaring">Arbeidserfaring</a>
+      <a href="#utdanning">Utdanning</a>
+      <a href="#programvare">Programvare</a>
+      <a href="#sprak">Språk</a>
+      <a href="#publikasjoner">Publikasjoner</a>
+      <a href="#referanser">Referanser</a>
+    </nav>
+    <nav>
+  <!-- Nima Zahiri removed from menu area -->
+      <div class="inline-list">
+        <span><a href="mailto:zahiri.nima@gmail.com">zahiri.nima@gmail.com</a></span>
+        <span><a href="tel:+4745915627">+47 459 15 627</a></span>
+        <span><a href="https://linkedin.com/in/nimazahiri">LinkedIn</a></span>
+        <span><a href="https://nimazahiri.github.io/portfolio">Portefølje </a></span>
+      </div>
+    </nav>
+    <section class="hero">
+  <h1>Nima Zahiri</h1>
+  <h1>Sivilingeniør, ph.d. i trekonstruksjon</h1>
+    </section>
+  </header>
+
+  <main class="wrap">
+<!--
+    <section id="personalia" class="section">
+      <h2>Personalia</h2>
+      <div class="kvp">
+        <div class="label">Navn</div><div>Nima Zahiri</div>
+        <div class="label">E‑post</div><div><a href="mailto:zahiri.nima@gmail.com">zahiri.nima@gmail.com</a></div>
+        <div class="label">Telefon</div><div><a href="tel:+4745915627">+47 459 15 627</a></div>
+        <div class="label">LinkedIn</div><div><a href="https://linkedin.com/in/nimazahiri">linkedin.com/in/nimazahiri</a></div>
+        <div class="label">Nettside</div><div><a href="https://nimazahiri.github.io">nimazahiri.github.io</a></div>
+        <div class="label">Lokasjon</div><div>Bernau bei Berlin, Tyskland</div>
+      </div>
+    </section>
+-->
+    <section id="sammendrag" class="section">
+  <h2>Sammendrag</h2>
+  <p>Jeg er konstruktør og prosjektingeniør innen rådgivende ingeniør bygg (RIB) med spesialisering i trekonstruksjon, basert i Tyskland og tilgjengelig for samarbeid i Norge. Jeg har en doktorgrad i trekonstruksjon samt flere års internasjonal erfaring fra prosjektering og forskning i tverrfaglige miljøer. Min ekspertise ligger særlig innen computational design, integrerte teknologier og digital fabrikasjon, drevet av stor lidenskap for bærekraftige og innovative løsninger.</p>
+    </section>
+
+    <section id="kvalifikasjoner" class="section">
+      <h2>Kvalifikasjoner</h2>
+      <ul>
+        <li><strong>Flere års internasjonal arbeidserfaring</strong> fra prosjektering og forskning</li>
+        <li><strong>Akademisk utdanning på høyt nivå</strong> ved anerkjente universiteter</li>
+        <li><strong>Avansert teknologisk portefølje</strong> innen computational design og digital fabrikasjon</li>
+        <li><strong>Bred programvarekunnskap</strong> fra BIM-prosjektering til programmering</li>
+        <li><strong>Solid industriell produksjonskompetanse</strong> i trekonstruksjon</li>
+        <li><strong>Praktiske flerspråklige ferdigheter</strong> med gode kommunikasjonsevner</li>
+      </ul>
+    </section>
+
+    <section id="arbeidserfaring" class="section jobs">
+      <h2>Arbeidserfaring</h2>
+
+      <div class="job">
+        <h3>Konstruktør (tre) – timpla GmbH, Eberswalde‑Berlin, Tyskland <span class="muted">(2023–d.d.)</span></h3>
+        <ul>
+          <li>Prosjektering av modulære trekonstruksjoner i cadwork (tidligere i SEMA)</li>
+          <li>Utvikling av tilpassede cadwork‑plugins i Python for automatiserte prosesser</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Konstruktør / 3D‑spesialist – Werner Sobek AG, Stuttgart, Tyskland <span class="muted">(2020)</span></h3>
+        <ul>
+          <li>Computational design av komplekse betongarmeringer i Rhino3D/Grasshopper</li>
+          <li>Prosjektering og dimensjonering med Allplan</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Vitenskapelig assistent – University of Stuttgart, Tyskland <span class="muted">(2017–2019)</span></h3>
+        <ul>
+          <li>Forskningsstøtte i doktorgradsprosjekter med simulering og fabrikasjon</li>
+          <li>Andre oppgaver knyttet til instituttets forsknings‑ og undervisningsarbeid</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Prosjektingeniør – T.AHA Architecture, Teheran, Iran <span class="muted">(2014–2016)</span></h3>
+        <ul>
+          <li>Bygningsinformasjonsmodellering for offentlige bygg i Revit</li>
+          <li>Tegning og utarbeidelse av konstruksjonsdetaljer, blant annet med AutoCAD</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="utdanning" class="section">
+      <h2>Utdanning</h2>
+      <div class="job">
+  <h3>Doktorgrad i trekonstruksjon – computational design og automatisert produksjon <span class="muted">(2020–2023)</span></h3>
+  <p class="edu-tight">Norges teknisk-naturvitenskapelige universitet (NTNU), Gjøvik, Norge </p>
+  <p class="edu-gap">Doktorgradsavhandling i samarbeid med Østlaft, Innlandet Treindustri: <em>Morphology of timber high-rises in the context of computational design, automated production, and augmented construction</em></p>
+      </div>
+      <div class="job">
+  <h3>Master i ITECH – Integrative Technologies and Architectural Design Research <span class="muted">(2017–2019)</span></h3>
+  <p class="edu-tight">University of Stuttgart, Tyskland</p>
+  <p class="edu-gap">Masteroppgave i samarbeid med Fraunhofer Institute for Manufacturing Engineering and Automation (IPA): <em>Electroactive skin – towards bio-inspired soft responsive envelopes</em></p>
+      </div>
+      <div class="job">
+  <h3>Bachelor i ingeniørfag – byggteknikk og konstruksjon <span class="muted">(2006–2011)</span></h3>
+  <p class="edu-tight">Razi University, Kermanshah, Iran</p>
+  <p class="edu-gap">Bacheloroppgave: <em>Analysis of load-bearing capacity and optimization of steel truss systems</em></p>
+      </div>
+    </section>
+
+    <section id="programvare" class="section">
+      <h2>Programvarekompetanse</h2>
+      <ul>
+        <li><strong>Parametrisk design:</strong> Rhino3D, Grasshopper (ekspert, underviser)</li>
+        <li><strong>Programmering:</strong> Python (avansert, utvikler), C# (grunnleggende)</li>
+        <li><strong>Bygningsinformasjonsmodellering:</strong> Revit (avansert, sertifisert)</li>
+        <li><strong>FEM‑analyse:</strong> Karamba3D (ekspert), Fusion (erfaren)</li>
+        <li><strong>Trekonstruksjon:</strong> cadwork (ekspert, sertifisert), SEMA (ekspert, sertifisert)</li>
+        <li><strong>Trebearbeiding:</strong> Hundegger Cambium (erfaren)</li>
+      </ul>
+    </section>
+
+    <section id="sprak" class="section">
+      <h2>Språkferdigheter</h2>
+      <ul>
+        <li><strong>Persisk</strong> – morsmål</li>
+        <li><strong>Engelsk</strong> – flytende på akademisk nivå (C2)</li>
+        <li><strong>Tysk</strong> – avansert i arbeidssammenheng (C1)</li>
+        <li><strong>Norsk</strong> – selvstendig i kommunikasjon (B2)</li>
+      </ul>
+    </section>
+
+    <section id="publikasjoner" class="section">
+      <h2>Publikasjoner</h2>
+      <div>
+        <a class="publikasjon" href="https://www.ingentaconnect.com/content/iass/jiass/2024/00000065/00000004/art00007;jsessionid=13hn1959ns8bm.x-ic-live-03" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Sequential Augmented Assembly of Interlocking Timber Elements for Circular Wood Construction</div>
+          <div>Journal of the International Association for Shell and Spatial Structures (IASS), 65(4), 2024: 277–287.</div>
+        </a>
+        <a class="publikasjon" href="https://adk.elsevierpure.com/ws/portalfiles/portal/82319458/eaea16-2023-102.pdf" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Nordic Architecture of Regionalism: Digital Wood in Multi-storey Buildings</div>
+          <div>EAEA16 Conference Proceedings, Royal Danish Academy, 2023: 18–28.</div>
+        </a>
+        <a class="publikasjon" href="https://papers.cumincad.org/cgi-bin/works/paper/acadia23_v3_77" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Height-active Wood: Elasticity, Anisotropy, and Hygroscopicity in Timber High-Rises</div>
+          <div>Association for Computer Aided Design in Architecture (ACADIA) Conference Proceedings, 2023: 77–79.</div>
+        </a>
+        <a class="publikasjon" href="https://global.ctbuh.org/resources/papers/4630-Zahiri_TimberHighRisesInNordicCountries.pdf" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Timber High-Rises in Nordic Countries: Current Trends, Council on Tall Buildings and Urban Habitat</div>
+          <div>CTBUH Journal, 2023 (2): 44–50.</div>
+        </a>
+        <a class="publikasjon" href="https://www.frontiersin.org/journals/built-environment/articles/10.3389/fbuil.2020.00095/full" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Integrating Ionic Electroactive Polymer Actuators and Sensors into Adaptive Building Skins – Potentials and Limitations</div>
+          <div>Frontiers in Built Environment 6, 2020: 95.</div>
+        </a>
+        <a class="publikasjon" href="https://www.mdpi.com/2075-5309/7/1/4" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Rethinking of Critical Regionalism in High-rise Buildings</div>
+          <div>MDPI Buildings 7(1), 2016: 4.</div>
+        </a>
+      </div>
+      <p>For fullstendig publikasjonsliste, se min <a href="https://scholar.google.com/citations?user=kCWqL-MAAAAJ&hl=en" target="_blank">Google Scholar-profil</a>.</p>
+
+    </section>
+
+    <section id="referanser" class="section">
+      <h2>Referanser</h2>
+      <div class="job">
+        <h3>Stergios Goutianos <span class="muted">(hovedveileder doktorgradsavhandling)</span></h3>
+        <p>Institutt for vareproduksjon og byggteknikk (IVB), NTNU</p>
+        <p>E-post: <a href="mailto:stergios.goutianos@ntnu.no">stergios.goutianos@ntnu.no</a> |
+           Telefon: <a href="tel:+4746933240">+47 469 33 240</a></p>
+      </div>
+
+      <div class="job">
+        <h3>Sareh Saeidi Derakhshi <span class="muted">(opponent doktorgradsavhandling)</span></h3>
+        <p>Institutt for bygg- og miljøteknologi, NMBU / LINK Arkitektur</p>
+        <p>E-post: <a href="mailto:sareh.saeidi.derakhshi@nmbu.no">sareh.saeidi.derakhshi@nmbu.no</a> /
+                    <a href="mailto:ssd@linkarkitektur.no">ssd@linkarkitektur.no</a> |
+           Telefon: <a href="tel:+4741609162">+47 416 09 162</a></p>
+      </div>
+
+      <div class="job">
+        <h3>Hanaa Dahy <span class="muted">(hovedveileder masteroppgave)</span></h3>
+        <p>Det tekniske fakultet for IT og design (TECH), Aalborg Universitet</p>
+        <p>E-post: <a href="mailto:hanaadahy@plan.aau.dk">hanaadahy@plan.aau.dk</a> |
+           Telefon: <a href="tel:+4917621359190">+49 176 21359190</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    <p class="muted">© <span id="y"></span> Nima Zahiri · CV</p>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
