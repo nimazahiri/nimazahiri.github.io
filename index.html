@@ -144,6 +144,11 @@
       border-bottom: none;
       background: none;
       margin-bottom: 16px;
+
+      /* Added to place image on the left of text */
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
     .hero h1 {
       margin: 0 0 8px;
@@ -157,6 +162,13 @@
       margin: 4px 0;
       color: #555;
       font-size: 1em;
+    }
+    /* Added profile picture style */
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
     }
     main {
       width: 100%;
@@ -286,8 +298,11 @@
       </div>
     </nav>
     <section class="hero">
-  <h1>Nima Zahiri</h1>
-  <h1>Sivilingeniør, ph.d. i trekonstruksjon</h1>
+      <img src="assets/profile.jpg" alt="Profilbilde av Nima Zahiri" class="profile-pic">
+      <div class="hero-text">
+        <h1>Nima Zahiri</h1>
+        <h1>Sivilingeniør, ph.d. i trekonstruksjon</h1>
+      </div>
     </section>
   </header>
 
@@ -297,7 +312,7 @@
       <h2>Personalia</h2>
       <div class="kvp">
         <div class="label">Navn</div><div>Nima Zahiri</div>
-        <div class="label">E‑post</div><div><a href="mailto:zahiri.nima@gmail.com">zahiri.nima@gmail.com</a></div>
+        <div class="label">E-post</div><div><a href="mailto:zahiri.nima@gmail.com">zahiri.nima@gmail.com</a></div>
         <div class="label">Telefon</div><div><a href="tel:+4745915627">+47 459 15 627</a></div>
         <div class="label">LinkedIn</div><div><a href="https://linkedin.com/in/nimazahiri">linkedin.com/in/nimazahiri</a></div>
         <div class="label">Nettside</div><div><a href="https://nimazahiri.github.io">nimazahiri.github.io</a></div>
@@ -326,15 +341,15 @@
       <h2>Arbeidserfaring</h2>
 
       <div class="job">
-        <h3>Konstruktør (tre) – timpla GmbH, Eberswalde‑Berlin, Tyskland <span class="muted">(2023–d.d.)</span></h3>
+        <h3>Konstruktør (tre) – timpla GmbH, Eberswalde-Berlin, Tyskland <span class="muted">(2023–d.d.)</span></h3>
         <ul>
           <li>Prosjektering av modulære trekonstruksjoner i cadwork (tidligere i SEMA)</li>
-          <li>Utvikling av tilpassede cadwork‑plugins i Python for automatiserte prosesser</li>
+          <li>Utvikling av tilpassede cadwork-plugins i Python for automatiserte prosesser</li>
         </ul>
       </div>
 
       <div class="job">
-        <h3>Konstruktør / 3D‑spesialist – Werner Sobek AG, Stuttgart, Tyskland <span class="muted">(2020)</span></h3>
+        <h3>Konstruktør / 3D-spesialist – Werner Sobek AG, Stuttgart, Tyskland <span class="muted">(2020)</span></h3>
         <ul>
           <li>Computational design av komplekse betongarmeringer i Rhino3D/Grasshopper</li>
           <li>Prosjektering og dimensjonering med Allplan</li>
@@ -345,7 +360,7 @@
         <h3>Vitenskapelig assistent – University of Stuttgart, Tyskland <span class="muted">(2017–2019)</span></h3>
         <ul>
           <li>Forskningsstøtte i doktorgradsprosjekter med simulering og fabrikasjon</li>
-          <li>Andre oppgaver knyttet til instituttets forsknings‑ og undervisningsarbeid</li>
+          <li>Andre oppgaver knyttet til instituttets forsknings- og undervisningsarbeid</li>
         </ul>
       </div>
 
@@ -383,7 +398,7 @@
         <li><strong>Parametrisk design:</strong> Rhino3D, Grasshopper (ekspert, underviser)</li>
         <li><strong>Programmering:</strong> Python (avansert, utvikler), C#, JavaScript (grunnleggende)</li>
         <li><strong>Bygningsinformasjonsmodellering:</strong> Revit (avansert, sertifisert)</li>
-        <li><strong>FEM‑analyse:</strong> Karamba3D (ekspert), Fusion 360 (erfaren)</li>
+        <li><strong>FEM-analyse:</strong> Karamba3D (ekspert), Fusion 360 (erfaren)</li>
         <li><strong>Trekonstruksjon:</strong> cadwork (ekspert, sertifisert), SEMA (ekspert, sertifisert)</li>
         <li><strong>Trebearbeiding:</strong> Hundegger Cambium (erfaren), KUKA robotprogrammering (erfaren)</li>
       </ul>
