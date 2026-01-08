@@ -47,7 +47,7 @@
       margin-top: 1em;
     }
     :root {
-      --max: 900px;
+      --max: 1200px;
       --accent: #0077ff;
       --accent-bg: #f5faff;
       --section-bg: #fff;
@@ -78,7 +78,7 @@
     }
     .menu {
   display: flex;
-  gap: 0;
+  gap: 8px;
   justify-content: center;
   align-items: center;
   padding: 0;
@@ -88,7 +88,12 @@
   font-size: 0.85em;
   font-weight: 400;
   letter-spacing: 0.01em;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
     }
+    .menu::-webkit-scrollbar { display: none; }
     .menu a {
   color: #222;
   text-decoration: none;
@@ -100,6 +105,7 @@
   font-size: 0.95em;
   position: relative;
   display: inline-block;
+      white-space: nowrap;
     }
     .menu a:not(:last-child)::after {
   content: "";
@@ -108,15 +114,16 @@
       color: var(--accent);
       border-bottom: 2px solid var(--accent);
     }
-    }
+    
     .menu a {
       color: #222;
       text-decoration: none;
       font-weight: 400;
       letter-spacing: 0.04em;
-      padding: 12px 0;
+      padding: 10px 14px;
       border-bottom: 2px solid transparent;
       transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
     }
     .menu a:hover {
       color: var(--accent);
@@ -124,7 +131,7 @@
     }
     nav {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
@@ -144,11 +151,9 @@
       border-bottom: none;
       background: none;
       margin-bottom: 16px;
-
-      /* Added to place image on the left of text */
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
     .hero h1 {
       margin: 0 0 8px;
@@ -158,17 +163,12 @@
       font-weight: 400;
       letter-spacing: 0.01em;
     }
+    .hero .titles { display: flex; flex-direction: column; }
+    .hero .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 2px solid #eee; }
     .hero p {
       margin: 4px 0;
       color: #555;
       font-size: 1em;
-    }
-    /* Added profile picture style */
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
     }
     main {
       width: 100%;
@@ -274,11 +274,30 @@
       text-align: center;
       font-size: 0.95em;
     }
+    /* Sticky language + menu bar */
+    .lang-bar {
+      position: sticky; top: 0; z-index: 1000;
+      display: flex; align-items: center; gap: 12px; padding: 6px 0; background: linear-gradient(180deg,#ffffff 0%,#fbfdff 100%); border-bottom: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .lang-bar nav { margin-bottom: 0; }
+    .lang-bar .menu { flex: 1 1 auto; display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; justify-content: flex-start; border-bottom: 0 !important; margin-bottom: 0; }
+    .lang-bar .menu::-webkit-scrollbar { display: none; }
+    .lang-bar .lang-controls { flex: 0 0 auto; display: flex; gap: 6px; background: #f5f8ff; border: 1px solid #e5ecff; padding: 4px; border-radius: 999px; }
+    .lang-bar .lang-controls button { border: 1px solid transparent; background: transparent; color: #333; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+    .lang-bar .lang-controls button:hover { background: #eef4ff; }
+    .lang-bar .lang-controls button[aria-pressed="true"] { background: #0b5fff; color: #fff; border-color: #0b5fff; }
+    .lang-bar .menu a { padding: 8px 12px; border-bottom: none !important; border-radius: 999px; color: #333; }
+    .lang-bar .menu a:hover { background: #f2f6ff; color: #0b5fff; }
+    .hidden { display: none !important; }
+    /* Offset anchors so sticky bar doesn't cover headings */
+    .section { scroll-margin-top: 80px; }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
-  <header class="wrap">
-    <nav class="menu">
+  <div class="lang-bar wrap" role="navigation" aria-label="Top navigation">
+    <nav class="menu menu-no">
       <a href="#sammendrag">Sammendrag</a>
       <a href="#kvalifikasjoner">Kvalifikasjoner</a>
       <a href="#arbeidserfaring">Arbeidserfaring</a>
@@ -288,6 +307,22 @@
       <a href="#publikasjoner">Publikasjoner</a>
       <a href="#referanser">Referanser</a>
     </nav>
+    <nav class="menu menu-de hidden">
+      <a href="#sammendrag-de">Zusammenfassung</a>
+      <a href="#kvalifikasjoner-de">Qualifikationen</a>
+      <a href="#arbeidserfaring-de">Berufserfahrung</a>
+      <a href="#utdanning-de">Ausbildung</a>
+      <a href="#programvare-de">Softwarekompetenzen</a>
+      <a href="#sprak-de">Sprachkenntnisse</a>
+      <a href="#publikasjoner-de">Publikationen</a>
+      <a href="#referanser-de">Referenzen</a>
+    </nav>
+    <div class="lang-controls" role="group" aria-label="Language toggle">
+      <button type="button" data-lang="no" aria-pressed="true">NO</button>
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+    </div>
+  </div>
+  <header id="header-no" class="wrap">
     <nav>
   <!-- Nima Zahiri removed from menu area -->
       <div class="inline-list">
@@ -298,21 +333,38 @@
       </div>
     </nav>
     <section class="hero">
-      <img src="assets/profile.jpg" alt="Profilbilde av Nima Zahiri" class="profile-pic">
-      <div class="hero-text">
+      <img class="avatar" src="https://nimazahiri.github.io/assets/profile.jpg" alt="Nima Zahiri" width="160" height="160" loading="lazy" onerror="this.onerror=null;this.src='https://github.com/nimazahiri.png';" />
+      <div class="titles">
         <h1>Nima Zahiri</h1>
         <h1>Sivilingeniør, ph.d. i trekonstruksjon</h1>
       </div>
     </section>
   </header>
+  <header id="header-de" class="wrap hidden">
+    <nav>
+      <div class="inline-list">
+        <span><a href="mailto:zahiri.nima@gmail.com">zahiri.nima@gmail.com</a></span>
+        <span><a href="tel:+4745915627">+47 459 15 627</a></span>
+        <span><a href="https://linkedin.com/in/nimazahiri">LinkedIn</a></span>
+        <span><a href="https://nimazahiri.github.io/Portfolio_eng.pdf">Portfolio</a></span>
+      </div>
+    </nav>
+    <section class="hero">
+      <img class="avatar" src="https://nimazahiri.github.io/assets/profile.jpg" alt="Nima Zahiri" width="160" height="160" loading="lazy" onerror="this.onerror=null;this.src='https://github.com/nimazahiri.png';" />
+      <div class="titles">
+        <h1>Nima Zahiri</h1>
+        <h1>Dipl.-Ing., Ph.D. im Holzbau</h1>
+      </div>
+    </section>
+  </header>
 
-  <main class="wrap">
+  <main id="cv-no" lang="no" class="wrap">
 <!--
     <section id="personalia" class="section">
       <h2>Personalia</h2>
       <div class="kvp">
         <div class="label">Navn</div><div>Nima Zahiri</div>
-        <div class="label">E-post</div><div><a href="mailto:zahiri.nima@gmail.com">zahiri.nima@gmail.com</a></div>
+        <div class="label">E‑post</div><div><a href="mailto:zahiri.nima@gmail.com">zahiri.nima@gmail.com</a></div>
         <div class="label">Telefon</div><div><a href="tel:+4745915627">+47 459 15 627</a></div>
         <div class="label">LinkedIn</div><div><a href="https://linkedin.com/in/nimazahiri">linkedin.com/in/nimazahiri</a></div>
         <div class="label">Nettside</div><div><a href="https://nimazahiri.github.io">nimazahiri.github.io</a></div>
@@ -322,17 +374,17 @@
 -->
     <section id="sammendrag" class="section">
   <h2>Sammendrag</h2>
-  <p>Jeg er konstruktør og prosjektingeniør innen rådgivende ingeniør bygg (RIB) med spesialisering i trekonstruksjon, basert i Tyskland og tilgjengelig for samarbeid i Norge. Jeg har en doktorgrad i trekonstruksjon samt flere års internasjonal erfaring fra prosjektering og forskning i tverrfaglige miljøer. Min ekspertise ligger særlig innen computational modellering, integrerte byggteknologier og automatisert produksjon, drevet av interesse for bærekraftige og innovative løsninger.</p>
+  <p>Jeg er konstruktør og prosjektingeniør innen rådgivende ingeniør bygg (RIB) med spesialisering i trekonstruksjon, basert i Tyskland og tilgjengelig for samarbeid i Norge. Jeg har en doktorgrad i trekonstruksjon samt flere års internasjonal erfaring fra prosjektering og forskning i tverrfaglige miljøer. Min ekspertise ligger særlig innen computational design, integrerte teknologier og digital fabrikasjon, drevet av stor lidenskap for bærekraftige og innovative løsninger.</p>
     </section>
 
     <section id="kvalifikasjoner" class="section">
       <h2>Kvalifikasjoner</h2>
       <ul>
-        <li><strong>Flere års internasjonal erfaring</strong> fra prosjektering og forskning</li>
+        <li><strong>Flere års internasjonal arbeidserfaring</strong> fra prosjektering og forskning</li>
         <li><strong>Akademisk utdanning på høyt nivå</strong> ved anerkjente universiteter</li>
-        <li><strong>Teknisk faglig portefølje</strong> med teknologiske og trebaserte prosjekter</li>
+        <li><strong>Avansert teknologisk portefølje</strong> innen computational design og digital fabrikasjon</li>
         <li><strong>Bred programvarekunnskap</strong> fra BIM-prosjektering til programmering</li>
-        <li><strong>Solid industriell produksjonskompetanse</strong> innen trekonstruksjon</li>
+        <li><strong>Solid industriell produksjonskompetanse</strong> i trekonstruksjon</li>
         <li><strong>Praktiske flerspråklige ferdigheter</strong> med gode kommunikasjonsevner</li>
       </ul>
     </section>
@@ -341,15 +393,15 @@
       <h2>Arbeidserfaring</h2>
 
       <div class="job">
-        <h3>Konstruktør (tre) – timpla GmbH, Eberswalde-Berlin, Tyskland <span class="muted">(2023–d.d.)</span></h3>
+        <h3>Konstruktør (tre) – timpla GmbH, Eberswalde‑Berlin, Tyskland <span class="muted">(2023–d.d.)</span></h3>
         <ul>
           <li>Prosjektering av modulære trekonstruksjoner i cadwork (tidligere i SEMA)</li>
-          <li>Utvikling av tilpassede cadwork-plugins i Python for automatiserte prosesser</li>
+          <li>Utvikling av tilpassede cadwork‑plugins i Python for automatiserte prosesser</li>
         </ul>
       </div>
 
       <div class="job">
-        <h3>Konstruktør / 3D-spesialist – Werner Sobek AG, Stuttgart, Tyskland <span class="muted">(2020)</span></h3>
+        <h3>Konstruktør / 3D‑spesialist – Werner Sobek AG, Stuttgart, Tyskland <span class="muted">(2020)</span></h3>
         <ul>
           <li>Computational design av komplekse betongarmeringer i Rhino3D/Grasshopper</li>
           <li>Prosjektering og dimensjonering med Allplan</li>
@@ -360,7 +412,7 @@
         <h3>Vitenskapelig assistent – University of Stuttgart, Tyskland <span class="muted">(2017–2019)</span></h3>
         <ul>
           <li>Forskningsstøtte i doktorgradsprosjekter med simulering og fabrikasjon</li>
-          <li>Andre oppgaver knyttet til instituttets forsknings- og undervisningsarbeid</li>
+          <li>Andre oppgaver knyttet til instituttets forsknings‑ og undervisningsarbeid</li>
         </ul>
       </div>
 
@@ -378,7 +430,7 @@
       <div class="job">
   <h3>Doktorgrad i trekonstruksjon – computational design og automatisert produksjon <span class="muted">(2020–2023)</span></h3>
   <p class="edu-tight">Norges teknisk-naturvitenskapelige universitet (NTNU), Gjøvik, Norge </p>
-  <p class="edu-gap">Doktorgradsavhandling i samarbeid med Østlaft og Innlandet Treindustri AS: <em>Morphology of timber high-rises in the context of computational design, automated production, and augmented construction</em></p>
+  <p class="edu-gap">Doktorgradsavhandling i samarbeid med Østlaft, Innlandet Treindustri: <em>Morphology of timber high-rises in the context of computational design, automated production, and augmented construction</em></p>
       </div>
       <div class="job">
   <h3>Master i ITECH – Integrative Technologies and Architectural Design Research <span class="muted">(2017–2019)</span></h3>
@@ -396,11 +448,11 @@
       <h2>Programvarekompetanse</h2>
       <ul>
         <li><strong>Parametrisk design:</strong> Rhino3D, Grasshopper (ekspert, underviser)</li>
-        <li><strong>Programmering:</strong> Python (avansert, utvikler), C#, JavaScript (grunnleggende)</li>
+        <li><strong>Programmering:</strong> Python (avansert, utvikler), C# (grunnleggende)</li>
         <li><strong>Bygningsinformasjonsmodellering:</strong> Revit (avansert, sertifisert)</li>
-        <li><strong>FEM-analyse:</strong> Karamba3D (ekspert), Fusion 360 (erfaren)</li>
+        <li><strong>FEM‑analyse:</strong> Karamba3D (ekspert), Fusion (erfaren)</li>
         <li><strong>Trekonstruksjon:</strong> cadwork (ekspert, sertifisert), SEMA (ekspert, sertifisert)</li>
-        <li><strong>Trebearbeiding:</strong> Hundegger Cambium (erfaren), KUKA robotprogrammering (erfaren)</li>
+        <li><strong>Trebearbeiding:</strong> Hundegger Cambium (erfaren)</li>
       </ul>
     </section>
 
@@ -473,9 +525,195 @@
 
   </main>
 
+  <main id="cv-de" lang="de" class="wrap hidden">
+    <section id="sammendrag-de" class="section">
+      <h2>Zusammenfassung</h2>
+      <p>Ich bin Tragwerksplaner und Holzbaukonstrukteur. Ich verfüge über mehrere Jahre internationale Erfahrung in Planung und Forschung in interdisziplinären Umgebungen. Meine Expertise liegt insbesondere in computergestützter Modellierung, integrierten Gebäudetechnologien sowie der automatisierten und industriellen Fertigung im Holzbau. Ich habe ein starkes Interesse an nachhaltigen, technologisch orientierten und innovativen Konstruktionslösungen.</p>
+    </section>
+
+    <section id="kvalifikasjoner-de" class="section">
+      <h2>Qualifikationen</h2>
+      <ul>
+        <li>Mehrjährige internationale Erfahrung in Planung und Forschung</li>
+        <li>Akademische Ausbildung auf hohem Niveau an renommierten Universitäten</li>
+        <li>Technisch-fachliches Portfolio in technologie- und holzbasierten Projekten</li>
+        <li>Breite Softwarekenntnisse von BIM-Planung bis Programmierung</li>
+        <li>Solide industrielle Fertigungskompetenz in der Holzbaukonstruktion</li>
+        <li>Mehrsprachige Praxiserfahrung mit guter Kommunikationsfähigkeit</li>
+      </ul>
+    </section>
+
+    <section id="arbeidserfaring-de" class="section jobs">
+      <h2>Berufserfahrung</h2>
+
+      <div class="job">
+        <h3>Holzbaukonstrukteur – timpla GmbH, Eberswalde-Berlin, Deutschland <span class="muted">(2023–heute)</span></h3>
+        <ul>
+          <li>Planung und Konstruktion modularer Holzbauten mit cadwork (zuvor SEMA)</li>
+          <li>Entwicklung cadwork-Plugins in Python zur Automatisierung von Planungsprozessen</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Konstrukteur / 3D-Spezialist – Werner Sobek AG, Stuttgart, Deutschland <span class="muted">(2020)</span></h3>
+        <ul>
+          <li>Rechnergestützte Generierung komplexer 3D-Bewehrungen mit Rhino3D und Grasshopper</li>
+          <li>Erstellung von Bewehrungsplänen zum Schalendach in Allplan</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Wissenschaftlicher Mitarbeiter (HiWi) – Universität Stuttgart, Deutschland <span class="muted">(2017–2019)</span></h3>
+        <ul>
+          <li>Forschungsunterstützung in Promotionsprojekten mit Simulation und Fertigung</li>
+          <li>Aufgaben in Forschung und Lehre des Instituts</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Projektingenieur – T.AHA Architekten, Teheran, Iran <span class="muted">(2014–2016)</span></h3>
+        <ul>
+          <li>BIM-Modellierung öffentlicher Gebäude mit Revit</li>
+          <li>Erstellung von Konstruktionsdetails und Ausführungsplanung in AutoCAD</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="utdanning-de" class="section">
+      <h2>Ausbildung</h2>
+      <div class="job">
+        <h3>Ph.D. Timber Construction – Computational Design and Automated Production</h3>
+        <p class="edu-tight">Norwegian University of Science and Technology (NTNU), Gjøvik, Norwegen (2020–2023)</p>
+        <p class="edu-gap">Dissertation in Industriekooperation mit Innlandet Treindustri: <em>Morphology of timber high-rises in the context of computational design, automated production, and augmented construction</em></p>
+      </div>
+      <div class="job">
+        <h3>M.Sc. ITECH – Integrative Technologies and Architectural Design Research</h3>
+        <p class="edu-tight">Universität Stuttgart, Deutschland (2017–2019)</p>
+        <p class="edu-gap">Masterarbeit in Zusammenarbeit mit Fraunhofer-Institut für Produktionstechnik und Automatisierung (IPA): <em>Electroactive skin – towards bio-inspired soft responsive envelopes</em></p>
+      </div>
+      <div class="job">
+        <h3>B.Sc. Bauingenieurwesen – Konstruktiver Ingenieurbau</h3>
+        <p class="edu-tight">Razi Universität, Kermanshah, Iran (2006–2011)</p>
+        <p class="edu-gap">Bachelorarbeit: <em>Analysis of load-bearing capacity and optimization of steel truss systems</em></p>
+      </div>
+    </section>
+
+    <section id="programvare-de" class="section">
+      <h2>Softwarekompetenzen</h2>
+      <ul>
+        <li><strong>Parametrisches Design</strong> – Rhino3D, Grasshopper (Experte, Lehrtätigkeit)</li>
+        <li><strong>Programmierung</strong> – Python (fortgeschritten, Entwickler), C#, JavaScript (Grundkenntnisse)</li>
+        <li><strong>Building Information Modeling</strong> – Revit (fortgeschritten, zertifiziert)</li>
+        <li><strong>Numerische Simulation</strong> – Karamba3D (Experte), Fusion 360 (erfahren)</li>
+        <li><strong>Holzbaukonstruktion</strong> – cadwork (Experte, zertifiziert), SEMA (Experte, zertifiziert)</li>
+        <li><strong>Holzfertigung</strong> – Hundegger Cambium (erfahren), KUKA-Robotprogrammierung (erfahren)</li>
+      </ul>
+    </section>
+
+    <section id="sprak-de" class="section">
+      <h2>Sprachkenntnisse</h2>
+      <ul>
+        <li>Persisch – Muttersprache</li>
+        <li>Englisch – fließend auf akademischem Niveau (C2)</li>
+        <li>Deutsch – fortgeschritten im beruflichen Kontext (C1)</li>
+        <li>Norwegisch – selbstständig in der Kommunikation (B2)</li>
+      </ul>
+    </section>
+
+    <section id="publikasjoner-de" class="section">
+      <h2>Publikationen</h2>
+      <div>
+        <a class="publikasjon" href="https://www.ingentaconnect.com/content/iass/jiass/2024/00000065/00000004/art00007;jsessionid=13hn1959ns8bm.x-ic-live-03" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Sequential Augmented Assembly of Interlocking Timber Elements for Circular Wood Construction</div>
+          <div>Journal of the International Association for Shell and Spatial Structures (IASS), 65(4), 2024: 277–287.</div>
+        </a>
+        <a class="publikasjon" href="https://adk.elsevierpure.com/ws/portalfiles/portal/82319458/eaea16-2023-102.pdf" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Nordic Architecture of Regionalism: Digital Wood in Multi-storey Buildings</div>
+          <div>EAEA16 Conference Proceedings, Royal Danish Academy, 2023: 18–28.</div>
+        </a>
+        <a class="publikasjon" href="https://papers.cumincad.org/cgi-bin/works/paper/acadia23_v3_77" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Height-active Wood: Elasticity, Anisotropy, and Hygroscopicity in Timber High-Rises</div>
+          <div>Association for Computer Aided Design in Architecture (ACADIA) Conference Proceedings, 2023: 77–79.</div>
+        </a>
+        <a class="publikasjon" href="https://global.ctbuh.org/resources/papers/4630-Zahiri_TimberHighRisesInNordicCountries.pdf" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Timber High-Rises in Nordic Countries: Current Trends, Council on Tall Buildings and Urban Habitat</div>
+          <div>CTBUH Journal, 2023 (2): 44–50.</div>
+        </a>
+        <a class="publikasjon" href="https://www.frontiersin.org/journals/built-environment/articles/10.3389/fbuil.2020.00095/full" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Integrating Ionic Electroactive Polymer Actuators and Sensors into Adaptive Building Skins – Potentials and Limitations</div>
+          <div>Frontiers in Built Environment 6, 2020: 95.</div>
+        </a>
+        <a class="publikasjon" href="https://www.mdpi.com/2075-5309/7/1/4" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+          <div style="font-size:1em;font-weight:400;line-height:1.2;">Rethinking of Critical Regionalism in High-rise Buildings</div>
+          <div>MDPI Buildings 7(1), 2016: 4.</div>
+        </a>
+      </div>
+      <p>Vollständige Liste auf <a href="https://scholar.google.com/citations?user=kCWqL-MAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
+    </section>
+
+    <section id="referanser-de" class="section">
+      <h2>Referenzen</h2>
+      <div class="job">
+        <h3>Stergios Goutianos <span class="muted">(Hauptbetreuer der Doktorarbeit)</span></h3>
+        <p>Institutt for vareproduksjon og byggteknikk (IVB), NTNU</p>
+        <p>E-Mail: <a href="mailto:stergios.goutianos@ntnu.no">stergios.goutianos@ntnu.no</a> |
+          Telefon: <a href="tel:+4746933240">+47 469 33 240</a></p>
+      </div>
+
+      <div class="job">
+        <h3>Sareh Saeidi Derakhshi <span class="muted">(Opponentin der Doktorarbeit)</span></h3>
+        <p>Institutt for bygg- og miljøteknologi, NMBU / LINK Arkitektur</p>
+        <p>E-Mail: <a href="mailto:sareh.saeidi.derakhshi@nmbu.no">sareh.saeidi.derakhshi@nmbu.no</a>
+          / <a href="mailto:ssd@linkarkitektur.no">ssd@linkarkitektur.no</a>
+          | Telefon: <a href="tel:+4741609162">+47 416 09 162</a></p>
+      </div>
+
+      <div class="job">
+        <h3>Hanaa Dahy <span class="muted">(Hauptbetreuerin der Masterarbeit)</span></h3>
+        <p>Det tekniske fakultet for IT og design (TECH), Aalborg Universitet</p>
+        <p>E-Mail: <a href="mailto:hanaadahy@plan.aau.dk">hanaadahy@plan.aau.dk</a> |
+          Telefon: <a href="tel:+4917621359190">+49 176 21359190</a></p>
+      </div>
+    </section>
+  </main>
+
   <footer class="wrap">
     <p class="muted">© <span id="y"></span> Nima Zahiri · CV</p>
   </footer>
+  <script>
+    (function () {
+      const noHeader = document.getElementById('header-no');
+      const deHeader = document.getElementById('header-de');
+      const noMain = document.getElementById('cv-no');
+      const deMain = document.getElementById('cv-de');
+      const buttons = document.querySelectorAll('.lang-bar .lang-controls button');
+      const noMenu = document.querySelector('.lang-bar .menu-no');
+      const deMenu = document.querySelector('.lang-bar .menu-de');
+      const STORAGE_KEY = 'preferred-lang';
+
+      function setLang(lang) {
+        const isDE = lang === 'de';
+        if (noHeader) noHeader.classList.toggle('hidden', isDE);
+        if (deHeader) deHeader.classList.toggle('hidden', !isDE);
+        if (noMain) noMain.classList.toggle('hidden', isDE);
+        if (deMain) deMain.classList.toggle('hidden', !isDE);
+        if (noMenu) noMenu.classList.toggle('hidden', isDE);
+        if (deMenu) deMenu.classList.toggle('hidden', !isDE);
+        buttons.forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false'));
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch {}
+        document.documentElement.setAttribute('lang', isDE ? 'de' : 'no');
+      }
+
+      buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+
+      let initial = 'no';
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'de' || saved === 'no') initial = saved;
+      } catch {}
+      setLang(initial);
+    })();
+  </script>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
