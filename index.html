@@ -9,31 +9,17 @@
   <style>
     .job, .section#utdanning .job {
       transition: background 0.25s, box-shadow 0.25s, transform 0.18s;
-      background: #fff;
+      background: transparent;
       will-change: transform, box-shadow, background;
       box-shadow: none;
     }
     .job:hover, .section#utdanning .job:hover {
-      background: #eaf6ff;
-      box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+      background: rgba(59,130,246,0.08);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
       transform: translateY(-2px) scale(1.01);
     }
-    .publikasjon {
-      margin-bottom: 2px;
-      margin-top: 0;
-      transition: background 0.25s, box-shadow 0.25s, transform 0.18s;
-      background: #fff;
-      will-change: transform, box-shadow, background;
-      padding: 18px 22px;
-      border-radius: 0;
-      box-shadow: none;
-      display: block;
-    }
-    .publikasjon:hover {
-      background: #eaf6ff;
-      box-shadow: 0 4px 24px rgba(44,62,80,0.10);
-      transform: translateY(-2px) scale(1.01);
-    }
+    .publikasjon { margin-bottom: 10px; margin-top: 0; transition: background 0.25s, box-shadow 0.25s, transform 0.18s; background: #0b1220; will-change: transform, box-shadow, background; padding: 18px 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: block; border: 1px solid #1f2937; }
+    .publikasjon:hover { background: rgba(59,130,246,0.08); box-shadow: 0 8px 28px rgba(2,6,23,0.35); transform: translateY(-2px) scale(1.01); }
     .edu-tight {
       margin-top: 0;
       margin-bottom: 0;
@@ -48,9 +34,9 @@
     }
     :root {
       --max: 1200px;
-      --accent: #0077ff;
-      --accent-bg: #f5faff;
-      --section-bg: #fff;
+      --accent: #3b82f6;
+      --accent-bg: #0b1220;
+      --section-bg: #0f172a;
     }
     * { box-sizing: border-box; }
     body {
@@ -58,7 +44,7 @@
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: 300;
       line-height: 1.7;
-      color: #222;
+      color: #e5e7eb;
       background: var(--accent-bg);
       min-height: 100vh;
     }
@@ -66,9 +52,9 @@
       width: 100%;
       display: block;
       background: none;
-      color: #222;
+      color: #e5e7eb;
       margin-bottom: 32px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #1f2937;
       padding-top: 32px;
     }
     .wrap {
@@ -137,15 +123,8 @@
   justify-content: flex-end;
   margin-bottom: 16px;
     }
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid #0077ff22;
-      transition: border-color 0.2s;
-    }
-    a:hover {
-      border-color: var(--accent);
-    }
+    a { color: #93c5fd; text-decoration: none; border-bottom: 1px solid #60a5fa33; transition: color 0.2s, border-color 0.2s; }
+    a:hover { color: #bfdbfe; border-color: #60a5fa; }
     .hero {
       padding: 32px 0 16px 0;
       border-bottom: none;
@@ -159,28 +138,18 @@
       margin: 0 0 8px;
       font-size: clamp(28px,4vw,36px);
       line-height: 1.2;
-      color: #222;
+      color: inherit;
       font-weight: 400;
       letter-spacing: 0.01em;
     }
     .hero .titles { display: flex; flex-direction: column; }
-    .hero .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 2px solid #eee; }
-    .hero p {
-      margin: 4px 0;
-      color: #555;
-      font-size: 1em;
-    }
+    .hero .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 2px solid #334155; }
+    .hero p { margin: 4px 0; color: #9ca3af; font-size: 1em; }
     main {
       width: 100%;
       display: block;
     }
-    section.section {
-      background: var(--section-bg);
-      margin-bottom: 28px;
-      padding: 28px 24px 18px 24px;
-      border: 1px solid #f0f0f0;
-      box-shadow: none;
-    }
+    section.section { background: var(--section-bg); margin-bottom: 28px; padding: 28px 24px 18px 24px; border: 1px solid #1f2937; box-shadow: 0 6px 18px rgba(0,0,0,0.15); border-radius: 10px; }
     h2 {
       margin: 0 0 16px 0;
       color: var(--accent);
@@ -195,31 +164,13 @@
       padding-left: 18px;
       margin: 0;
     }
-    .card {
-      padding: 16px;
-      border: 1px solid #eee;
-      background: #fff;
-      box-shadow: none;
-    }
+    .card { padding: 16px; border: 1px solid #1f2937; background: #0b1220; box-shadow: 0 4px 12px rgba(0,0,0,0.2); border-radius: 10px; }
     .card h3 {
       margin: 0 0 8px;
       font-size: 18px;
     }
-    .tag {
-      display: inline-block;
-      font-size: 12px;
-      padding: 2px 8px;
-      border: none;
-      border-radius: 0;
-      margin-right: 6px;
-      background: var(--accent-bg);
-      color: var(--accent);
-    }
-    .muted {
-      color: #888;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+    .tag { display: inline-block; font-size: 12px; padding: 4px 10px; border: 1px solid #1f2937; border-radius: 999px; margin-right: 6px; background: rgba(59,130,246,0.12); color: #93c5fd; }
+    .muted { color: #9ca3af; margin-top: 0; margin-bottom: 0; }
     .job .muted + .muted + .muted + p {
       margin-top: 0.7em;
     }
@@ -241,15 +192,8 @@
       grid-template-columns: 140px 1fr;
       gap: 8px 16px;
     }
-    .kvp div.label {
-      color: #555;
-    }
-    .job h3 {
-      margin: 0 0 2px 0;
-      font-size: 1em;
-      font-weight: 400;
-      color: #222;
-    }
+    .kvp div.label { color: #9ca3af; }
+    .job h3 { margin: 0 0 2px 0; font-size: 1em; font-weight: 500; color: #e5e7eb; }
     .job {
   margin-bottom: 16px;
   background: none;
@@ -263,35 +207,30 @@
     .job p {
       margin: 2px 0;
     }
-    footer {
-      border-top: 1px solid #eee;
-      margin-top: 32px;
-      color: #888;
-      background: none;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 18px 0;
-      text-align: center;
-      font-size: 0.95em;
-    }
+    footer { border-top: 1px solid #1f2937; margin-top: 32px; color: #9ca3af; background: none; border-radius: 0; box-shadow: none; padding: 18px 0; text-align: center; font-size: 0.95em; }
     /* Sticky language + menu bar */
     .lang-bar {
       position: sticky; top: 0; z-index: 1000;
-      display: flex; align-items: center; gap: 12px; padding: 6px 0; background: linear-gradient(180deg,#ffffff 0%,#fbfdff 100%); border-bottom: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex; align-items: center; gap: 12px; padding: 8px 0; background: linear-gradient(180deg,#0f172a 0%,#111827 100%); border-bottom: 0;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      color: #e5e7eb;
+      backdrop-filter: saturate(140%) blur(6px);
     }
+    .lang-bar.lang-bar--scrolled { box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
     .lang-bar nav { margin-bottom: 0; }
-    .lang-bar .menu { flex: 1 1 auto; display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; justify-content: flex-start; border-bottom: 0 !important; margin-bottom: 0; }
+    .lang-bar .menu { flex: 1 1 auto; display: flex; gap: 6px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; justify-content: flex-start; border-bottom: 0 !important; margin-bottom: 0; }
     .lang-bar .menu::-webkit-scrollbar { display: none; }
-    .lang-bar .lang-controls { flex: 0 0 auto; display: flex; gap: 6px; background: #f5f8ff; border: 1px solid #e5ecff; padding: 4px; border-radius: 999px; }
-    .lang-bar .lang-controls button { border: 1px solid transparent; background: transparent; color: #333; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
-    .lang-bar .lang-controls button:hover { background: #eef4ff; }
-    .lang-bar .lang-controls button[aria-pressed="true"] { background: #0b5fff; color: #fff; border-color: #0b5fff; }
-    .lang-bar .menu a { padding: 8px 12px; border-bottom: none !important; border-radius: 999px; color: #333; }
-    .lang-bar .menu a:hover { background: #f2f6ff; color: #0b5fff; }
+    .lang-bar .lang-controls { flex: 0 0 auto; display: flex; gap: 4px; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.35); padding: 4px; border-radius: 999px; }
+    .lang-bar .lang-controls button { border: 1px solid transparent; background: transparent; color: #e5e7eb; padding: 6px 12px; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .lang-bar .lang-controls button:hover { background: rgba(255,255,255,0.06); }
+    .lang-bar .lang-controls button[aria-pressed="true"] { background: #3b82f6; color: #fff; border-color: #3b82f6; }
+    .lang-bar .menu a { padding: 8px 12px; border-bottom: none !important; border-radius: 999px; color: #e5e7eb; transition: background 0.2s, color 0.2s; }
+    .lang-bar .menu a:hover { background: rgba(255,255,255,0.06); color: #93c5fd; }
+    .lang-bar .menu a.active { background: #1d4ed8; color: #fff; }
+    .lang-bar .menu a:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
     .hidden { display: none !important; }
     /* Offset anchors so sticky bar doesn't cover headings */
-    .section { scroll-margin-top: 80px; }
+    .section { scroll-margin-top: 92px; }
     html { scroll-behavior: smooth; }
   </style>
 </head>
@@ -690,6 +629,8 @@
       const noMenu = document.querySelector('.lang-bar .menu-no');
       const deMenu = document.querySelector('.lang-bar .menu-de');
       const STORAGE_KEY = 'preferred-lang';
+      const langBar = document.querySelector('.lang-bar');
+      let observer;
 
       function setLang(lang) {
         const isDE = lang === 'de';
@@ -702,6 +643,7 @@
         buttons.forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false'));
         try { localStorage.setItem(STORAGE_KEY, lang); } catch {}
         document.documentElement.setAttribute('lang', isDE ? 'de' : 'no');
+        initScrollSpy(lang);
       }
 
       buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
@@ -712,6 +654,43 @@
         if (saved === 'de' || saved === 'no') initial = saved;
       } catch {}
       setLang(initial);
+
+      // Enhance bar shadow on scroll
+      window.addEventListener('scroll', () => {
+        if (!langBar) return;
+        if (window.scrollY > 8) langBar.classList.add('lang-bar--scrolled');
+        else langBar.classList.remove('lang-bar--scrolled');
+      }, { passive: true });
+
+      // ScrollSpy to highlight active menu item
+      function initScrollSpy(lang) {
+        if (observer) { observer.disconnect(); }
+        const isDE = lang === 'de';
+        const menu = isDE ? deMenu : noMenu;
+        if (!menu) return;
+        const links = Array.from(menu.querySelectorAll('a[href^="#"]'));
+        const targets = links
+          .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+          .filter(Boolean);
+
+        function setActive(id) {
+          links.forEach(a => {
+            const match = a.getAttribute('href').slice(1) === id;
+            a.classList.toggle('active', match);
+          });
+        }
+
+        // Immediate highlight when clicking
+        links.forEach(a => a.addEventListener('click', () => setActive(a.getAttribute('href').slice(1))));
+
+        observer = new IntersectionObserver((entries) => {
+          // pick the entry closest to the top and visible
+          const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio);
+          if (visible[0]) setActive(visible[0].target.id);
+        }, { root: null, rootMargin: '-88px 0px -60% 0px', threshold: [0.1, 0.25, 0.5, 0.75] });
+
+        targets.forEach(t => observer.observe(t));
+      }
     })();
   </script>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
