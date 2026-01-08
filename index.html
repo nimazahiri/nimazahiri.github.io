@@ -38,6 +38,7 @@
       --accent-bg: #0b1220;
       --section-bg: #0f172a;
     }
+      .lang-bar.wrap { max-width: calc(var(--max) + 120px); }
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -222,6 +223,9 @@
     .lang-bar .menu::-webkit-scrollbar { display: none; }
     .lang-bar .lang-controls { flex: 0 0 auto; display: flex; gap: 4px; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.35); padding: 4px; border-radius: 999px; }
     .lang-bar .lang-controls button { border: 1px solid transparent; background: transparent; color: #e5e7eb; padding: 6px 12px; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .lang-bar .lang-controls a.home-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 999px; color: #e5e7eb; border: 1px solid transparent; background: transparent; transition: background 0.2s, color 0.2s; }
+    .lang-bar .lang-controls a.home-btn:hover { background: rgba(255,255,255,0.06); color: #93c5fd; }
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 17px; }
     .lang-bar .lang-controls button:hover { background: rgba(255,255,255,0.06); }
     .lang-bar .lang-controls button[aria-pressed="true"] { background: #3b82f6; color: #fff; border-color: #3b82f6; }
     .lang-bar .menu a { padding: 8px 12px; border-bottom: none !important; border-radius: 999px; color: #e5e7eb; transition: background 0.2s, color 0.2s; }
@@ -259,6 +263,11 @@
     <div class="lang-controls" role="group" aria-label="Language toggle">
       <button type="button" data-lang="no" aria-pressed="true">NO</button>
       <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      <a class="home-btn" href="#" aria-label="Home" title="Home" onclick="event.preventDefault();history.replaceState(null,'',location.pathname+location.search);window.scrollTo({top:0,behavior:'smooth'});">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 3.172 2.293 12.88a1 1 0 1 0 1.414 1.414L5 13.001V20a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4h2v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-6.999l1.293 1.293a1 1 0 0 0 1.414-1.414L12 3.172z"/>
+        </svg>
+      </a>
     </div>
   </div>
   <header id="header-no" class="wrap">
@@ -292,7 +301,7 @@
       <img class="avatar" src="https://nimazahiri.github.io/assets/profile.jpg" alt="Nima Zahiri" width="160" height="160" loading="lazy" onerror="this.onerror=null;this.src='https://github.com/nimazahiri.png';" />
       <div class="titles">
         <h1>Nima Zahiri</h1>
-        <h1>Dipl.-Ing., Ph.D. im Holzbau</h1>
+        <h1>Dipl.-Ing., Ph.D. Timber Construction</h1>
       </div>
     </section>
   </header>
