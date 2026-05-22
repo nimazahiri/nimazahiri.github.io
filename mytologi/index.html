@@ -1,0 +1,3479 @@
+<!doctype html>
+<html lang="no">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="light dark" />
+		<title>Norsk gjennom norrøne myter</title>
+		<meta
+			name="description"
+			content="Norsk gjennom norrøne myter: skrevet av Nima Zahiri (Halbmåne). Med tips, refleksjon og kilder."
+		/>
+
+		<style>
+			:root {
+				/* Layout */
+				--maxw: 980px;
+				--measure: 74ch;
+				--radius: 14px;
+				--border: 1px solid;
+				--line: 1.65;
+				--fontScale: 1;
+				--scrollPad: 86px;
+
+				/* Color (uses system palette; no custom brand colors) */
+				--bg: Canvas;
+				--fg: CanvasText;
+				--muted: color-mix(in oklab, CanvasText 65%, Canvas 35%);
+				--card: color-mix(in oklab, Canvas 92%, CanvasText 8%);
+				--card2: color-mix(in oklab, Canvas 96%, CanvasText 4%);
+				--borderColor: color-mix(in oklab, CanvasText 18%, Canvas 82%);
+				--link: LinkText;
+
+				/* Spacing */
+				--s1: 8px;
+				--s2: 12px;
+				--s3: 16px;
+				--s4: 22px;
+				--s5: 30px;
+
+				/* Type */
+				/* One consistent type stack across the whole site (no external fonts)
+				   (tries a few “medieval”/runic-friendly serifs if installed) */
+				--font: "Junicode", "Cardo", "Palatino Linotype", Palatino, Georgia, "Times New Roman", Times, serif;
+			}
+
+			[data-theme="light"] {
+				color-scheme: light;
+			}
+			[data-theme="dark"] {
+				color-scheme: dark;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html {
+				scroll-behavior: smooth;
+				scroll-padding-top: var(--scrollPad);
+			}
+
+			/* Ensure anchor targets aren't hidden behind the sticky topbar */
+			:where(section, li, h2, h3)[id] {
+				scroll-margin-top: var(--scrollPad);
+			}
+
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--fg);
+				font-family: var(--font);
+				line-height: var(--line);
+				font-size: calc(18px * var(--fontScale));
+			}
+
+			a {
+				color: var(--link);
+				text-underline-offset: 3px;
+			}
+			a:focus-visible,
+			button:focus-visible,
+			input:focus-visible {
+				outline: 2px solid currentColor;
+				outline-offset: 2px;
+				border-radius: 8px;
+			}
+
+			.topbar {
+				position: sticky;
+				top: 0;
+				z-index: 10;
+				background: color-mix(in oklab, Canvas 92%, CanvasText 8%);
+				border-bottom: 1px solid var(--borderColor);
+				backdrop-filter: blur(6px);
+			}
+
+			.topbar-inner {
+				max-width: var(--maxw);
+				margin: 0 auto;
+				padding: var(--s2) var(--s3);
+				display: flex;
+				align-items: center;
+				gap: var(--s2);
+				justify-content: space-between;
+				font-family: var(--font);
+			}
+
+			.brand {
+				display: flex;
+				align-items: center;
+				gap: var(--s2);
+				min-width: 0;
+			}
+
+			.brand-title {
+				display: flex;
+				flex-direction: column;
+				min-width: 0;
+			}
+
+			.brand-title strong {
+				font-size: 0.98rem;
+				letter-spacing: 0.2px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.brand-title span {
+				font-size: 0.82rem;
+				color: var(--muted);
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.controls {
+				display: flex;
+				align-items: center;
+				gap: var(--s2);
+				flex-wrap: wrap;
+				justify-content: flex-end;
+			}
+
+			.btn {
+				appearance: none;
+				border: 1px solid var(--borderColor);
+				background: var(--card2);
+				color: var(--fg);
+				padding: 8px 10px;
+				border-radius: 10px;
+				font: 600 0.9rem/1 var(--font);
+				cursor: pointer;
+			}
+			.btn:hover {
+				background: color-mix(in oklab, var(--card2) 88%, CanvasText 12%);
+			}
+
+			.slider {
+				display: grid;
+				grid-template-columns: auto 160px;
+				align-items: center;
+				gap: 10px;
+				padding: 8px 10px;
+				border: 1px solid var(--borderColor);
+				border-radius: 10px;
+				background: var(--card2);
+			}
+			.slider label {
+				font-size: 0.9rem;
+				color: var(--muted);
+			}
+			.slider input[type="range"] {
+				width: 160px;
+			}
+
+			header.hero {
+				max-width: var(--maxw);
+				margin: 0 auto;
+				padding: var(--s5) var(--s3) var(--s3);
+			}
+
+			.hero-card {
+				border: 1px solid var(--borderColor);
+				background: var(--card);
+				border-radius: var(--radius);
+				padding: var(--s4);
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: var(--s3);
+			}
+
+			.hero h1 {
+				margin: 0;
+				font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+				letter-spacing: 0.6px;
+				font-variant-caps: small-caps;
+			}
+
+			article.book h2,
+			.toc-card h2 {
+				letter-spacing: 0.4px;
+				font-variant-caps: small-caps;
+			}
+			.hero p {
+				margin: 0;
+				color: var(--muted);
+				font-family: var(--font);
+				font-size: 1rem;
+			}
+
+
+			main {
+				max-width: var(--maxw);
+				margin: 0 auto;
+				padding: 0 var(--s3) var(--s5);
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: var(--s3);
+			}
+
+			@media (min-width: 920px) {
+				.grid {
+					grid-template-columns: 320px 1fr;
+					align-items: start;
+				}
+			}
+
+			nav.toc {
+				position: relative;
+			}
+
+			.toc-card {
+				border: 1px solid var(--borderColor);
+				background: var(--card);
+				border-radius: var(--radius);
+				padding: var(--s3);
+				font-family: var(--font);
+			}
+			@media (min-width: 920px) {
+				.toc-card {
+					position: sticky;
+					top: 74px;
+				}
+			}
+
+			.toc-card h2 {
+				margin: 0 0 var(--s2);
+				font-size: 1.05rem;
+			}
+			.toc-card ol {
+				margin: 0;
+				padding-left: 1.1rem;
+			}
+			.toc-card li {
+				margin: 8px 0;
+			}
+			.toc-card a {
+				text-decoration: none;
+			}
+			.toc-card a:hover {
+				text-decoration: underline;
+			}
+			.toc-note {
+				margin-top: var(--s3);
+				font-size: 0.9rem;
+				color: var(--muted);
+			}
+
+			article.book {
+				border: 1px solid var(--borderColor);
+				background: var(--card);
+				border-radius: var(--radius);
+				padding: clamp(18px, 3vw, 36px);
+			}
+			article.book section {
+				max-width: var(--measure);
+				margin: 0 auto;
+			}
+			/* When printing the full book, separate chapters visually */
+			article.book section + section {
+				margin-top: var(--s5);
+				padding-top: var(--s5);
+				border-top: 1px dashed var(--borderColor);
+			}
+			article.book h2 {
+				margin-top: 0;
+				font-size: 1.6rem;
+				text-align: center;
+				margin-bottom: var(--s4);
+			}
+			article.book h3 {
+				margin-top: var(--s4);
+				font-size: 1.15rem;
+			}
+			article.book p {
+				margin: 0 0 var(--s3);
+			}
+			/* Gentle book-like paragraph rhythm */
+			article.book section p {
+				hyphens: auto;
+			}
+			article.book section p + p {
+				text-indent: 1.15em;
+			}
+			article.book section :is(h2, h3, h4, ul, ol, .callout) + p {
+				text-indent: 0;
+			}
+			article.book ul {
+				margin: 0 0 var(--s3);
+				padding-left: 1.2rem;
+			}
+			article.book li {
+				margin: 6px 0;
+			}
+
+			.callout {
+				border: 1px solid var(--borderColor);
+				background: var(--card2);
+				border-radius: 12px;
+				padding: var(--s3);
+				margin: var(--s3) 0;
+				font-family: var(--font);
+			}
+			.callout strong {
+				letter-spacing: 0.2px;
+				font-variant-caps: small-caps;
+			}
+
+			.cite {
+				font-family: var(--font);
+				font-size: 0.9em;
+			}
+
+			.placeholder {
+				color: var(--muted);
+				font-style: italic;
+				margin: 0;
+				font-family: var(--font);
+			}
+
+			.refs {
+				margin-top: var(--s4);
+				padding-top: var(--s3);
+				border-top: 1px dashed var(--borderColor);
+			}
+			.refs h3 {
+				margin-top: 0;
+			}
+			.refs ol {
+				margin: 0;
+				padding-left: 1.1rem;
+				font-family: var(--font);
+			}
+			.refs li {
+				margin: 10px 0;
+			}
+			.backref {
+				margin-left: 8px;
+				text-decoration: none;
+			}
+
+			footer {
+				max-width: var(--maxw);
+				margin: 0 auto;
+				padding: var(--s3);
+				color: var(--muted);
+				font-family: var(--font);
+			}
+
+			@media print {
+				.topbar,
+				nav.toc,
+				footer {
+					display: none !important;
+				}
+				/* Always print the full book */
+				article.book [data-hidden="true"] {
+					display: block !important;
+				}
+				body {
+					font-size: 12pt;
+				}
+				article.book {
+					border: none;
+					padding: 0;
+				}
+				header.hero {
+					padding-top: 0;
+				}
+				a {
+					text-decoration: none;
+					color: black;
+				}
+			}
+
+			/* Chapter-only reading mode (controlled by JS via data-hidden) */
+			article.book [data-hidden="true"] {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="topbar" role="banner">
+			<div class="topbar-inner">
+				<div class="brand" aria-label="Tittel">
+					<span aria-hidden="true" style="display:inline-block;width:14px;height:14px;border:1px solid var(--borderColor);border-radius:4px;background:var(--card2)"></span>
+					<div class="brand-title">
+						<strong>Norsk gjennom norrøne myter</strong>
+						<span>Halbmåne (Nima Zahiri)</span>
+					</div>
+				</div>
+
+				<div class="controls" aria-label="Leserinnstillinger">
+					<div class="slider" title="Juster tekststørrelse">
+						<label for="font">Tekst</label>
+						<input id="font" type="range" min="0.9" max="1.2" value="1" step="0.02" />
+					</div>
+					<button class="btn" id="themeBtn" type="button">Bytt tema</button>
+					<button class="btn" id="printBtn" type="button">Skriv ut</button>
+				</div>
+			</div>
+		</div>
+
+		<header class="hero">
+			<section class="hero-card">
+				<div class="hero">
+					<h1>Norsk gjennom norrøne myter</h1>
+					<p>
+						Skrevet av Nima Zahiri (Halbmåne). En bok for å lære norsk gjennom norrøn mytologi.
+					</p>
+				</div>
+			</section>
+		</header>
+
+		<main>
+			<div class="grid">
+				<nav class="toc" aria-label="Innholdsfortegnelse">
+					<div class="toc-card">
+						<h2>Innhold</h2>
+						<ol start="0">
+							<li><a href="#intro">Innledning</a></li>
+							<li><a href="#kap1">Kapittel 1: Hva er norrøn mytologi?</a></li>
+							<li><a href="#kap2">Kapittel 2: Verdensbildet: Yggdrasil og de ni verdener</a></li>
+							<li><a href="#kap3">Kapittel 3: Gudene: Odin, Tor, Frøya og Loki</a></li>
+							<li><a href="#kap4">Kapittel 4: Jotner, alver og andre vesener</a></li>
+							<li><a href="#kap5">Kapittel 5: Skjebne og tegn: nornene og runer</a></li>
+							<li><a href="#kap6">Kapittel 6: Myter i hverdagen: ære, gave og gjestfrihet</a></li>
+							<li><a href="#kap7">Kapittel 7: Diktning: skalder og eddakvad</a></li>
+							<li><a href="#kap8">Kapittel 8: Kristning og endring av fortellingene</a></li>
+							<li><a href="#kap9">Kapittel 9: Ragnarok: slutt og ny begynnelse</a></li>
+							<li><a href="#kap10">Kapittel 10: Etterliv: hva mytene betyr i dag</a></li>
+						</ol>
+							<p style="margin: 10px 0 0;">
+								<a href="#refs">Referanser</a>
+							</p>
+						<p class="toc-note">
+							Tips: Bruk <strong>Tekst</strong> for å gjøre skriften større eller mindre.
+								<br />Referanser ligger i seksjonen <strong>Referanser</strong> helt til slutt.
+						</p>
+					</div>
+				</nav>
+
+				<article class="book" aria-label="Boktekst">
+					<section id="intro">
+						<h2>Innledning</h2>
+						<p>
+							Jeg heter Nima Zahiri, og jeg skriver under navnet Halbmåne.
+							Jeg lager denne boka av én hovedgrunn:
+							Jeg vil lære norsk.
+							Og jeg vil gjøre det gjennom noe jeg liker:
+							norrøn mytologi.
+							Derfor prøver jeg å holde språket på omtrent B1-nivå.
+						</p>
+						<p>
+							Dette betyr også noe viktig:
+							Denne boka er først og fremst en læringsbok.
+							Den er ikke skrevet som en vitenskapelig referanse.
+							Hvis du vil studere norrøn mytologi mer seriøst, bør du starte med de viktigste kildene,
+							særlig <em>Den eldre Edda</em> og <em>Snorres Edda</em>.
+						</p>
+						<p>
+							Her er noen nyttige bøker som mange leser ved siden av kildene.
+							Jeg nevner dem fordi de kan gi bedre oversikt og dypere forklaringer:
+						</p>
+						<ul>
+							<li>John Lindow: <em>Norse Mythology: A Guide to Gods, Heroes, Rituals, and Beliefs</em></li>
+							<li>Rudolf Simek: <em>Dictionary of Northern Mythology</em></li>
+							<li>Margaret Clunies Ross: <em>Prolonged Echoes</em></li>
+							<li>Neil Price: <em>Children of Ash and Elm: A History of the Vikings</em></li>
+							<li>H. R. Ellis Davidson: <em>Gods and Myths of Northern Europe</em></li>
+						</ul>
+						<p>
+							Strukturen i boka er enkel.
+							Jeg forteller først en tekst som er lett å lese.
+							Så legger jeg inn små bokser underveis:
+							<strong>Viktig</strong> (noe du bør huske),
+							<strong>Refleksjon</strong> (en tanke),
+							<strong>Spørsmål</strong> (for å stoppe opp),
+							og <strong>Norsk-tips</strong> (ord, faste uttrykk og små regler).
+						</p>
+						<div class="callout" role="note" aria-label="Eksempel på norsk-tips">
+							<strong>Norsk-tips:</strong> Et fast uttrykk er en frase som ofte brukes.
+							For eksempel: “å stoppe opp” betyr “å ta en liten pause og tenke”.
+						</div>
+						<p>
+							Hvert kapittel er bygd på samme måte.
+							Først kommer fortellingen.
+							Så kommer forklaring av ord og uttrykk.
+							Til slutt kommer én eller to korte refleksjoner.
+							Jeg skriver med egne ord og uten kildetall inne i kapitlene.
+							Hvis du vil lese mer, finner du en samlet referanseliste helt til slutt.
+						</p>
+					</section>
+
+					<section id="kap1">
+						<h2>Kapittel 1: Hva er norrøn mytologi?</h2>
+
+						<p>
+							Norrøn mytologi er gamle historier fra Norden.
+							De handler ofte om guder og andre vesener.
+							Folk fortalte disse historiene lenge før de ble skrevet ned.
+							De ble fortalt i en tid da kristendommen ikke var vanlig overalt i Norden.
+							Historiene kan handle om vær og årstider.
+							De kan også handle om vennskap, frykt og vanskelige valg.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om ord">
+							<strong>Norsk-tips:</strong> “Myte” betyr ofte “gammel fortelling”.
+							Et “vesen” er noe som lever i en historie, for eksempel en gud eller et monster.
+						</div>
+
+						<p>
+							Du kan også tenke på mytene som en type <strong>muntlig</strong> kultur.
+							Det betyr at folk fortalte dem med stemmen.
+							Når mange forteller samme historie, kan små detaljer flytte seg.
+							Det er litt som “telefonleken” (en hviskelek):
+							En setning går fra person til person, og den kan bli litt annerledes.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om muntlig og skriftlig">
+							<strong>Norsk-tips:</strong>
+							“Muntlig” = med stemmen (snakke/fortelle).
+							“Skriftlig” = med tekst (skrive/lese).
+						</div>
+
+						<p>
+							Det viktigste å vite i starten er dette:
+							Norrøn mytologi er ikke én bok med én fasit.
+							Mye ble fortalt muntlig i lang tid.
+							Da kan historier forandre seg litt.
+							Når de senere blir skrevet ned, kan det også påvirke hvordan de høres ut.
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon">
+							<strong>Refleksjon:</strong> Tenk på en historie du har hørt flere ganger.
+							Er den alltid helt lik?
+							Eller får den små endringer fordi folk legger vekt på ulike ting?
+						</div>
+
+						<h3>Hvor kommer fortellingene fra?</h3>
+						<p>
+							De viktigste skriftlige kildene er <em>Den eldre Edda</em> og <em>Den yngre Edda</em> (Snorres Edda).
+							Den eldre Edda er mest dikt.
+							Den yngre Edda forklarer diktning, men forteller også mange myter.
+							Disse tekstene ble skrevet ned i middelalderen.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om middelalderen">
+							<strong>Norsk-tips:</strong> “Middelalderen” betyr “for mange hundre år siden”.
+							Et “håndskrift” er en tekst som er skrevet for hånd.
+						</div>
+						<p>
+							Et viktig poeng er at dette ikke startet som bøker.
+							Folk lærte historiene ved å høre dem, ikke ved å lese dem alene.
+							Mye ble fortalt høyt, i en hall eller rundt et bord.
+							Da kan du få rytme, gjentakelse og sterke bilder.
+							Det kan også bety at to steder kan fortelle samme myte litt ulikt.
+							Når vi senere leser teksten på papir, møter vi bare en del av den gamle lyden.
+						</p>
+						<p>
+							Når vi leser dem, må vi huske at de er skrevet med ord, stil og mål fra sin tid.
+							Og vi må huske at de kan ha blitt påvirket av de som skrev.
+							Det betyr ikke at de er “feil”.
+							Det betyr bare at vi må lese med åpne øyne.
+						</p>
+
+						<h3>Oversettelser: når ord må velges</h3>
+						<p>
+							Du kan lese Edda og Snorre på flere språk.
+							Men en oversettelse er alltid et valg.
+							Ett gammelt ord kan ha flere betydninger.
+							Og en oversetter må velge hva som passer best.
+							Derfor kan to oversettelser gi litt ulik følelse.
+							Det er helt normalt.
+						</p>
+						<div class="callout" role="note" aria-label="Norsk-tips om oversettelse">
+							<strong>Norsk-tips:</strong> “Å oversette” betyr “å skrive på et annet språk”.
+							Substantiv: “en oversettelse”.
+							Og: “å tolke” betyr ofte “å forstå betydning”, ikke bare ord.
+						</div>
+
+						<h3>Hva betyr “norrøn”?</h3>
+						<p>
+							Ordet “norrøn” viser ofte til språk og kultur i Norden i eldre tid.
+							Når vi sier “norrøne myter”, mener vi gjerne myter som ble fortalt i et nordisk miljø,
+							ofte før og under kristningen.
+							Det er ikke ett år som gjelder overalt.
+							Det er en lang periode med endring.
+						</p>
+						<p>
+							Dette kan være nyttig å huske når du leser.
+							Noe i teksten kan være gammelt.
+							Noe kan være nytt.
+							Og noe kan være en blanding.
+							Det betyr ikke at vi må gi opp.
+							Det betyr bare at vi må lese med ro og nysgjerrighet.
+						</p>
+						<p>
+							Vi har også andre typer kilder.
+							Vi har runesteiner, bilder på gjenstander, og arkeologiske funn.
+							Slike ting forteller ikke en hel historie alene.
+							Men de kan gi spor.
+							De kan vise tegn, bilder og vaner.
+							Og de kan hjelpe oss å se at mytene hørte hjemme i et virkelig samfunn.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig merknad">
+							<strong>Viktig:</strong> Når jeg skriver “de trodde”, mener jeg ofte “noen mennesker kan ha trodd”.
+							Folk var ulike.
+							Fortellinger kunne variere fra sted til sted.
+							Derfor prøver jeg å skrive forsiktig, og vise kilder når jeg kan.
+						</div>
+
+						<div class="callout" role="note" aria-label="Spørsmål">
+							<strong>Spørsmål:</strong> Når du leser en myte, hva er du mest nysgjerrig på?
+							Er det handlingen (hva som skjer), eller meningen (hva det kan bety)?
+						</div>
+
+						<h3>En enkel måte å lese mytene på</h3>
+						<p>
+							Du kan lese norrøne myter på flere måter.
+							Du kan lese dem som historier.
+							Da følger du personer og konflikter, nesten som i en roman.
+							Du kan også lese dem som bilder på noe i livet.
+							Da spør du: “Hva prøver historien å si om mennesker?”
+							Og du kan lese dem som kilder.
+							Da spør du: “Hvem skrev dette ned, og hvorfor?”
+							I denne boka vil jeg blande disse måtene.
+							Jeg vil fortelle tydelig.
+							Og jeg vil si fra når noe er usikkert.
+						</p>
+
+						<h3>Mytefortelling: verden blir til</h3>
+						<p>
+							I en kjent skapelsesfortelling starter alt med et tomrom.
+							Tomrommet kalles ofte <strong>Ginnungagap</strong>.
+							Rundt tomrommet finnes to sterke motsetninger:
+							kulde og is på den ene siden, og varme og ild på den andre.
+						</p>
+						<p>
+							Når kulde og varme møtes, begynner noe å skje.
+							Det oppstår liv på en merkelig måte.
+							En stor skapning blir til.
+							Han blir ofte kalt <strong>Ymir</strong>.
+							Dette er ikke ment som naturfag.
+							Det er et bilde på at verden kan komme fra blanding og kaos.
+						</p>
+						<p>
+							I samme fortelling dukker det også opp en ku som heter <strong>Audhumla</strong>.
+							Hun gir melk.
+							Og mens hun slikker isen, kommer en ny skikkelse fram av isen.
+							Slik viser historien et poeng:
+							Noe nytt kan vokse fram fra noe kaldt og hardt.
+						</p>
+						<p>
+							Senere fortelles det at Odin og brødrene hans lager verden av Ymirs kropp.
+							Havet, fjellene og himmelen blir til av ulike deler.
+							Det kan høres hardt ut.
+							Men tenk på det som et symbol:
+							Orden kan komme når noe blir delt og formet.
+						</p>
+						<div class="callout" role="note" aria-label="Norsk-tips om skapelse-ord">
+							<strong>Norsk-tips:</strong>
+							“Et tomrom” = et sted uten noe.
+							“En motsetning” = to ting som er veldig ulike.
+							“Å forme” (former, formet, har formet) = å lage en form.
+						</div>
+
+						<h3>Mytefortelling: de første menneskene (Ask og Embla)</h3>
+						<p>
+							I noen fortellinger blir de første menneskene laget av to trestammer som ligger på stranda.
+							De blir ofte kalt <strong>Ask</strong> og <strong>Embla</strong>.
+							Gudene gir dem gaver:
+							pust, liv, og evnen til å tenke og føle.
+						</p>
+						<p>
+							Dette er en enkel, men sterk idé:
+							Mennesket er laget av natur.
+							Samtidig trenger mennesket også språk, ånd og fellesskap.
+							Derfor passer myten fint i en språkbok.
+							Språk blir nesten som en “gave” som gjør oss mer menneskelige.
+						</p>
+						<div class="callout" role="note" aria-label="Øvelse: gjenfortell skapelsesmyten">
+							<strong>Øvelse:</strong>
+							Fortell skapelsesmyten med 6 setninger.
+							Bruk fortellerord: “først”, “så”, “etterpå”, “til slutt”.
+						</div>
+
+						<h3>Et første møte med gudene</h3>
+						<p>
+							Hvis du er ny, er det lett å føle seg litt “lost”.
+							Det er mange navn.
+							Og noen navn dukker opp i flere historier.
+							I stedet for å lære alt utenat, kan du starte med en enkel idé:
+							Gudene er som personer i en stor familie.
+							De har sterke sider.
+							De har svakheter.
+							De gjør feil.
+						</p>
+						<p>
+							Tor blir ofte knyttet til torden og vern.
+							Odin blir ofte knyttet til kunnskap og valg som kan koste.
+							Frøya blir ofte knyttet til kjærlighet, styrke og status.
+							Loki blir ofte knyttet til triks og brudd på regler.
+							Men husk:
+							Myter kan være ulike.
+							Derfor er det best å bli kjent med dem gjennom historier, litt etter litt.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsktips">
+							<strong>Norsk-tips:</strong> “Å bli kjent med” betyr “å lære å kjenne”.
+							Du kan si: “Jeg blir kjent med mytene.”
+						</div>
+
+						<h3>Hvorfor finnes Ragnarok?</h3>
+						<p>
+							Mange myter har en historie om krise.
+							I norrøn tradisjon kalles den ofte Ragnarok.
+							Det er en fortelling om at noe går i stykker.
+							Regler brytes.
+							Bånd ryker.
+							Og det som føles trygt, blir utrygt.
+							Samtidig forteller noen tekster også om noe som kommer etterpå.
+							Når du leser dette, kan du legge merke til en dobbel følelse:
+							Det er mørkt.
+							Men det kan også være et lite håp.
+						</p>
+
+						<h3>Metode: Hvordan jeg vil bruke kilder</h3>
+						<p>
+							Når jeg forteller en myte senere i boka, vil jeg gjøre det i to trinn.
+							Først forteller jeg historien rolig og enkelt.
+							Så viser jeg hvilken type kilde jeg bruker.
+							Hvis det finnes flere versjoner, sier jeg det.
+							Jeg vil også skille mellom det teksten sier, og det vi <em>tror</em> det kan bety.
+						</p>
+						<p>
+							Når jeg skriver om “vikingtid” eller “samfunnet rundt mytene”, må jeg også bruke andre typer kunnskap.
+							Da handler det mer om historie og arkeologi.
+							Igjen prøver jeg å være tydelig på forskjellen:
+							Edda er en tekst.
+							Arkeologi er spor i jorda.
+							Historie er et forsøk på å sette sporene i sammenheng.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om arkeologi">
+							<strong>Norsk-tips:</strong>
+							“Arkeologi” betyr å lære om fortiden ved å finne ting i bakken.
+							Et “spor” er et lite tegn på at noe har vært der.
+						</div>
+
+						<div class="callout" role="note" aria-label="Refleksjon om kilder">
+							<strong>Refleksjon:</strong> Når du leser en kilde, kan du spørre:
+							“Hva prøver teksten å gjøre?”
+							Er den en historie?
+							Er den en forklaring?
+							Eller er den skrevet for å lære bort noe?
+						</div>
+
+					</section>
+
+					<section id="kap2">
+						<h2>Kapittel 2: Verdensbildet: Yggdrasil og de ni verdener</h2>
+						<p>
+							I dette kapittelet møter vi et av de mest kjente bildene i norrøn mytologi:
+							Yggdrasil.
+							Det blir ofte beskrevet som et stort tre.
+							Treet står i midten av verden, og binder mye sammen.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om ord">
+							<strong>Norsk-tips:</strong> “Å binde sammen” betyr “å koble sammen”.
+							Du kan si: “Denne historien binder alt sammen.”
+						</div>
+
+						<p>
+							Hvis du blir litt forvirret, er det helt normalt.
+							Du trenger ikke å se for deg et perfekt kart.
+							Tenk heller på treet som et bilde som sier: “Alt henger sammen.”
+						</p>
+
+						<h3>Hva er Yggdrasil?</h3>
+						<p>
+							Yggdrasil er ikke et vanlig tre i en skog.
+							Det er mer som et stort bilde.
+							Treet viser hvordan verden kan henge sammen.
+							Noen ganger står treet for liv.
+							Andre ganger står det for orden.
+							Og noen ganger viser det at verden kan deles i flere deler.
+						</p>
+						<p>
+							I noen dikt blir Yggdrasil beskrevet med røtter.
+							Og vi hører om brønner og steder nær røttene.
+							Det er ikke alltid lett å gjøre dette om til ett “kart”.
+							Men som bilde kan det si noe enkelt:
+							Det finnes et “under”, et “midt”, og et “over”.
+							Og det finnes krefter som drar i ulike retninger.
+						</p>
+						<div class="callout" role="note" aria-label="Norsk-tips om røtter">
+							<strong>Norsk-tips:</strong> “En rot” (flertall: “røtter”) er det som holder et tre fast i jorda.
+							I overført betydning kan “røtter” bety bakgrunn: “Jeg har røtter i to land.”
+						</div>
+
+						<h3>Myteglimt: dyr og ord som løper i treet</h3>
+						<p>
+							I noen fortellinger er Yggdrasil fullt av liv.
+							Det sitter en stor fugl høyt oppe.
+							Og langt nede gnager en drage eller slange som ofte kalles <strong>Nidhogg</strong>.
+							Mellom dem løper et ekorn som heter <strong>Ratatosk</strong>.
+						</p>
+						<p>
+							Ratatosk bærer ord fra toppen til bunnen og tilbake.
+							Kanskje er dette ikke “sant” som et kart.
+							Kanskje er det et bilde på noe vi kjenner i livet:
+							Ord kan reise.
+							Rykter kan spre seg.
+							Og små setninger kan lage store konflikter.
+						</p>
+						<div class="callout" role="note" aria-label="Norsk-tips om rykter">
+							<strong>Norsk-tips:</strong>
+							“Et rykte” = det folk sier om andre.
+							“Å spre” (sprer, spredte, har spredt) = å gjøre noe kjent for mange.
+							Uttrykk: “Det går rykter.”
+						</div>
+
+						<p>
+							I noen tekster hører vi også om steder nær treet, som brønner og røtter.
+							Det kan høres litt forvirrende ut.
+							Derfor tar vi det rolig:
+							Tenk på Yggdrasil som et kart.
+							Et kart viser ikke alt.
+							Men et kart hjelper deg å finne fram.
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon">
+							<strong>Refleksjon:</strong> Hvorfor tror du mennesker liker å tenke på verden som et tre?
+							Kanskje fordi trær har røtter (fortid), stamme (nåtid) og grener (muligheter)?
+						</div>
+
+						<h3>De ni verdener (en enkel oversikt)</h3>
+						<p>
+							Du har kanskje hørt uttrykket “de ni verdener”.
+							Det betyr ikke alltid ni steder som er like klare som land på et moderne kart.
+							Det er ofte en måte å si:
+							Verden er stor, og det finnes mange ulike områder.
+						</p>
+						<p>
+							Og hvorfor akkurat tallet ni?
+							I mange tradisjoner brukes bestemte tall for å lage en følelse av orden.
+							Poenget kan være “mange” og “fullt”, mer enn matematikk.
+							Derfor er det lurt å ikke låse seg.
+							Det viktigste er ideen: verden har flere rom, og ikke alle er trygge.
+						</p>
+
+						<p>
+							Nå kommer vi til navnene.
+							Her prøver jeg å forklare dem rolig.
+							Dette er en læringsbok, så du kan lese dette som små “minitekster”.
+							Du trenger ikke å lære alt utenat.
+							Bare les, og la navnene bli litt mer kjente.
+						</p>
+
+						<div class="callout" role="note" aria-label="Lesetips om tre navn">
+							<strong>Lesetips:</strong> Hvis du vil starte helt enkelt, hold fast på tre navn:
+							Åsgard (guder), Midgard (mennesker) og Jotunheim (jotner).
+							Resten kan komme senere.
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om endelser">
+							<strong>Norsk-tips:</strong> Mange navn slutter på “-heim”.
+							Det kan minne om “hjem”.
+							I myter betyr det ofte “et sted” eller “et rike”.
+						</div>
+
+						<p>
+							<strong>Åsgard</strong>:
+							Dette er et sted som ofte blir knyttet til gudene.
+							I noen fortellinger kan du se for deg at Åsgard er “høyt oppe”, og litt beskyttet.
+							Det er et sted der gudene møtes, snakker, og planlegger.
+							Det betyr ikke at alt er trygt.
+							Det skjer også konflikter.
+						</p>
+
+						<p>
+							<strong>Midgard</strong>:
+							Dette er menneskenes verden.
+							Når mytene snakker om gårder, reiser, mat, arbeid og familie, er vi ofte nær Midgard.
+							Et enkelt bilde er at Midgard er “midt i”.
+							Det er der mennesker prøver å leve et vanlig liv.
+						</p>
+
+						<p>
+							<strong>Jotunheim</strong>:
+							Dette er ofte knyttet til jotnene.
+							Jotnene kan være fiender i noen historier.
+							Men de kan også være smarte, sterke, og viktige.
+							Mange myter handler om møter mellom guder og jotner.
+							Du kan se for deg at Jotunheim er “mer vill natur”, og mindre kontroll.
+						</p>
+
+						<p>
+							<strong>Vanaheim</strong>:
+							Dette navnet blir knyttet til vanene.
+							Vanene er en gruppe guder i noen fortellinger.
+							Noen ganger blir vanene knyttet til fred og velstand.
+							Men igjen: detaljer kan variere.
+						</p>
+
+						<p>
+							<strong>Alvheim</strong>:
+							Dette blir ofte knyttet til alver.
+							I noen tekster virker alver som noe vakkert og litt fremmed.
+							Men det er ikke alltid helt klart hva “alver” betyr.
+							Det er en del av det spennende.
+						</p>
+
+						<p>
+							<strong>Svartalfheim</strong> (eller lignende navn):
+							Dette navnet blir i noen fortellinger knyttet til vesener under bakken.
+							Noen ganger tenker folk på smeder og håndverk.
+							Men også her kan det være ulike ord og ulike ideer i kildene.
+						</p>
+
+						<p>
+							<strong>Nivlheim</strong>:
+							Dette stedet blir ofte knyttet til kulde og tåke.
+							Når en myte beskriver noe kaldt, tomt eller uklart, kan du møte dette navnet.
+						</p>
+
+						<p>
+							<strong>Muspelheim</strong>:
+							Dette blir ofte knyttet til varme og ild.
+							Du kan tenke på Muspelheim som en sterk kontrast til Nivlheim.
+							To ytterpunkter: kaldt og varmt.
+						</p>
+
+						<p>
+							<strong>Hel</strong> / <strong>Helheim</strong>:
+							Dette er knyttet til de døde i flere fortellinger.
+							Det er viktig å ikke blande dette direkte med det kristne ordet “helvete”.
+							I norrøn mytologi kan “Hel” være et navn på et sted, og også et navn på en figur.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig">
+							<strong>Viktig:</strong> Ulike kilder kan bruke litt ulike navn.
+							Og noen ganger er det litt uklart hvor ett sted slutter og et annet begynner.
+							Det er helt vanlig.
+							Det viktigste er å forstå ideen: mange steder, mange typer liv.
+						</div>
+
+						<h3>Mytefortelling: en liten reise mellom verdener</h3>
+						<p>
+							Se for deg en forteller som vil forklare kartet uten å tegne det.
+							Han sier:
+							Først er vi hjemme i Midgard.
+							Så går vi opp til Åsgard, der gudene møtes.
+							Etterpå går vi bort fra det trygge og inn i Jotunheim.
+						</p>
+						<p>
+							På reisen merker vi at ordene endrer stemning.
+							I Midgard snakker vi om hjem, mat og familie.
+							I Åsgard snakker vi om råd, avtaler og planer.
+							I Jotunheim snakker vi om prøver, kulde og noe ukjent.
+							Slik blir stedene også en måte å føle historien på.
+						</p>
+						<p>
+							Til slutt går vi tilbake.
+							Det er også typisk i myter:
+							Noen går ut, møter fare, og kommer hjem med noe nytt.
+							Det kan være en gjenstand.
+							Det kan være en lærdom.
+							Eller det kan være en ny frykt.
+						</p>
+						<div class="callout" role="note" aria-label="Øvelse: bevegelsesverb">
+							<strong>Øvelse:</strong>
+							Finn 6 verb som passer til reise i myter.
+							For eksempel: “å gå”, “å komme”, “å reise”, “å dra”, “å vende tilbake”, “å møte”.
+						</div>
+
+						<h3>Hvorfor deler man verden i mange steder?</h3>
+						<p>
+							En enkel forklaring er at deling gjør det lettere å fortelle.
+							Når en myte sier “nå reiser noen til Jotunheim”, skjønner du fort at de går inn i en annen type område.
+							Der kan regler være annerledes.
+							Der kan det være farligere.
+							Eller der kan man lære noe nytt.
+						</p>
+						<p>
+							Det betyr også at stedene kan fungere som “språk-hjelp”.
+							Når du ser et nytt sted, kan du øve på ord for retning og bevegelse.
+							Mange myter handler nemlig om å gå bort, komme tilbake, gå inn, gå ut.
+							Dette er små ord, men de er veldig viktige i norsk.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om retning">
+							<strong>Norsk-tips:</strong> Nyttige ord når noen reiser:
+							“opp”, “ned”, “inn”, “ut”, “bort”, “hjem”, “til”, “fra”.
+							Eksempel: “Han går <em>inn</em> i skogen og kommer <em>tilbake</em>.”
+						</div>
+
+						<div class="callout" role="note" aria-label="Spørsmål">
+							<strong>Spørsmål:</strong> Hvis du kunne lage ditt eget “verdenskart” av et tre,
+							hvilke tre steder ville du ha med?
+							(For eksempel: hjem, skole/jobb, og et sted der du hviler.)
+						</div>
+
+						<h3>Norsk-tips: faste uttrykk du møter i myter</h3>
+						<p>
+							I myter og eventyr møter du ofte små uttrykk som ikke betyr helt det samme som ordene alene.
+							Her er to uttrykk som er nyttige:
+						</p>
+						<div class="callout" role="note" aria-label="Norsk-tips uttrykk">
+							<strong>Norsk-tips:</strong>
+							<br />1) “Å henge sammen” = å gi mening, eller å passe sammen.
+							<br />2) “Å ta det rolig” = å ikke stresse, å gå sakte fram.
+						</div>
+
+						<p>
+							I neste kapittel ser vi nærmere på gudene.
+							Da vil disse stedene bli mer levende, fordi personene reiser mellom dem.
+						</p>
+					</section>
+
+					<section id="kap3">
+						<h2>Kapittel 3: Gudene: Odin, Tor, Frøya og Loki</h2>
+						<p>
+							I dette kapittelet møter vi fire navn som ofte kommer tilbake i norrøne fortellinger:
+							Odin, Tor, Frøya og Loki.
+							Det er fristende å tenke på dem som “superhelter” med faste regler.
+							Men i mytene er gudene mer som mennesker i en stor familie:
+							de kan være sterke og smarte, men de kan også være urolige, stolte og fulle av feil.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om variasjon">
+							<strong>Viktig:</strong> Ikke alle detaljer finnes i alle kilder.
+							Noen ganger er en gud tydelig i ett dikt, men nesten borte i et annet.
+							Derfor skriver jeg ofte “i flere fortellinger” eller “ofte”.
+						</div>
+
+						<h3>Hvordan guder fungerer i mytene</h3>
+						<p>
+							I moderne historier forventer vi ofte at en figur alltid har samme personlighet.
+							I gamle myter kan det være annerledes.
+							En gud kan være klok i én fortelling og hard i en annen.
+							En gud kan hjelpe menneskene i én situasjon, men være farlig i en annen.
+							Det betyr ikke at teksten “lyver”.
+							Det betyr at myter kan ha flere roller.
+						</p>
+						<p>
+							Det finnes også et enkelt mønster som du kan se etter:
+							Mange fortellinger handler om grenser.
+							Hva er “innenfor” og hva er “utenfor”?
+							Midgard (menneskenes verden) prøver å holde orden.
+							Jotunheim og andre steder kan stå for det som er villere.
+							Gudene beveger seg mellom disse områdene.
+							De beskytter noen grenser, men de bryter andre.
+						</p>
+
+						<h3>Æser og vaner: to grupper, én verden</h3>
+						<p>
+							I noen tekster deles gudene i to grupper:
+							<strong>æser</strong> og <strong>vaner</strong>.
+							Det kan høres ut som to “lag”.
+							Og i noen fortellinger finnes det også konflikt mellom dem.
+							Senere fortelles det også om fred og samarbeid.
+							Poenget er ikke å pugge et system.
+							Poenget er å forstå at mytene viser ulike familier og ulike typer makt.
+						</p>
+						<p>
+							Odin og Tor blir vanligvis plassert blant æsene.
+							Frøya blir ofte knyttet til vanene.
+							Loki passer ikke alltid så pent inn i en boks.
+							Det er faktisk en del av poenget med Loki.
+							Han gjør det vanskelig å tenke “svart/hvitt”.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om slekt og gruppe">
+							<strong>Norsk-tips:</strong> “En ætt” betyr “en stor familie / slekt”.
+							I myter kan ord om familie også bety “gruppe”.
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om ordet grense">
+							<strong>Norsk-tips:</strong> “En grense” er en linje mellom to områder.
+							Du kan også bruke ordet om regler: “Det går en grense for hva jeg tåler.”
+						</div>
+
+						<h3>Odin: kunnskap, tap og valg</h3>
+						<p>
+							Odin blir ofte sett som en høvding blant æsene.
+							Han er ikke bare en “snill konge”.
+							I mange tekster er han en gud som vil forstå mer, selv når prisen er høy.
+							Det er derfor Odin ofte blir knyttet til kunnskap, poesi, makt og krig.
+						</p>
+						<p>
+							I noen fortellinger ser vi også at Odin bruker tegn og symboler.
+							Han har ofte et språk som er litt gåtefullt.
+							Det kan passe godt med en gud som samler informasjon.
+							Som leser kan du øve på å spørre:
+							Når teksten er uklar, er det fordi den skjuler noe?
+							Eller er det fordi den kommer fra en annen tid og en annen stil?
+						</p>
+						<p>
+							Når du leser om Odin, kan du legge merke til ordene som følger ham:
+							å søke, å spørre, å teste, å ofre.
+							Han er en figur som ofte vil ha “det som ligger bak” det vanlige.
+							Han vil se mønstre.
+							Han vil kjenne framtiden.
+							Men i myter kan et slikt ønske også føre til utrygghet.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å ofre">
+							<strong>Norsk-tips:</strong>
+							“Å ofre” betyr å gi opp noe for å få noe annet.
+							(ofrer, ofret, har ofret)
+						</div>
+						<p>
+							En praktisk måte å forstå Odin på er å tenke på ham som et symbol på valg.
+							Han velger ikke alltid det trygge.
+							Han velger det som kan gi mer innsikt.
+							Dette kan være inspirerende, men også skremmende.
+							Det er nettopp derfor Odin ikke bare er “god” eller “ond”.
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon om Odin">
+							<strong>Refleksjon:</strong> Har du opplevd at kunnskap koster?
+							For eksempel: du lærer en sannhet som gjør deg mer voksen, men også mer trist.
+						</div>
+
+						<h3>Tor: vern, styrke og det nære</h3>
+						<p>
+							Tor er ofte den mest “fysiske” av de kjente gudene.
+							Han blir knyttet til torden, kamp og beskyttelse.
+							I mange fortellinger reiser Tor for å møte farer som truer.
+							Ofte handler det om jotner.
+							Det er derfor Tor kan oppleves som en gud som står nær Midgard:
+							Han beskytter det som er menneskelig og sårbart.
+						</p>
+						<p>
+							Tor er også ofte knyttet til hammeren sin.
+							Hammeren fungerer ikke bare som et våpen.
+							I myter og tradisjon kan en gjenstand også være et tegn.
+							Et tegn kan si: “Her er det vern.”
+							Det kan minne oss om at mennesker i gamle samfunn levde med vær, uår og fare.
+							Når noe er usikkert, blir “vern” en stor verdi.
+						</p>
+						<p>
+							Hvis du ønsker mer “historisk følelse”, kan du også tenke på dette:
+							Mennesker i vikingtid reiste mye.
+							De handlet, kriget, og møtte andre kulturer.
+							Da er det ikke rart at myter også handler om å møte noe fremmed.
+							Tor kan da stå som et bilde på “vi må holde hjemmet trygt”.
+						</p>
+						<p>
+							Jeg liker å lese Tor som en figur for det konkrete.
+							Han spør ikke alltid lenge.
+							Han handler.
+							Noen ganger er det bra.
+							Andre ganger kan det gi bråk.
+							Slik lærer mytene oss at styrke uten ro også kan bli et problem.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om verb">
+							<strong>Norsk-tips:</strong> “Å verne” betyr “å beskytte”.
+							Du kan si: “Han vil verne familien sin.”
+						</div>
+
+						<h3>Gudene er ikke “allmektige”</h3>
+						<p>
+							I noen moderne historier er guder helt perfekte og kan alt.
+							I norrøn mytologi er det ofte annerledes.
+							Gudene kan bli redde.
+							De kan bli såret.
+							Og i fortellingene om Ragnarok kan også guder dø.
+							Det gjør historiene mer tragiske, men også mer menneskelige.
+						</p>
+						<div class="callout" role="note" aria-label="Norsk-tips om allmektig">
+							<strong>Norsk-tips:</strong> “Allmektig” betyr “å kunne alt” og “å ha all makt”.
+							Motsatt kan være “begrenset” (= har grenser).
+						</div>
+
+						<h3>Frøya: kjærlighet, status og magi</h3>
+						<p>
+							Frøya er en av de mest kjente gudinnene.
+							Hun blir ofte knyttet til kjærlighet, forelskelse og skjønnhet.
+							Men i flere fortellinger er hun også knyttet til noe mer:
+							status, stolthet og en type magi som ofte kalles <em>seiðr</em>.
+							Det betyr at Frøya kan være både mild og skarp.
+							Hun kan være sårbar, men hun kan også ha makt.
+						</p>
+						<p>
+							Når vi leser om seiðr og magi, er det smart å være ekstra forsiktig.
+							Vi vet ikke alltid hvordan folk faktisk gjorde ritualer.
+							Noe kan være myte.
+							Noe kan være poesi.
+							Og noe kan være minner om praksis.
+							Likevel kan temaet lære oss noe:
+							At kunnskap ikke alltid er “skole”.
+							Noen ganger handler kunnskap om kropp, sang, ord og tegn.
+						</p>
+						<p>
+							Når en figur blir knyttet til kjærlighet, kan vi lett gjøre henne “romantisk”.
+							Men i myter er kjærlighet ofte knyttet til makt og valg.
+							Hvem får gifte seg med hvem?
+							Hva betyr løfter?
+							Hva skjer når noen blir behandlet som en gjenstand?
+							Derfor kan Frøya også hjelpe oss å snakke om respekt.
+							Og om hva et menneske faktisk er verdt.
+						</p>
+						<p>
+							Noen ganger møter vi også Frøya i fortellinger om sorg.
+							Det er viktig, fordi det gjør henne mer menneskelig.
+							I myter kan de sterke også gråte.
+							De sterke kan også miste.
+						</p>
+
+						<div class="callout" role="note" aria-label="Spørsmål om Frøya">
+							<strong>Spørsmål:</strong> Hva betyr “styrke” for deg?
+							Er det bare muskler?
+							Eller er det også å tåle sorg og fortsatt stå opp neste dag?
+						</div>
+
+						<h3>Loki: triks, uro og det som bryter regler</h3>
+						<p>
+							Loki er ofte den mest kompliserte.
+							I noen historier hjelper han gudene.
+							I andre skaper han problemer.
+							Han kan være morsom.
+							Han kan være farlig.
+							Derfor blir Loki ofte kalt en “trickster” i moderne ord.
+							Det betyr en figur som lurer, blander kortene, og tester grensene.
+						</p>
+						<p>
+							En viktig ting med Loki er dette:
+							Mytene trenger ofte en figur som skaper bevegelse.
+							Hvis alle alltid er enige, skjer det lite.
+							Når Loki dukker opp, skjer det ofte noe som gjør at andre må velge.
+							De må forhandle.
+							De må reparere.
+							Eller de må ta konsekvensene.
+						</p>
+						<div class="callout" role="note" aria-label="Refleksjon om uro">
+							<strong>Refleksjon:</strong> På norsk kan du kalle dette “uro”.
+							Uro er ikke alltid bare negativt.
+							Uro kan også gjøre at ting blir synlige.
+							Det kan vise hvem som faktisk har makt.
+							Og det kan vise hvilke regler som bare virker når alle later som.
+						</div>
+						<p>
+							Samtidig er det viktig å ikke gjøre Loki til en enkel “djevel”.
+							Norrøn mytologi er ikke helt lik kristne fortellinger.
+							Loki er en del av systemet, helt til han ikke er det.
+							I noen tekster kan han være en venn.
+							I andre blir han en fiende.
+							Det er nettopp denne glidende rollen som gjør ham interessant.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om faste uttrykk">
+							<strong>Norsk-tips:</strong> “Å blande kortene” betyr “å skape forvirring eller endre situasjonen”.
+							Et annet nyttig uttrykk er “å teste grenser”.
+							Det betyr å se hvor langt man kan gå.
+						</div>
+
+						<h3>Fire korte “nøkler” (en enkel huskeliste)</h3>
+						<p>
+							Hvis du vil huske forskjellen på disse fire, kan du starte med fire ord.
+							Dette er ikke hele sannheten, men det er en god start:
+						</p>
+						<ul>
+							<li><strong>Odin</strong>: kunnskap (og prisen for den)</li>
+							<li><strong>Tor</strong>: vern (det som holder livet trygt)</li>
+							<li><strong>Frøya</strong>: verdi (kjærlighet, status, valg)</li>
+							<li><strong>Loki</strong>: brudd (regler som blir utfordret)</li>
+						</ul>
+
+						<div class="callout" role="note" aria-label="Viktig om huskeliste">
+							<strong>Viktig:</strong> Husk at dette er “nøkler”, ikke fasit.
+							I mange myter overlapper temaene.
+							For eksempel kan Tor også handle om stolthet.
+							Og Odin kan også handle om løgn.
+						</div>
+
+						<h3>Myteglimt: fire små scener</h3>
+						<p>
+							Nå vil jeg gi deg fire korte “glimt”.
+							Dette er ikke hele mytene.
+							Det er små scener som kan hjelpe deg å se personene i handling.
+							Jeg skriver dem enkelt, og jeg skriver litt forsiktig.
+							For detaljer kan variere mellom fortellinger og utgaver.
+						</p>
+
+						<p>
+							<strong>1) Odin og spørsmålet som koster</strong>:
+							I flere tekster møter vi Odin som en som vil vite mer.
+							Han stiller spørsmål.
+							Han leter etter visdom.
+							Og noen ganger betaler han en pris for å lære.
+							Når du ser dette mønsteret, kan du spørre:
+							Hva er kunnskap verdt for en person?
+						</p>
+
+						<p>
+							<strong>2) Tor og møtet med det som er større</strong>:
+							I flere fortellinger drar Tor på reise, og han møter noen som prøver å teste ham.
+							Noen ganger viser historien at styrke ikke bare handler om muskler.
+							Det kan også handle om å forstå hva som egentlig skjer.
+							Tor kan være modig.
+							Men han kan også bli lurt.
+						</p>
+
+						<p>
+							<strong>3) Frøya og en verden av regler</strong>:
+							I noen tekster ser vi Frøya i situasjoner der andre vil styre henne.
+							Da blir spørsmålet: Hvem bestemmer?
+							Frøya kan stå for et “nei”.
+							Hun kan også stå for sorg.
+							Og hun kan stå for en type kunnskap som ikke alltid blir respektert.
+						</p>
+
+						<p>
+							<strong>4) Loki og problem–løsning</strong>:
+							Loki kan starte bråk.
+							Men i noen fortellinger må han også rydde opp.
+							Han kan ødelegge tillit.
+							Men han kan også finne en utvei.
+							Det gjør ham vanskelig å like og vanskelig å glemme.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om fortellerord">
+							<strong>Norsk-tips:</strong> Når du forteller en historie, er disse ordene nyttige:
+							“først”, “så”, “plutselig”, “derfor”, “til slutt”.
+							De gjør teksten lettere å følge.
+						</div>
+
+						<h3>Mytefortelling 1: Tor får tilbake hammeren</h3>
+						<p>
+							I en kjent myte våkner Tor og oppdager at hammeren hans er borte.
+							Han blir rasende.
+							Hammeren er ikke bare et våpen.
+							Den er også et tegn på vern.
+							Uten hammeren føler Tor at både han og andre er mer sårbare.
+						</p>
+						<p>
+							Så ber Tor Loki om hjelp.
+							I noen versjoner låner Loki en fjærdrakt av Frøya, slik at han kan fly.
+							Han flyr til jotnen <strong>Trym</strong>.
+							Trym sier at han har gjemt hammeren.
+							Men han vil bare gi den tilbake hvis han får Frøya som brud.
+						</p>
+						<p>
+							Når Loki kommer tilbake med denne beskjeden, blir Frøya sint.
+							Hun vil ikke bli byttet bort.
+							Gudene holder råd.
+							Og da kommer et rart forslag:
+							Tor skal kle seg ut som brud.
+							Loki skal være med som hjelper.
+							Tor liker ikke ideen.
+							Men han vil ha hammeren tilbake.
+						</p>
+						<p>
+							Først blir det bryllupsfest hos jotnene.
+							Tor spiser og drikker enormt mye.
+							Trym blir mistenksom.
+							Loki må forklare:
+							“Bruden har ikke spist på lenge, fordi hun har lengtet så mye.”
+							Senere vil Trym kysse bruden.
+							Han ser de farlige øynene.
+							Igjen må Loki finne et svar.
+						</p>
+						<p>
+							Til slutt blir hammeren hentet inn.
+							Den skal “velsigne” bryllupet.
+							Da tar Tor tak i hammeren.
+							Han trenger ikke lenger å late som.
+							Myten ender med at Tor får hammeren hjem igjen.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om brud og å kle seg ut">
+							<strong>Norsk-tips:</strong>
+							“En brud” = den som skal gifte seg.
+							“Et bryllup” = festen når noen gifter seg.
+							“Å kle seg ut” (kler seg ut, kledde seg ut, har kledd seg ut) = å ha på seg klær for å late som.
+							“Å lengte” (lengter, lengtet, har lengtet) = å savne sterkt.
+						</div>
+
+						<h3>Mytefortelling 2: Loki, Sif og dvergenes gaver</h3>
+						<p>
+							I en annen kjent myte gjør Loki en dum spøk.
+							Han klipper håret til Sif mens hun sover.
+							Sif er gift med Tor.
+							Når Tor oppdager dette, blir han svært sint.
+							Loki skjønner at han må rette opp feilen.
+						</p>
+						<p>
+							Derfor drar Loki til dverger som kan smi.
+							De lager nytt hår av gull.
+							Det spesielle er at håret kan feste seg og vokse som ekte hår.
+							Slik blir skammen gjort om til en gave.
+						</p>
+						<p>
+							Men Loki stopper ikke der.
+							Han utfordrer dvergene til å lage flere ting.
+							I fortellingene blir det smidd flere berømte gjenstander:
+							hammer, spyd, ring og et skip som kan være veldig praktisk.
+							Poenget i historien er ikke bare “magiske ting”.
+							Poenget er at ord og handlinger får følger.
+							En liten spøk kan tvinge fram hardt arbeid.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om spøk og å rette opp">
+							<strong>Norsk-tips:</strong>
+							“En spøk” = en vits.
+							“Å rette opp” (retter opp, rettet opp, har rettet opp) = å fikse noe som ble feil.
+							“En følge” / “følger” = konsekvens.
+						</div>
+
+						<h3>Mytefortelling 3: Odin og brønnen som gir visdom</h3>
+						<p>
+							I flere fortellinger er Odin en gud som vil vite mer.
+							En gang kommer han til en brønn som gir visdom.
+							Brønnen blir ofte knyttet til en skikkelse som heter <strong>Mimir</strong>.
+							Odin vil drikke.
+							Men han får beskjed:
+							Han må gi noe tilbake.
+						</p>
+						<p>
+							I en kjent versjon gir Odin et øye.
+							Det er en sterk og litt skremmende scene.
+							Og den passer med temaet i mange Odin-myter:
+							Kunnskap kan koste.
+							Du må kanskje miste noe for å forstå mer.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å gi fra seg">
+							<strong>Norsk-tips:</strong>
+							“Å gi fra seg” betyr å gi bort noe du egentlig vil beholde.
+							Eksempel: “Han ga fra seg tid for å hjelpe.”
+						</div>
+
+						<h3>Mytefortelling 4: Frøya, savn og tårer</h3>
+						<p>
+							Frøya blir ofte knyttet til kjærlighet.
+							Men i noen fortellinger møter vi også sorgen hennes.
+							Hun savner en person hun elsker.
+							Hun leter.
+							Og hun gråter.
+						</p>
+						<p>
+							I noen versjoner blir tårene hennes til gull.
+							I andre blir de knyttet til rav.
+							Uansett er poenget tydelig:
+							Mytene lar også de sterke være triste.
+							Det gjør Frøya til mer enn bare en “romantisk figur”.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å savne">
+							<strong>Norsk-tips:</strong>
+							“Å savne” (savner, savnet, har savnet) = å føle at noe eller noen mangler.
+							“En tåre” = en dråpe fra øyet når du gråter.
+						</div>
+
+						<div class="callout" role="note" aria-label="Mini-ordliste">
+							<strong>Mini-ordliste:</strong>
+							<br /><strong>høvding</strong> = en leder
+							<br /><strong>vern</strong> = beskyttelse
+							<br /><strong>status</strong> = høy posisjon / respekt
+							<br /><strong>sårbar</strong> = lett å skade
+							<br /><strong>konsekvens</strong> = det som skjer etterpå
+							<br /><strong>å forhandle</strong> = å snakke for å bli enig
+						</div>
+
+						<h3>Avslutning: Les sakte, og legg merke til mønstre</h3>
+						<p>
+							I neste kapitler møter vi flere vesener og flere konflikter.
+							Men hvis du tar med deg disse fire figurene i hodet, blir det lettere.
+							Når du leser en ny myte, kan du spørre:
+							Hvem prøver å beskytte?
+							Hvem prøver å forstå?
+							Hvem prøver å få status eller kjærlighet?
+							Og hvem prøver å bryte noe?
+						</p>
+						<p>
+							Det er slik mytene begynner å “snakke sammen”.
+							Og når mytene snakker sammen, blir de også bedre å huske.
+						</p>
+					</section>
+
+					<section id="kap4">
+						<h2>Kapittel 4: Jotner, alver og andre vesener</h2>
+						<p>
+							I dette kapittelet møter vi vesener som ikke alltid er like kjent som Odin og Tor:
+							jotner, alver, dverger og flere andre.
+							De gjør mytene mer spennende fordi de lager problemer, prøver og overraskelser.
+							De viser også at verden i mytene ikke bare består av “oss” og “dem”.
+						</p>
+						<p>
+							Når du leser om disse vesenene, kan du ha ett enkelt mål:
+							Ikke lære alt utenat.
+							Se etter ting som går igjen (mønstre).
+							Hvem hører til hvor?
+							Hvem virker nær, og hvem virker fremmed?
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om grupper">
+							<strong>Viktig:</strong> I norrøne myter er grupper ikke alltid klare.
+							Et vesen kan være farlig i én tekst og hjelpsomt i en annen.
+							Derfor skriver jeg ofte “i noen fortellinger” og “ofte”.
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å lære utenat">
+							<strong>Norsk-tips:</strong> “Å lære utenat” betyr “å huske noe ord for ord”.
+							Mange sier også “å pugge”.
+						</div>
+
+						<h3>Jotner: ofte det som utfordrer</h3>
+						<p>
+							På norsk blir jotner ofte kalt “kjemper”.
+							Det kan gi et litt feil bilde.
+							Noen jotner er store og sterke.
+							Men andre er mest farlige fordi de er smarte eller listige.
+						</p>
+						<p>
+							En enkel måte å forstå jotnene på er dette:
+							De kommer ofte “utenfra” og utfordrer det trygge.
+							De kan stå for fjell, vinter, kulde og vill natur.
+							De kan også stå for alt som er vanskelig å styre.
+							Når gudene prøver å lage orden, blir jotnene ofte en test.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å stå for">
+							<strong>Norsk-tips:</strong> “Å stå for” kan bety “å bety” eller “å vise”.
+							Eksempel: “Fjell kan stå for noe hardt og kaldt.”
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om ordet jotne">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “en jotne” – flertall: “jotner”.
+							Du kan også se ordet “jotun”.
+							Adjektiv: “fremmed” (noe som ikke er kjent).
+						</div>
+
+						<h3>Mytefortelling: byggmesteren og muren rundt Åsgard</h3>
+						<p>
+							I en kjent myte vil gudene bygge en sterk mur rundt Åsgard.
+							De vil føle seg tryggere.
+							Da kommer en fremmed byggmester.
+							Han sier at han kan bygge muren veldig fort.
+						</p>
+						<p>
+							Men han vil ha en stor betaling.
+							I noen versjoner vil han ha Frøya.
+							I noen versjoner vil han også ha sola og månen.
+							Gudene sier ja, men de lager en avtale:
+							Han må være ferdig innen en frist.
+							Og han får bare bruke hesten sin som hjelp.
+						</p>
+						<p>
+							Byggmesteren jobber dag og natt.
+							Hesten drar store steiner.
+							Plutselig ser gudene at dette kan gå galt.
+							Muren blir nesten ferdig.
+							De skjønner at de kanskje har lovet for mye.
+						</p>
+						<p>
+							Da ber de Loki om å ordne situasjonen.
+							Loki lurer hesten bort.
+							Uten hesten mister byggmesteren tid.
+							Fristen går ut.
+							Avtalen bryter sammen.
+							Myten viser et mønster vi kjenner:
+							Ord og løfter kan fange deg.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om avtale og frist">
+							<strong>Norsk-tips:</strong>
+							“En avtale” = det dere blir enige om.
+							“En frist” = siste tidspunkt.
+							“Å love” (lover, lovet, har lovet) = å si at du skal gjøre noe.
+						</div>
+
+						<h3>Mytefortelling: Skade (Skadi) og et vanskelig kompromiss</h3>
+						<p>
+							Skade (ofte skrevet Skadi) er en jotunkvinne i flere fortellinger.
+							Hun kommer til Åsgard fordi hun vil hevn.
+							Faren hennes er blitt drept.
+							Hun er ikke redd.
+						</p>
+						<p>
+							Gudene vil unngå mer konflikt.
+							De tilbyr en erstatning.
+							Skade får lov til å velge seg en mann blant gudene.
+							Men hun får bare se føttene deres.
+							Hun tror hun velger en gud hun liker.
+							Men hun ender med å velge <strong>Njord</strong>, som ofte blir knyttet til havet.
+						</p>
+						<p>
+							Skade liker fjell, kulde og ulver.
+							Njord liker sjøen og måkene.
+							De prøver å bo sammen.
+							De bytter sted.
+							Men de trives ikke på samme plass.
+							Myten sier noe enkelt:
+							Selv når man lager fred, kan det være vanskelig å leve sammen.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om hevn og å trives">
+							<strong>Norsk-tips:</strong>
+							“Hevn” = å gjøre noe tilbake fordi du er sint.
+							“En erstatning” = noe du får i stedet.
+							“Å trives” (trives, trivdes, har trivdes) = å ha det bra et sted.
+						</div>
+
+						<h3>Alver: noe du ikke helt kan se</h3>
+						<p>
+							Alver er litt mer uklare.
+							I noen tekster virker de lyse og fine.
+							I andre tekster virker de som noe du bør ta på alvor.
+							Noen ganger blir de nesten ikke nevnt.
+						</p>
+						<p>
+							Derfor kan du lese “alver” som et tegn:
+							Verden har skjulte rom.
+							Ikke alt er synlig.
+							Og ikke alt er menneskelig.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å ta på alvor">
+							<strong>Norsk-tips:</strong> “Å ta noe på alvor” betyr “å respektere det og være forsiktig”.
+							Motsatt kan være “å tulle med”.
+						</div>
+
+						<div class="callout" role="note" aria-label="Refleksjon om det skjulte">
+							<strong>Refleksjon:</strong> Hvorfor tror du så mange kulturer har fortellinger om vesener som er “nær oss”,
+							men likevel skjult?
+							Kanskje fordi det finnes steder i livet som vi ikke helt forstår.
+						</div>
+
+						<h3>Dverger: håndverk, ting og bytte</h3>
+						<p>
+							Dverger blir ofte knyttet til håndverk.
+							I mange fortellinger lager de ting som andre vil ha.
+							Da handler myten ikke bare om “magiske ting”.
+							Den kan også handle om arbeid, ferdighet (det du kan), og pris.
+						</p>
+						<p>
+							Legg merke til dette mønsteret:
+							Når noen vil ha noe sterkt eller spesielt, må de ofte forhandle.
+							De må love noe.
+							Og noen ganger angrer de etterpå.
+						</p>
+						<p>
+							En “pris” i myter er ikke alltid penger.
+							Det kan være et løfte.
+							Det kan være en tjeneste.
+							Eller det kan være at du må gi fra deg noe du egentlig vil beholde.
+							Det gjør historien mer dramatisk, fordi valget får en kostnad.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om pris og å koste">
+							<strong>Norsk-tips:</strong>
+							“En pris” kan bety penger, men også “det du må gi for å få noe”.
+							Verb: “å koste” (koster, kostet, har kostet).
+							Eksempel: “Det kostet ham mye å si sannheten.”
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om håndverk">
+							<strong>Norsk-tips:</strong>
+							Verb: “å smi” (presens: smir, preteritum: smidde/smidde, perfekt: har smidd).
+							Substantiv: “en smed” og “et håndverk”.
+						</div>
+
+						<h3>Mytefortelling: Alviss og ordene for verden</h3>
+						<p>
+							Det finnes også en myte som nesten handler om språk.
+							En dverg som ofte kalles <strong>Alviss</strong> kommer og sier at han skal gifte seg med datteren til Tor.
+							Tor liker ikke dette.
+							Men i stedet for å krangle med en gang, gjør Tor noe annet:
+							Han begynner å spørre.
+						</p>
+						<p>
+							Tor spør dvergen om navn på ting.
+							Hva kaller dere sola?
+							Hva kaller dere månen?
+							Hva kaller dere havet?
+							Dvergen svarer og svarer.
+							Det kommer mange ord.
+							Det er som en lang ordliste i en fortelling.
+						</p>
+						<p>
+							Tor spør helt til det blir morgen.
+							Når sola kommer opp, går det dårlig for dvergen.
+							I myten blir han til stein.
+							Du kan lese dette på en enkel måte:
+							Tor “utsetter” tiden.
+							Og til slutt vinner lyset.
+						</p>
+						<p>
+							For oss som lærer språk, er poenget ekstra spennende:
+							Myten viser at samme ting kan ha ulike navn.
+							Ord kan variere mellom grupper og steder.
+							Det er sant i myter.
+							Og det er sant i norsk også.
+						</p>
+
+						<div class="callout" role="note" aria-label="Øvelse: flere navn på samme ting">
+							<strong>Øvelse:</strong>
+							Velg én ting: “sol”, “måne” eller “hav”.
+							Skriv tre alternative navn eller beskrivelser.
+							Eksempel (hav): “sjøen”, “vannet”, “den store blå flaten”.
+						</div>
+
+						<h3>Andre vesener: raske møter</h3>
+						<p>
+							I norrøne fortellinger møter vi også andre figurer som kan dukke opp raskt:
+							for eksempel valkyrjer, uhyrer, og dyr som virker nesten menneskelige.
+							Noen ganger er de personer.
+							Andre ganger er de mer som et tegn i historien.
+						</p>
+						<p>
+							Når du ser et slikt vesen, kan du spørre:
+							Hva er motsetningen her?
+							Trygghet mot fare?
+							Orden mot kaos?
+							Hjem mot villmark?
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om ordet uhyre">
+							<strong>Norsk-tips:</strong> Et “uhyre” betyr et monster.
+						</div>
+
+						<h3>Myteglimt: tre små scener (eksempel)</h3>
+						<p>
+							Dette er ikke en bestemt myte.
+							Det er tre små “bilder” som viser vanlige mønstre:
+						</p>
+						<ul>
+							<li><strong>1)</strong> Noen reiser langt for å hente noe viktig.</li>
+							<li><strong>2)</strong> Noen får hjelp, men må betale en pris.</li>
+							<li><strong>3)</strong> Noen møter et uhyre, og må velge mellom kamp og flukt.</li>
+						</ul>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om flukt">
+							<strong>Norsk-tips:</strong> “Flukt” betyr å løpe bort for å redde seg.
+							Verb: “å flykte”.
+						</div>
+
+						<div class="callout" role="note" aria-label="Spørsmål om beskrivelse">
+							<strong>Spørsmål:</strong> Velg ett vesen fra dette kapittelet (jotne, alv eller dverg).
+							Hvordan vil du beskrive det med tre norske adjektiv?
+							(For eksempel: “fremmed”, “stolt”, “farlig”, “vakker”, “listig”.)
+						</div>
+
+						<div class="callout" role="note" aria-label="Mini-ordliste kapittel 4">
+							<strong>Mini-ordliste:</strong>
+							<br /><strong>fremmed</strong> = ikke kjent
+							<br /><strong>et mønster</strong> = noe som går igjen
+							<br /><strong>å forhandle</strong> = å snakke for å bli enig
+							<br /><strong>villmark</strong> = natur som ikke er temmet
+							<br /><strong>å styre</strong> = å ha kontroll
+							<br /><strong>å bytte</strong> = å gi og få
+						</div>
+
+						<h3>Avslutning: verden blir større</h3>
+						<p>
+							Når vi tar med jotner, alver og dverger, blir mytene større.
+							De handler ikke bare om hva gudene vil.
+							De handler også om grenser, bytte, og møter med det ukjente.
+						</p>
+						<p>
+							I neste kapittel går vi videre til noe som også ligger “bak” handlingen:
+							skjebne, tegn, nornene og runer.
+						</p>
+					</section>
+
+					<section id="kap5">
+						<h2>Kapittel 5: Skjebne og tegn: nornene og runer</h2>
+						<p>
+							I dette kapittelet ser vi på to ord som ofte dukker opp i myter:
+							<strong>skjebne</strong> og <strong>tegn</strong>.
+							Vi møter også to viktige ting fra norrøn tradisjon:
+							nornene og runer.
+						</p>
+						<p>
+							Jeg skriver dette enkelt.
+							Målet er ikke å forklare alt perfekt.
+							Målet er å gi deg ord som gjør mytene lettere å lese.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om skjebne">
+							<strong>Viktig:</strong> I myter kan det høres ut som mye er bestemt på forhånd.
+							Likevel gjør personer valg.
+							Derfor kan du lese “skjebne” som både noe tungt og noe å kjempe mot.
+						</div>
+
+						<h3>Hva betyr “skjebne”?</h3>
+						<p>
+							“Skjebne” er det som skjer med en person i livet.
+							Noen ganger føler vi at noe bare skjer, selv om vi ikke vil.
+							Andre ganger føler vi at vi kan påvirke det som skjer.
+						</p>
+						<p>
+							Når du leser myter, kan du stille et enkelt spørsmål:
+							Er dette en historie om noe som er “låst”?
+							Eller er det en historie om valg og konsekvenser?
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om skjebne">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “en skjebne”.
+							Du kan si: “Det var skjebnen hans.”
+							Verb: “å påvirke” = å endre litt.
+						</div>
+
+						<h3>Nornene: et bilde på skjebne</h3>
+						<p>
+							Nornene blir ofte knyttet til skjebne.
+							Du kan tenke på dem som figurer som “holder orden” i livets tråder.
+							I noen fortellinger blir nornene beskrevet som tre kvinner.
+							I andre tekster er bildet annerledes.
+						</p>
+						<p>
+							Her er et tips for lesing:
+							Ikke stress med detaljene først.
+							Bare legg merke til følelsen i scenen.
+							Er det ro?
+							Er det frykt?
+							Er det et varsel om noe som kommer?
+						</p>
+
+						<h3>Mytefortelling: ved brønnen under treet</h3>
+						<p>
+							Du husker Yggdrasil fra kapittel 2.
+							I noen tekster blir nornene knyttet til en brønn under treet.
+							Brønnen blir ofte kalt <strong>Urd</strong>.
+							Nornene sitter der og passer på noe viktig.
+							De står nær begynnelse og slutt.
+						</p>
+						<p>
+							I en kjent variant er det tre nornene som ofte nevnes:
+							<strong>Urd</strong>, <strong>Verdande</strong> og <strong>Skuld</strong>.
+							Navnene kan minne oss om tid.
+							Fortid, nåtid og framtid.
+							Det betyr ikke at alt er låst.
+							Men det gir en tung stemning:
+							Noe kommer.
+							Og noen valg blir viktige.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om tråd og vev">
+							<strong>Norsk-tips:</strong>
+							“En tråd” = en tynn “linje” av stoff.
+							“Å veve” (vever, vevde, har vevd) = å lage stoff ved å krysse tråder.
+							I overført betydning: “Hun vever en historie.”
+						</div>
+
+						<div class="callout" role="note" aria-label="Refleksjon om skjebne og valg">
+							<strong>Refleksjon:</strong> I språklæring kan du også møte “skjebne”-følelse.
+							Noen dager går det lett.
+							Andre dager føles det som alt stopper.
+							Hva gjør du når du møter en vanskelig dag?
+						</div>
+
+						<h3>Tegn: når verden “snakker”</h3>
+						<p>
+							I myter kan et “tegn” være en liten ting som peker framover.
+							Det kan være en drøm.
+							Det kan være et dyr.
+							Eller det kan være en setning som blir sagt på en spesiell måte.
+						</p>
+						<p>
+							Et tegn betyr ikke alltid at alt er bestemt.
+							Men et tegn kan få en person til å stoppe opp og tenke:
+							Hva skjer hvis jeg går videre?
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om tegn">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “et tegn”.
+							Uttrykk: “å legge merke til” = å se og huske.
+							Et “varsel” kan bety at noe er på vei.
+						</div>
+
+						<div class="callout" role="note" aria-label="Viktig: tegn er ikke bevis">
+							<strong>Viktig:</strong>
+							Et tegn er ikke alltid et bevis.
+							Et tegn kan gi en følelse.
+							Det kan få en person til å stoppe opp.
+							Men personen må fortsatt velge hva han skal gjøre.
+						</div>
+
+						<p>
+							En enkel måte å lese tegn på er å spørre:
+							Hva gjør tegnet med personen?
+							Blir han redd?
+							Blir han modig?
+							Eller blir han mer forsiktig?
+						</p>
+
+						<h3>Myteglimt: et lite tegn (eksempel)</h3>
+						<p>
+							Tenk deg en person som skal ut på en reise.
+							Før han går, drømmer han en drøm som føles veldig sterk.
+							Når han våkner, husker han drømmen tydelig.
+						</p>
+						<p>
+							I en myte kan dette bli et tegn.
+							Ikke fordi drømmen “beviser” framtiden.
+							Men fordi drømmen endrer hva personen tør å gjøre.
+							Han stopper opp.
+							Han tenker.
+							Og så velger han.
+						</p>
+
+						<h3>Runer: bokstaver, og noen ganger symboler</h3>
+						<p>
+							Runer er et gammelt alfabet.
+							Et alfabet er en samling bokstaver.
+							Folk kunne risse runer i stein, tre eller metall.
+							Da kunne de skrive navn, korte beskjeder, eller minner.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om alfabet og bokstav">
+							<strong>Norsk-tips:</strong> “En bokstav” er en liten del av alfabetet.
+							Eksempel: A, B, C.
+						</div>
+
+						<h3>Mytefortelling: Odin lærer runer</h3>
+						<p>
+							I noen dikt ofrer Odin seg selv for kunnskap.
+							Han henger i et tre i flere netter.
+							Han er alene.
+							Han holder ut smerte.
+							Til slutt “ser” han runene.
+							Og han tar dem.
+						</p>
+						<p>
+							Du kan lese dette som en myte om læring.
+							Noe viktig kommer ikke gratis.
+							Du må øve.
+							Du må tåle at det er vanskelig.
+							Og du må fortsette selv når du er trøtt.
+						</p>
+
+						<div class="callout" role="note" aria-label="Øvelse: læring som en myte">
+							<strong>Øvelse:</strong>
+							Skriv tre setninger om språklæring som passer til Odin-mønsteret.
+							Eksempel: “Jeg øver. Det er tungt. Jeg lærer litt mer.”
+						</div>
+						<p>
+							I fortellinger kan runer også handle om kunnskap og magi.
+							Men det er lurt å være litt forsiktig:
+							Myter bruker ofte sterke symboler.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om runer">
+							<strong>Viktig:</strong> En rune kan være en bokstav.
+							Men den kan også fungere som et tegn i en historie.
+							Spør deg selv: Er dette “skrift”, eller er det “symbol” her?
+						</div>
+
+						<div class="callout" role="note" aria-label="Spørsmål om tegn og valg">
+							<strong>Spørsmål:</strong> Tenk på en scene i en myte (eller i en film).
+							Hva var tegnet som kom før problemet?
+							Og hva valgte personen å gjøre etterpå?
+						</div>
+
+						<div class="callout" role="note" aria-label="Mini-ordliste kapittel 5">
+							<strong>Mini-ordliste:</strong>
+							<br /><strong>skjebne</strong> = det som skjer med et liv
+							<br /><strong>et tegn</strong> = en liten beskjed / et signal
+							<br /><strong>et varsel</strong> = et tegn på at noe kan komme
+							<br /><strong>å påvirke</strong> = å endre litt
+							<br /><strong>å risse</strong> = å lage streker i stein/tre
+						</div>
+
+						<h3>Avslutning: bak historien ligger et mønster</h3>
+						<p>
+							Skjebne, tegn, nornene og runer gjør mytene dypere.
+							De minner oss om at en historie ikke bare handler om kamp.
+							Den handler også om valg, frykt, håp og retning.
+						</p>
+						<p>
+							I neste kapittel går vi nærmere på hverdagen rundt mytene:
+							ære, gave og gjestfrihet.
+						</p>
+					</section>
+
+					<section id="kap6">
+						<h2>Kapittel 6: Myter i hverdagen: ære, gave og gjestfrihet</h2>
+						<p>
+							I mange myter skjer store ting:
+							guder krangler, verden rister, og uhyrer dukker opp.
+							Men mytene handler også om hverdagen.
+							De handler om mat, besøk, løfter og rykte.
+						</p>
+						<p>
+							I dette kapittelet ser vi på tre ord som ofte ligger “under” historien:
+							<strong>ære</strong>, <strong>gave</strong> og <strong>gjestfrihet</strong>.
+							Hvis du forstår disse ordene, blir det lettere å forstå hvorfor personer i myter reagerer så sterkt.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om myter og virkelighet">
+							<strong>Viktig:</strong> Dette kapittelet er skrevet som en enkel leseguide.
+							Jeg beskriver mønstre som ofte finnes i fortellinger.
+							Det betyr ikke at alle mennesker i fortiden levde på én bestemt måte.
+						</div>
+
+						<h3>Hva betyr “ære”?</h3>
+						<p>
+							“Ære” handler ofte om respekt.
+							Det handler om hva andre tenker om deg.
+							I myter kan en person være redd for å bli sett på som feig.
+							Eller redd for at familien mister et godt navn.
+						</p>
+						<p>
+							Derfor kan “ære” forklare mange valg i myter:
+							Noen tar store sjanser.
+							Noen tåler ikke å bli hånet.
+							Og noen vil hevne seg for å “rette opp” det de føler er ødelagt.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om ære">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “ære”.
+							Verb: “å ære” = å vise respekt.
+							Eksempel: “Vi ærer en person som har gjort noe bra.”
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om rykte">
+							<strong>Norsk-tips:</strong> “Et rykte” er det folk sier om deg.
+							Et rykte kan være sant eller usant.
+						</div>
+
+						<h3>Gave: mer enn en ting</h3>
+						<p>
+							En gave er en ting du gir til noen.
+							Men i myter kan en gave bety mer enn “en fin ting”.
+							En gave kan lage et bånd mellom to personer.
+							Når du tar imot en gave, kan du også føle at du bør gi noe tilbake en dag.
+						</p>
+						<p>
+							Dette kan være både godt og vanskelig.
+							Det kan skape vennskap.
+							Men det kan også skape press.
+							For hva hvis du ikke har noe å gi tilbake?
+						</p>
+						<p>
+							En gave kan også være noe som ikke er en “ting”.
+							Det kan være tid.
+							Det kan være hjelp.
+							Eller det kan være et godt råd.
+							I hverdagen gjør vi dette ofte, uten å tenke på det.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å skylde">
+							<strong>Norsk-tips:</strong>
+							“Å skylde noen noe” betyr at du føler du må gi tilbake.
+							Eksempel: “Jeg skylder deg en tjeneste.”
+							“Å skylde på” betyr noe annet: å si at noen har skyld.
+						</div>
+
+						<div class="callout" role="note" aria-label="Viktig om å ta imot">
+							<strong>Viktig:</strong> Å ta imot noe kan også være et valg.
+							Hvis du tar imot, sier du nesten: “Jeg godtar et forhold.”
+							Derfor kan gaver i myter lage både fred og konflikt.
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om gave">
+							<strong>Norsk-tips:</strong>
+							Verb: “å gi” (gir, ga, har gitt).
+							Verb: “å ta imot” (tar imot, tok imot, har tatt imot).
+							Verb: “å gi tilbake” = å gi noe igjen.
+						</div>
+
+						<h3>Gjestfrihet: regler for besøk</h3>
+						<p>
+							“Gjestfrihet” betyr å være snill og trygg mot en gjest.
+							En gjest er en person som kommer på besøk.
+							I mange fortellinger er det viktig hva som skjer når en fremmed kommer til døra.
+						</p>
+						<p>
+							I myter kan du ofte se en enkel test:
+							Gir verten mat og et sted å sitte?
+							Blir gjesten behandlet med respekt?
+							Eller blir gjesten avvist og ydmyket?
+							Små valg kan starte en stor konflikt.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om gjest">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “en gjest”.
+							Substantiv: “en vert” = personen som tar imot.
+							Uttrykk: “Velkommen inn!”
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om gjestfrihet">
+							<strong>Norsk-tips:</strong> “Gjestfri” betyr at du tar imot folk på en hyggelig måte.
+							Substantiv: “gjestfrihet”.
+						</div>
+
+						<h3>Mytefortelling: Tor hos Utgard-Loke (en gjest som blir testet)</h3>
+						<p>
+							I en kjent fortelling reiser Tor langt hjemmefra.
+							Han reiser sammen med Loki, og ofte nevnes også en ung hjelper.
+							De kommer til en stor hall i Jotunheim.
+							Der blir de tatt imot av en mektig vert som ofte kalles <strong>Utgard-Loke</strong>.
+						</p>
+						<p>
+							Verten tilbyr mat og tak over hodet.
+							Men så kommer en “høflig” regel:
+							Gjestene må vise hva de kan.
+							De får prøver og konkurranser.
+							Dette handler ikke bare om lek.
+							Det handler også om ære.
+							Hvis du taper, kan du føle skam.
+						</p>
+						<p>
+							Loki prøver en spise-konkurranse.
+							Han taper.
+							Den andre “spiser” alt.
+							Til og med bein og fat.
+							Toren prøver å drikke fra et stort horn.
+							Han drikker og drikker, men nivået synker nesten ikke.
+							Han blir irritert.
+							Så prøver han å løfte en katt.
+							Han klarer bare å løfte én pote.
+						</p>
+						<p>
+							Til slutt blir Tor utfordret til å bryte med en gammel kvinne.
+							Han prøver hardt.
+							Men han taper igjen.
+							Det føles urettferdig.
+							Tor er sterk.
+							Hvorfor klarer han ingenting her?
+						</p>
+						<p>
+							Neste morgen forklarer verten hva som egentlig skjedde.
+							Prøvene var ikke “vanlige”.
+							Spise-konkurransen var mot ild.
+							Drikke-hornet var koblet til havet.
+							Katten var egentlig Midgardsormen i forkledning.
+							Og den gamle kvinnen var alderdom.
+							Ingen kan vinne mot alder.
+						</p>
+						<p>
+							Når du leser denne myten, kan du se flere temaer på én gang.
+							Den handler om gjestfrihet.
+							Men den handler også om å bli testet.
+							Og den handler om stolthet.
+							Tor lærer at styrke ikke alltid er nok.
+							Noen ganger er verden større enn deg.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om skam, prøve og rettferdig">
+							<strong>Norsk-tips:</strong>
+							“Skam” = en vond følelse når du føler du har gjort noe “feil”.
+							“En prøve” = en test.
+							“Rettferdig” = fair.
+							“Å utfordre” (utfordrer, utfordret, har utfordret) = å gi en vanskelig oppgave.
+						</div>
+
+						<div class="callout" role="note" aria-label="Øvelse: Utgard-Loke i 8 setninger">
+							<strong>Øvelse:</strong>
+							Skriv myten om Tor hos Utgard-Loke med 8 setninger.
+							Start med: “Tor reiser bort fra hjemmet.”
+							Bruk minst fire fortellerord: “først”, “så”, “plutselig”, “derfor”, “til slutt”.
+						</div>
+
+						<h3>Myteglimt: tre hverdags-scener (eksempel)</h3>
+						<p>
+							Her er tre korte scener.
+							De er laget for læring.
+							De viser vanlige mønstre du kan møte i myter.
+						</p>
+						<p>
+							<strong>1) Den sultne reisende</strong>:
+							En person kommer våt og kald til en gård.
+							Verten må velge: “Skal jeg slippe deg inn?”
+							Hvis verten sier ja, blir det varme og mat.
+							Hvis verten sier nei, kan det bli fiendskap.
+						</p>
+						<p>
+							<strong>2) Gaven som binder</strong>:
+							En person gir en liten gave.
+							Den andre smiler og sier takk.
+							Men inni seg tenker han: “Jeg må huske dette. En dag må jeg gi noe igjen.”
+							Slik blir gaven som en tråd mellom dem.
+						</p>
+						<p>
+							<strong>3) Ære og ord</strong>:
+							To personer blir uenige.
+							Den ene sier et stygt ord.
+							Den andre føler seg truffet.
+							Nå må de velge: Skal de roe ned, eller skal konflikten vokse?
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å roe ned">
+							<strong>Norsk-tips:</strong> “Å roe ned” betyr å bli rolig.
+							Du kan også si: “La oss roe oss litt.”
+						</div>
+
+						<h3>Refleksjon: hva betyr ære i dag?</h3>
+						<p>
+							I dag snakker vi ikke alltid om “ære” på samme måte.
+							Men vi har fortsatt noe som ligner:
+							respekt, rykte, og det å bli behandlet rettferdig.
+						</p>
+						<p>
+							Hvis noen ler av deg, kan det gjøre vondt.
+							Hvis noen misforstår deg, kan du bli frustrert.
+							Så også i vår tid må vi velge:
+							Skal vi svare hardt?
+							Eller skal vi prøve å snakke rolig?
+						</p>
+
+						<div class="callout" role="note" aria-label="Spørsmål om valg">
+							<strong>Spørsmål:</strong> Hva er vanskeligst for deg i en konflikt?
+							1) Å si unnskyld
+							2) Å tilgi
+							3) Å forklare rolig hva du mener
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om unnskyld">
+							<strong>Norsk-tips:</strong> “Unnskyld” kan bety “beklager”.
+							Du kan også si: “Jeg mente ikke å såre deg.”
+						</div>
+
+						<div class="callout" role="note" aria-label="Mini-ordliste kapittel 6">
+							<strong>Mini-ordliste:</strong>
+							<br /><strong>ære</strong> = respekt / godt navn
+							<br /><strong>et rykte</strong> = det folk sier om deg
+							<br /><strong>en gave</strong> = en ting du gir
+							<br /><strong>en gjest</strong> = en som kommer på besøk
+							<br /><strong>en vert</strong> = en som tar imot gjester
+							<br /><strong>gjestfrihet</strong> = å ta imot gjester på en god måte
+							<br /><strong>å avvise</strong> = å si nei og sende bort
+							<br /><strong>å ydmyke</strong> = å gjøre noen liten (skape skam)
+							<br /><strong>å tilgi</strong> = å slutte å være sint for noe
+						</div>
+
+						<h3>Avslutning: små ord kan styre store myter</h3>
+						<p>
+							Når du leser en myte, kan du prøve å legge merke til “små” ting:
+							mat, besøk, gaver, ord og løfter.
+							Ofte er det slike ting som starter eller stopper en konflikt.
+						</p>
+						<p>
+							I neste kapittel ser vi på diktning og språk:
+							skalder og eddakvad.
+							Da møter vi en annen type kraft: ord som kan huskes i hundre år.
+						</p>
+					</section>
+
+					<section id="kap7">
+						<h2>Kapittel 7: Diktning: skalder og eddakvad</h2>
+						<p>
+							Norrøn mytologi er full av historier.
+							Men mange av historiene levde lenge <em>før</em> de ble skrevet ned.
+							De ble fortalt høyt, om og om igjen.
+							Derfor er diktning og muntlig fortelling veldig viktig.
+						</p>
+						<p>
+							I dette kapittelet ser vi på tre ting:
+							<strong>skalder</strong> (poeter), <strong>kvad</strong> (dikt/viser),
+							og <strong>eddakvad</strong> (en bestemt type norrøne dikt).
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om skrift og muntlig tradisjon">
+							<strong>Viktig:</strong> Det vi leser i dag, kommer ofte fra håndskrifter som ble skrevet ned senere.
+							Før det levde stoffet muntlig, som fortelling og sang.
+							Derfor kan samme historie finnes i flere varianter.
+						</div>
+
+						<h3>Skald: en som kan ord</h3>
+						<p>
+							En <strong>skald</strong> er en poet.
+							I fortellinger kan en skald være en som reiser, observerer og lager vers.
+							Skalden kan også være knyttet til en leder eller en mektig familie.
+						</p>
+						<p>
+							Hva gjør en skald?
+							Ofte gjør skalden minst én av disse tingene:
+						</p>
+						<ul>
+							<li><strong>Forteller</strong> gamle historier så folk husker dem.</li>
+							<li><strong>Roser</strong> noen (for eksempel en kriger) for mot og gaver.</li>
+							<li><strong>Håner</strong> en fiende med skarpe ord.</li>
+							<li><strong>Forklarer</strong> symboler og bilder i språket.</li>
+						</ul>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å rose">
+							<strong>Norsk-tips:</strong>
+							Verb: “å rose” (roser, roste, har rost) = å si noe fint om noen.
+							Eksempel: “Han roste henne for et modig valg.”
+						</div>
+
+						<h3>Hva er et kvad?</h3>
+						<p>
+							Et <strong>kvad</strong> er et dikt eller en vise.
+							Det kan bli framført høyt.
+							Noen kvad har et tydelig rytmemønster.
+							Mange bruker lyd for å gjøre teksten lettere å huske.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om rytme">
+							<strong>Norsk-tips:</strong> “Rytme” er et slags tempo i teksten.
+							Du kan prøve å klappe rolig mens du leser.
+						</div>
+						<p>
+							I moderne norsk tenker vi ofte på rim.
+							I norrøn diktning er det vanlig at starten av ord har samme lyd.
+							Det kaller vi <strong>bokstavrim</strong> (allitterasjon).
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om bokstavrim">
+							<strong>Norsk-tips:</strong> Bokstavrim betyr at flere viktige ord begynner med samme lyd.
+							Eksempel: “<em>vind</em> og <em>vann</em>” eller “<em>kald</em> kveld”.
+						</div>
+
+						<h3>Eddakvad: myter i diktform</h3>
+						<p>
+							Når vi sier <strong>eddakvad</strong>, mener vi ofte dikt som forteller om guder og helter.
+							Mange av dem har et klart og direkte språk.
+							De kan ha dialog, råd, spørsmål og korte, sterke linjer.
+						</p>
+						<p>
+							Et viktig poeng er dette:
+							Eddakvad blir ofte framstilt som <em>anonyme</em>.
+							Altså: vi vet ikke alltid hvem som laget dem.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om anonym">
+							<strong>Norsk-tips:</strong> “Anonym” betyr “uten navn”.
+							Vi vet ikke hvem som har skrevet det.
+						</div>
+
+						<div class="callout" role="note" aria-label="Viktig om ordet edda">
+							<strong>Viktig:</strong> Ordet “Edda” brukes ofte om samlinger av norrøne tekster.
+							I denne boka bruker vi “eddakvad” som “dikt av den typen som ofte står i Den eldre Edda”.
+						</div>
+
+						<h3>Skaldekvad: ros med komplisert språk</h3>
+						<p>
+							Skaldekvad er ofte dikt som roser en bestemt person.
+							Språket kan være mer vanskelig.
+							Det kan være fullt av bilder og “koder”.
+						</p>
+						<p>
+							En kjent type bilde heter <strong>kenning</strong>.
+							En kenning er en kreativ omskriving.
+							I stedet for å si “havet”, kan man si noe som peker mot havet.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om kenning">
+							<strong>Norsk-tips:</strong> “En kenning” er en metafor (et bilde i språket) som ofte består av to ord eller et lite uttrykk.
+							Enkelt eksempel: “<em>sverdregn</em>” kan bety kamp.
+							Poenget er ikke at det er “rett”, men at det gir et sterkt bilde.
+						</div>
+
+						<p>
+							Hvorfor bruke så komplisert språk?
+							Her er tre mulige grunner:
+						</p>
+						<ul>
+							<li><strong>Stil:</strong> Det høres imponerende ut.</li>
+							<li><strong>Minne:</strong> Mønstre kan være lettere å huske enn vanlig tale.</li>
+							<li><strong>Fellesskap:</strong> De som “forstår koden”, føler at de hører til.</li>
+						</ul>
+
+						<h3>Hvordan husker man et langt dikt?</h3>
+						<p>
+							Når du leser et langt kvad, kan du spørre:
+							Hvordan kunne noen huske dette uten bok?
+							En del av svaret kan være trening.
+							Men også formen hjelper.
+						</p>
+						<p>
+							Mønstre kan støtte hukommelsen:
+							fast rytme, faste uttrykk, gjentakelse, og bokstavrim.
+							Når kroppen kjenner rytmen, kan ordene komme lettere.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å lære utenat">
+							<strong>Norsk-tips:</strong> “Å lære utenat” betyr å kunne noe fra minnet.
+							(kan, kunne, har kunnet) / (lærer, lærte, har lært)
+						</div>
+
+						<h3>Ord som handling: ros, skam og løfter</h3>
+						<p>
+							I myter er ord ikke bare pynt.
+							Ord kan være en handling.
+							Å rose noen kan gi ære.
+							Å håne noen kan ta ære.
+							Og et løfte kan binde deg.
+						</p>
+						<p>
+							Derfor kan vi koble dette kapittelet til kapittel 6:
+							Ære og rykte henger ofte sammen med det som blir sagt i offentlighet.
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon om ord">
+							<strong>Refleksjon:</strong>
+							Har du opplevd at en setning endret stemningen i et rom?
+							For eksempel et kompliment, en spøk, eller en hard kommentar?
+						</div>
+
+						<h3>Mytefortelling: skaldemjøden (mjøden som gir diktning)</h3>
+						<p>
+							I en kjent fortelling blir poesi forklart som en drikk.
+							Drikken kalles ofte <strong>skaldemjøden</strong>.
+							Myten prøver å si noe morsomt og alvorlig samtidig:
+							Ord kan være en gave.
+							Men ord kan også bli stjålet.
+						</p>
+						<p>
+							Historien starter med at to grupper guder lager fred.
+							For å vise fred, blander de spytt i en krukke.
+							Av dette blir en veldig klok person til.
+							Han blir ofte kalt <strong>Kvasir</strong>.
+							Kvasir reiser rundt og svarer på spørsmål.
+							Han kan mye.
+						</p>
+						<p>
+							Så skjer noe mørkt.
+							To dverger dreper Kvasir.
+							De blander blodet hans med honning og lager mjød.
+							Den som drikker av mjøden, får evne til å snakke vakkert og lage dikt.
+							Her er et tydelig myte-tema:
+							Noe fint kan komme fra noe vondt.
+						</p>
+						<p>
+							Mjøden havner til slutt hos en jotne som ofte kalles <strong>Suttung</strong>.
+							Han gjemmer den i et fjell.
+							Datteren hans, <strong>Gunnlød</strong>, passer på.
+							Ingen skal få drikken.
+						</p>
+						<p>
+							Men Odin vil ha mjøden.
+							Han går ikke bare og spør pent.
+							Han bruker list.
+							I noen versjoner jobber han først for en bonde for å få et verktøy.
+							Så lager han et lite hull inn i fjellet.
+							Han kommer seg inn.
+							Han snakker med Gunnlød.
+							Og til slutt får han tre store slurker av mjøden.
+							De tre slurkene er nok.
+							Han drikker alt.
+						</p>
+						<p>
+							Odin rømmer.
+							Han forvandler seg til en ørn og flyr hjem.
+							Når han kommer til Åsgard, spytter han mjøden ut.
+							Da blir den til en skatt som gudene kan bruke.
+							I noen versjoner mister Odin også litt mjød på veien.
+							Det blir en morsom forklaring på hvorfor noen lager dårlig dikt.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om mjød og slurk">
+							<strong>Norsk-tips:</strong>
+							“Mjød” = en gammel drikk laget av honning.
+							“En slurk” = litt du drikker.
+							“Å stjele” (stjeler, stjal, har stjålet) = å ta noe som ikke er ditt.
+							“Å forvandle seg” (forvandler seg, forvandlet seg, har forvandlet seg) = å bli til noe annet.
+						</div>
+
+						<div class="callout" role="note" aria-label="Øvelse: skaldemjøden kort">
+							<strong>Øvelse:</strong>
+							Skriv skaldemjøden-historien med 10 setninger.
+							Bruk minst fem verb (for eksempel: “å reise”, “å svare”, “å gjemme”, “å lure”, “å fly”).
+						</div>
+
+						<div class="callout" role="note" aria-label="Øvelse: lag en kenning">
+							<strong>Øvelse:</strong>
+							Lag tre enkle kenninger.
+							Velg ett ord du vil beskrive (for eksempel “sol”, “hav”, “sverd”).
+							Eksempel: “sol” → “himmel-lys”.
+						</div>
+
+						<h3>Myteglimt: en skald i hallen (eksempel)</h3>
+						<p>
+							Her er en kort scene.
+							Den er laget for læring, ikke som en “ekte” kilde.
+						</p>
+						<p>
+							En hall er full av lyd.
+							Folk spiser og prater.
+							En gjest reiser seg og sier et par vers.
+							Ordene gjør alle stille.
+							Noen smiler.
+							Noen blir røde i ansiktet.
+						</p>
+						<p>
+							Etterpå får skalden en gave.
+							Men gaven er ikke bare betaling.
+							Den er også et signal:
+							“Vi hørte deg. Vi godtar ordene dine.”
+						</p>
+
+						<div class="callout" role="note" aria-label="Spørsmål om kvad">
+							<strong>Spørsmål:</strong>
+							Hvis du var skald, hva ville du lage et kvad om?
+							1) En gud
+							2) En helt
+							3) En vanlig person
+							4) Deg selv
+						</div>
+
+						<div class="callout" role="note" aria-label="Øvelse bokstavrim">
+							<strong>Øvelse:</strong>
+							Lag én kort setning med bokstavrim.
+							Eksempel: “Kald kveld kommer.”
+							Din setning kan være helt enkel.
+						</div>
+
+						<div class="callout" role="note" aria-label="Mini-ordliste kapittel 7">
+							<strong>Mini-ordliste:</strong>
+							<br /><strong>en skald</strong> = en poet
+							<br /><strong>et kvad</strong> = et dikt / en vise
+							<br /><strong>et vers</strong> = en del av et dikt
+							<br /><strong>en strofe</strong> = flere linjer som hører sammen
+							<br /><strong>bokstavrim</strong> = flere ord starter med samme lyd
+							<br /><strong>å framføre</strong> = å si/synge for andre
+							<br /><strong>et håndskrift</strong> = en tekst skrevet for hånd
+							<br /><strong>en kenning</strong> = kreativ omskriving (metafor)
+							<br /><strong>å håne</strong> = å gjøre narr / snakke ned
+							<br /><strong>å lære utenat</strong> = å huske og kunne si det
+						</div>
+
+						<h3>Avslutning: ord som kan leve lenge</h3>
+						<p>
+							Når en historie blir til et kvad, kan den reise langt.
+							Den kan huskes i mange år.
+							Og den kan endre seg litt, men likevel beholde kjernen.
+						</p>
+						<p>
+							I neste kapittel ser vi på store endringer i Norden:
+							kristning og hvordan fortellinger kan få ny form.
+						</p>
+					</section>
+
+					<section id="kap8">
+						<h2>Kapittel 8: Kristning og endring av fortellingene</h2>
+						<p>
+							I de forrige kapitlene snakket vi om myter og dikt.
+							Nå kommer en stor historisk endring inn i bildet:
+							<strong>kristning</strong>.
+							Når religion og samfunn endrer seg, kan også fortellinger endre seg.
+						</p>
+						<p>
+							Dette betyr ikke at “alt ble nytt” på én dag.
+							Men over tid ble flere mennesker kristne.
+							Da fikk mytene et nytt publikum.
+							Og de ble ofte skrevet ned i en ny tid.
+						</p>
+						<p>
+							Du kan sammenligne dette med språklæring.
+							Når du lærer et nytt språk, får du nye ord.
+							Men du har fortsatt gamle vaner.
+							Slik kan et samfunn også få nye ideer, men fortsatt huske gamle historier.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om kristning">
+							<strong>Viktig:</strong> Kristning var en prosess.
+							Det skjedde ikke likt overalt.
+							Noen steder gikk det fort.
+							Andre steder tok det lang tid.
+						</div>
+
+						<h3>Hva betyr “kristning”?</h3>
+						<p>
+							“Kristning” betyr at et samfunn går fra gammel tro til kristendom.
+							Det kan handle om nye ritualer, nye høytider og nye regler.
+							Det kan også handle om makt, lover og nye ledere.
+						</p>
+						<p>
+							Men mennesker glemmer ikke alt de kan.
+							Gamle vaner og gamle historier kan leve videre.
+							Noen kan tilpasse dem.
+							Noen kan skjule dem.
+							Og noen kan bruke dem på en ny måte.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å tilpasse">
+							<strong>Norsk-tips:</strong>
+							“Å tilpasse” betyr å endre litt så noe passer bedre.
+							(tilpasser, tilpasset, har tilpasset)
+							Eksempel: “Jeg tilpasser teksten til et enklere nivå.”
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om kristen og å tro">
+							<strong>Norsk-tips:</strong>
+							Adjektiv: “kristen”.
+							Verb: “å tro” (tror, trodde, har trodd).
+							Eksempel: “Hun tror på Gud.” / “De trodde på andre guder før.”
+						</div>
+
+						<h3>Når myter blir skrevet ned</h3>
+						<p>
+							I kapittel 7 snakket vi om muntlig tradisjon.
+							Når noe blir skrevet ned, kan det skje flere ting:
+						</p>
+						<ul>
+							<li><strong>Valg:</strong> En skriver velger hva som skal med.</li>
+							<li><strong>Orden:</strong> Teksten får en bestemt rekkefølge.</li>
+							<li><strong>Forklaring:</strong> Det kan komme inn ekstra forklaringer for leseren.</li>
+							<li><strong>Stil:</strong> Språket kan bli mer “boklig” enn muntlig tale.</li>
+						</ul>
+						<p>
+							Når du leser en myte i dag, leser du ofte en <em>skrevet</em> versjon.
+							Den kan være formet av tiden den ble skrevet i.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å skrive ned">
+							<strong>Norsk-tips:</strong>
+							Verb: “å skrive ned” (skriver ned, skrev ned, har skrevet ned).
+							Verb: “å bevare” (bevarer, bevarte, har bevart) = å ta vare på.
+						</div>
+
+						<h3>Myteglimt: når guder blir gjort til mennesker</h3>
+						<p>
+							Når myter blir skrevet ned i en kristen tid, kan forfatteren føle at han må forklare dem på en ny måte.
+							En strategi er å gjøre gudene mer “menneskelige” i teksten.
+							Da kan Odin for eksempel bli beskrevet som en gammel leder eller konge, ikke bare som en gud.
+						</p>
+						<p>
+							Du kan lese dette som en slags oversettelse mellom to verdensbilder.
+							Skriveren sier:
+							“Jeg kan fortelle disse historiene, men jeg må forklare hvem de er.”
+							Resultatet kan bli at mytene mister litt av det rare og det magiske.
+							Samtidig kan de bli lettere å lese for et nytt publikum.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om prolog og å gjøre om">
+							<strong>Norsk-tips:</strong>
+							“En prolog” = starten på en bok (før historien).
+							“Å gjøre om” (gjør om, gjorde om, har gjort om) = å endre formen.
+							“Å forklare” (forklarer, forklarte, har forklart) = å gjøre noe mer forståelig.
+						</div>
+
+						<h3>Fortelling: en skriver som velger ord</h3>
+						<p>
+							Se for deg en ung skriver som sitter med pergament.
+							Han har blekk og penn.
+							Han hører en gammel sang.
+							Sangen er full av navn og bilder.
+							Den er vakker, men også vanskelig.
+						</p>
+						<p>
+							Skriveren vil bevare sangen.
+							Men han vil også at folk skal forstå.
+							Derfor legger han inn små forklaringer.
+							Noen ganger bytter han ut et ord.
+							Noen ganger gjør han en gud til en “konge”.
+							Han gjør det ikke nødvendigvis for å være slem.
+							Han gjør det fordi han lever i en ny tid.
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon: ett ord kan endre alt">
+							<strong>Refleksjon:</strong>
+							Hvordan endrer en historie seg hvis du bytter ett ord?
+							For eksempel: “gud” → “konge”, eller “magi” → “triks”.
+						</div>
+
+						<h3>Hvordan kan fortellinger endre seg?</h3>
+						<p>
+							Når en fortelling flytter seg til en ny tid, kan betydningen endre seg litt.
+							Her er tre enkle måter det kan skje på.
+						</p>
+
+						<p><strong>1) Nye ord og nye forklaringer</strong></p>
+						<p>
+							Noen gamle ord kan bli vanskelige.
+							Da kan en skriver forklare.
+							Men en forklaring er også en tolkning.
+							Og tolkning kan styre hvordan vi forstår historien.
+						</p>
+						<p><strong>2) Ny moral</strong></p>
+						<p>
+							En ny religion kan gi nye ideer om rett og galt.
+							“Moral” betyr et budskap: Hva er riktig, og hva er feil?
+							Da kan det være fristende å lese gamle myter som “advarsler”.
+							Eller som historier om feil og straff.
+							Dette kan gjøre noen figurer mer “gode” eller mer “onde” i en bestemt fortelling.
+						</p>
+						<p><strong>3) Nytt publikum</strong></p>
+						<p>
+							En fortelling blir ofte fortalt for noen.
+							Hvis publikum endrer seg, kan fortelleren endre fokus.
+							Kanskje blir det mer forklaring.
+							Kanskje blir det mindre “rare” detaljer.
+							Kanskje blir humoren annerledes.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om tolkning">
+							<strong>Viktig:</strong> Når vi snakker om endring, betyr det ikke at teksten “lyver”.
+							Det betyr at tekster alltid blir laget i en kontekst.
+							Kontekst er tid, sted og hvem som skriver.
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å tolke og kontekst">
+							<strong>Norsk-tips:</strong>
+							Verb: “å tolke” (tolker, tolket, har tolket) = å forstå på en bestemt måte.
+							Substantiv: “en kontekst” = situasjonen rundt.
+						</div>
+
+						<h3>Myteglimt: to versjoner av samme historie (eksempel)</h3>
+						<p>
+							Her er et eksempel som viser forskjell.
+							Det er laget for læring.
+						</p>
+						<p>
+							<strong>Versjon A (muntlig)</strong>:
+							En bestemor forteller en historie ved ildstedet.
+							Hun hopper litt fram og tilbake.
+							Hun legger inn små vitser.
+							Barna spør, og hun svarer.
+						</p>
+						<p>
+							<strong>Versjon B (skriftlig)</strong>:
+							En skriver vil ha orden.
+							Han velger én måte å si det på.
+							Han tar kanskje bort noe som virker “rotete”.
+							Han forklarer noe han tror leseren ikke forstår.
+						</p>
+						<p>
+							Begge versjoner kan være interessante.
+							Men de gir en litt ulik opplevelse.
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon om endring">
+							<strong>Refleksjon:</strong>
+							Når du forteller en historie til en venn, endrer du den litt?
+							Kanskje du gjør den kortere.
+							Eller du gjør den morsommere.
+						</div>
+
+						<div class="callout" role="note" aria-label="Spørsmål om kristning og myter">
+							<strong>Spørsmål:</strong>
+							Hva tror du påvirker en myte mest?
+							1) Hvem som forteller
+							2) Hvem som hører på
+							3) Om den er muntlig eller skrevet
+						</div>
+
+						<div class="callout" role="note" aria-label="Øvelse to fortellerstiler">
+							<strong>Øvelse:</strong>
+							Velg en enkel myte-scene (for eksempel en gud som kommer på besøk).
+							Skriv to korte versjoner:
+							(1) som en morsom historie
+							(2) som en alvorlig advarsel
+							Se hva som endrer seg.
+						</div>
+
+						<div class="callout" role="note" aria-label="Mini-ordliste kapittel 8">
+							<strong>Mini-ordliste:</strong>
+							<br /><strong>kristning</strong> = når et samfunn blir kristent
+							<br /><strong>kristendom</strong> = religionen
+							<br /><strong>å døpe</strong> = å gjøre noen kristen i et ritual (døper, døpte, har døpt)
+							<br /><strong>et håndskrift</strong> = tekst skrevet for hånd
+							<br /><strong>en skriver</strong> = en som skriver ned tekst
+							<br /><strong>en versjon</strong> = én måte å fortelle noe på
+							<br /><strong>å endre</strong> = å gjøre litt annerledes
+							<br /><strong>å tolke</strong> = å forstå på en bestemt måte
+							<br /><strong>en kontekst</strong> = tid/sted/situasjon rundt
+							<br /><strong>en moral</strong> = et “budskap” om rett og galt
+						</div>
+
+						<h3>Avslutning: hvorfor dette betyr noe for leseren</h3>
+						<p>
+							Når du leser norrøne myter, kan du lese med to tanker samtidig:
+							1) Historien er spennende.
+							2) Historien har gått gjennom tid.
+						</p>
+						<p>
+							I neste kapittel går vi inn i den store slutten:
+							Ragnarok.
+							Da blir spørsmål om endring, skjebne og håp ekstra tydelige.
+						</p>
+					</section>
+
+					<section id="kap9">
+						<h2>Kapittel 9: Ragnarok: slutt og ny begynnelse</h2>
+						<p>
+							Ragnarok er et av de mest kjente temaene i norrøn mytologi.
+							Det er historien om en stor krise.
+							Mange kaller det “verdens slutt”.
+							Men i mange fortellinger handler Ragnarok også om noe etterpå:
+							en ny begynnelse.
+						</p>
+						<p>
+							Dette kapittelet prøver å gjøre Ragnarok enkel å forstå.
+							Vi ser på tegnene, kampen, og hvorfor historien kan gi både frykt og håp.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om variasjoner i Ragnarok">
+							<strong>Viktig:</strong> Det finnes flere versjoner og detaljer.
+							Når myter blir fortalt og skrevet ned i ulike tider, kan små ting endre seg.
+							Her følger vi de vanligste trekkene, i enkel form.
+						</div>
+
+						<h3>Hva betyr “Ragnarok”?</h3>
+						<p>
+							Ordet “Ragnarok” blir ofte forklart som “gudenes skjebne” eller “gudenes undergang”.
+							Det peker mot en slutt på den gamle orden.
+							Ikke bare for mennesker, men også for gudene.
+						</p>
+						<p>
+							Det er en spesiell type slutt:
+							Ingen kan bare “gå bort” fra det.
+							Alle må møte det.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om undergang og skjebne">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “en undergang” = en stor slutt, noe går under.
+							Substantiv: “skjebne” = det som til slutt skjer.
+							Verb: “å gå under” (går under, gikk under, har gått under).
+						</div>
+
+						<h3>Tegn før Ragnarok</h3>
+						<p>
+							I mange fortellinger kommer Ragnarok ikke som en overraskelse.
+							Det kommer tegn først.
+							Tegnene kan være i naturen, og i menneskers liv.
+						</p>
+						<ul>
+							<li><strong>En lang, hard tid</strong>: kulde, sult, og uro.</li>
+							<li><strong>Brudd i fellesskapet</strong>: venner blir fiender, familier splittes.</li>
+							<li><strong>Gamle farer våkner</strong>: krefter som har vært bundet, blir friere.</li>
+						</ul>
+						<p>
+							Poenget er ikke at dette er “værmelding”.
+							Poenget er følelsen:
+							Verden blir utrygg.
+							Regler fungerer dårligere.
+							Og folk blir mer redde.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om uro">
+							<strong>Norsk-tips:</strong> “Uro” betyr at det ikke er ro.
+							Eksempel: “Det var uro i byen.”
+						</div>
+
+						<h3>Mytefortelling: Balders død (et tegn før Ragnarok)</h3>
+						<p>
+							I flere fortellinger starter følelsen av Ragnarok lenge før selve kampen.
+							En av de mest kjente historiene handler om <strong>Balder</strong>.
+							Han blir ofte beskrevet som lys og god.
+							Når noe skjer med Balder, føles det som et varsel.
+						</p>
+						<p>
+							Balder får vonde drømmer.
+							Gudene blir urolige.
+							Moren hans, <strong>Frigg</strong>, vil beskytte ham.
+							Hun går rundt og ber ting i verden om å love at de ikke skal skade Balder.
+							Stein lover.
+							Metall lover.
+							Ild lover.
+							Dyr lover.
+							Men en liten plante blir glemt:
+							<strong>misteltein</strong>.
+						</p>
+						<p>
+							Når alle tror Balder er trygg, blir det nesten en lek.
+							Gudene kaster ting mot ham.
+							Ingenting skader ham.
+							Alle ler.
+							Det føles som en seier.
+						</p>
+						<p>
+							Men Loki liker ikke denne tryggheten.
+							Han finner ut om mistelteinen.
+							Han lager et lite spyd eller en pil av planten.
+							Og han får en annen gud til å kaste den.
+							Da skjer det som ingen trodde var mulig:
+							Balder dør.
+						</p>
+						<p>
+							Etterpå prøver gudene å få Balder tilbake.
+							De sender en budbringer til <strong>Hel</strong>, riket til de døde.
+							Svaret er hardt:
+							Balder kan komme tilbake hvis alle gråter for ham.
+							Alle gråter.
+							Men én skikkelse sier nei.
+							Derfor blir Balder værende.
+							Dette er en liten detalj som får stor effekt.
+						</p>
+						<p>
+							Du kan lese Balders død som et tegn i historien.
+							Når selv den “trygge” guden kan dø, blir alt mer utrygt.
+							Da føles Ragnarok nærmere.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om drøm, løfte og misteltein">
+							<strong>Norsk-tips:</strong>
+							“En drøm” = noe du ser når du sover.
+							“Et løfte” = noe du sier at du skal holde.
+							“Å sørge” (sørger, sørget, har sørget) = å være trist etter tap.
+							“Misteltein” = en plante (i denne myten blir den farlig).
+						</div>
+
+						<h3>Hvem kjemper i Ragnarok?</h3>
+						<p>
+							Ragnarok blir ofte beskrevet som en stor kamp.
+							På den ene siden står gudene.
+							På den andre siden står sterke motkrefter:
+							uhyrer, kaos, og ødeleggende krefter.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om motkrefter">
+							<strong>Norsk-tips:</strong> “Motkrefter” betyr krefter som jobber imot deg.
+							Eksempel: “Frykt kan være en motkraft.”
+						</div>
+						<p>
+							Mange historier viser også <strong>par</strong> i kampen.
+							Altså: en gud møter en bestemt fiende.
+							Her er noen typiske eksempler (enkelt forklart):
+						</p>
+						<ul>
+							<li><strong>Odin</strong> møter ofte <strong>Fenrir</strong> (ulven).</li>
+							<li><strong>Tor</strong> møter ofte <strong>Midgardsormen</strong> (den store slangen).</li>
+							<li><strong>Heimdall</strong> møter ofte <strong>Loke</strong>.</li>
+						</ul>
+						<p>
+							I noen beskrivelser kommer også andre krefter inn.
+							Det snakkes om et skip laget av negler (<strong>Naglfar</strong>).
+							Og det snakkes om en ild-jotne som heter <strong>Surt</strong>.
+							Det er mange navn.
+							Du trenger ikke å huske alt.
+							Legg merke til følelsen:
+							Alt som var bundet, løsner.
+						</p>
+						<p>
+							Hvis du ikke husker alle navnene, er det helt greit.
+							Det viktigste er mønsteret:
+							En stor figur møter en stor fare.
+							Historien sier: “Dette er den største testen.”
+						</p>
+						<p>
+							Disse møtene er ikke bare “action”.
+							De kan også være symboler.
+							En ulv kan bety en fare som sluker.
+							En slange kan bety gift og frykt.
+							Og Loke kan stå for uro og brudd.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om symboler">
+							<strong>Viktig:</strong> Symboler betyr ikke bare én ting.
+							Du kan tolke dem på flere måter.
+							Prøv å spørre: “Hva føler jeg når jeg leser dette?”
+						</div>
+
+						<h3>Hvorfor kjemper gudene når de vet det er farlig?</h3>
+						<p>
+							Dette er et av de dypeste spørsmålene i Ragnarok.
+							I mange fortellinger vet gudene at kampen blir tung.
+							Likevel møter de den.
+						</p>
+						<p>
+							Det kan handle om ansvar.
+							Det kan handle om ære.
+							Og det kan handle om å beskytte andre, selv om det koster.
+							Ragnarok viser at mot ikke alltid betyr å vinne.
+							Mot kan også bety å stå fast.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å beskytte">
+							<strong>Norsk-tips:</strong>
+							Verb: “å beskytte” (beskytter, beskyttet, har beskyttet) = å holde noen trygg.
+							Verb: “å tørre” (tør, torde, har turt) = å våge.
+						</div>
+
+						<h3>Ny begynnelse: hva skjer etterpå?</h3>
+						<p>
+							I mange versjoner handler Ragnarok ikke bare om ødeleggelse.
+							Etter krisen kommer det ofte en roligere tid.
+							En ny verden kan stige fram.
+						</p>
+						<p>
+							Det kan være nyttig å se på dette som et mønster:
+							Noe gammelt bryter sammen.
+							Da kan noe nytt vokse.
+						</p>
+						<p>
+							Noen tekster sier også at noen overlever.
+							Noen guder blir igjen.
+							Og i noen versjoner overlever også to mennesker.
+							De blir ofte kalt <strong>Liv</strong> og <strong>Livtrasir</strong> (navn kan skrives litt ulikt).
+							De gjemmer seg og lever videre.
+							Slik viser myten at noe kan fortsette, selv etter stor ødeleggelse.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om å overleve og å gjemme seg">
+							<strong>Norsk-tips:</strong>
+							“Å overleve” (overlever, overlevde, har overlevd) = å leve videre etter fare.
+							“Å gjemme seg” (gjemmer seg, gjemte seg, har gjemt seg) = å skjule seg.
+						</div>
+						<p>
+							Det betyr ikke at lidelse er “bra”.
+							Det betyr bare at myter ofte prøver å gi mening til det som er vanskelig.
+							De prøver å si: “Selv etter mørke kan det komme lys.”
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon om håp">
+							<strong>Refleksjon:</strong>
+							Hva gir deg håp når noe er vanskelig?
+							Er det en person, en plan, eller en vane?
+						</div>
+
+						<h3>Myteglimt: etter stormen (eksempel)</h3>
+						<p>
+							Her er et lite bilde.
+							Det er laget for læring.
+						</p>
+						<p>
+							Tenk deg en lang natt.
+							Du hører bare vind.
+							Når morgenen kommer, ser du at mange ting er ødelagt.
+							Men du ser også noe annet:
+							Et lite grønt skudd i jorda.
+						</p>
+						<p>
+							Ragnarok kan leses slik.
+							Ikke som en “glad slutt”, men som et tegn på at livet går videre.
+						</p>
+
+						<div class="callout" role="note" aria-label="Spørsmål om Ragnarok">
+							<strong>Spørsmål:</strong>
+							Hva synes du er mest interessant i Ragnarok?
+							1) Tegnene før
+							2) Kampen
+							3) Tanken om ny begynnelse
+						</div>
+
+						<div class="callout" role="note" aria-label="Øvelse slutt og start">
+							<strong>Øvelse:</strong>
+							Skriv to korte setninger:
+							(1) “Noe tar slutt.”
+							(2) “Noe nytt begynner.”
+							Bruk et eksempel fra ditt eget liv (helt lite).
+							For eksempel: “Skolen slutter. Ferie begynner.”
+						</div>
+
+						<div class="callout" role="note" aria-label="Mini-ordliste kapittel 9">
+							<strong>Mini-ordliste:</strong>
+							<br /><strong>Ragnarok</strong> = stor krise, slutt og ny start i mytene
+							<br /><strong>en undergang</strong> = stor slutt, ødeleggelse
+							<br /><strong>å gå under</strong> = å bli ødelagt / forsvinne
+							<br /><strong>å overleve</strong> = å leve videre etter fare
+							<br /><strong>en fiende</strong> = en som er imot deg
+							<br /><strong>en kamp</strong> = slåssing / hard konflikt
+							<br /><strong>et tegn</strong> = et varsel / signal
+							<br /><strong>et håp</strong> = tro på at noe kan bli bedre
+							<br /><strong>å bryte sammen</strong> = å falle fra hverandre
+						</div>
+
+						<h3>Avslutning: slutt som lærer oss noe</h3>
+						<p>
+							Ragnarok kan leses som en spennende historie.
+							Men det kan også leses som et spørsmål:
+							Hva gjør vi når vi vet at noe blir vanskelig?
+							Gir vi opp?
+							Eller prøver vi likevel?
+						</p>
+						<p>
+							I neste kapittel går vi videre til etterlivet og betydningen i dag.
+							Da spør vi: Hva tar vi med oss fra mytene, inn i vår egen tid?
+						</p>
+					</section>
+
+					<section id="kap10">
+						<h2>Kapittel 10: Etterliv: hva mytene betyr i dag</h2>
+						<p>
+							Du har nå lest om guder, verdener, tegn, skjebne, ære, diktning og Ragnarok.
+							Men norrøn mytologi slutter ikke bare i gamle tekster.
+							Mytene lever videre.
+							De lever som historier, symboler, ord og ideer.
+						</p>
+						<p>
+							Dette kalles ofte <strong>etterliv</strong>.
+							Det betyr at noe fortsetter å påvirke oss, selv om det er gammelt.
+							I dette siste kapittelet ser vi på hvordan mytene kan bety noe i dag.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om hva myter er i dag">
+							<strong>Viktig:</strong> Myter er ikke en lærebok i naturvitenskap.
+							De er fortellinger.
+							Du kan lese dem som kultur og kunst.
+							Du kan også lese dem som historier om hvordan mennesker tenker og føler.
+							Og du kan bruke dem som en måte å snakke om livet på.
+						</div>
+
+						<h3>Mytene lever i språk</h3>
+						<p>
+							Noen ganger møter du mytene uten å tenke på det.
+							Du kan møte dem i ord, navn og uttrykk.
+							I Norden finnes det for eksempel ord som minner om gamle guder.
+							Et kjent eksempel er ukedagen <strong>torsdag</strong>, som ofte blir knyttet til Tor.
+						</p>
+						<p>
+							Når du lærer norsk, kan slike ord være en “bro” til historien.
+							Du lærer både språk og kultur samtidig.
+						</p>
+						<p>
+							Her er en enkel huskeliste med ukedager som ofte blir knyttet til norrøne navn:
+							Det er ikke alltid 100% sikkert i detaljene (spesielt for fredag),
+							men som huskeregel er det nyttig.
+						</p>
+						<div class="callout" role="note" aria-label="Ukedager og gamle navn (huskeliste)">
+							<strong>Huskeliste:</strong>
+							<br /><strong>tirsdag</strong> → Tyr (ofte forklart slik)
+							<br /><strong>onsdag</strong> → Odin (ofte forklart slik)
+							<br /><strong>torsdag</strong> → Tor
+							<br /><strong>fredag</strong> → Frigg eller Frøya (ulike forklaringer finnes)
+						</div>
+						<p>
+							Slike ord viser hvordan et gammelt navn kan leve videre, selv når tro og samfunn endrer seg.
+							Det er litt som et lite “spor” i språket.
+						</p>
+
+						<h3>Mytefortelling: Tyr og Fenrir (et løfte som koster)</h3>
+						<p>
+							Når du ser ordet <strong>tirsdag</strong>, kan du tenke på guden Tyr.
+							I en kjent myte møter vi også ulven <strong>Fenrir</strong>.
+							Fenrir vokser og blir farlig.
+							Gudene blir redde.
+						</p>
+						<p>
+							De prøver å binde ulven med lenker.
+							Men Fenrir river dem av.
+							Til slutt får de laget et spesielt bånd som ser tynt og uskyldig ut.
+							Fenrir mistenker et triks.
+							Han sier:
+							“Noen må legge hånden sin i munnen min som et tegn på at dette er trygt.”
+						</p>
+						<p>
+							Tyr gjør det.
+							Ulven blir bundet.
+							Og når Fenrir skjønner at han er lurt, biter han av hånden til Tyr.
+							Det er en hard myte.
+							Men den viser et klart tema:
+							Noen ganger må noen betale en pris for at andre skal være trygge.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om lenke og å binde">
+							<strong>Norsk-tips:</strong>
+							“En lenke” = en kjetting.
+							“Å binde” (binder, bandt, har bundet) = å gjøre noen fast.
+							“Å mistenke” (mistenker, mistenkte, har mistenkt) = å tro at noe er feil.
+						</div>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om etterliv">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “etterliv” = noe lever videre etterpå.
+							Eksempel: “Mytene har et etterliv i moderne bøker og språk.”
+						</div>
+
+						<h3>Mytene lever i kunst og medier</h3>
+						<p>
+							I dag finner du norrøne motiv mange steder.
+							Et motiv er et tema eller et bilde som går igjen.
+							I bøker, film, spill, musikk og kunst.
+							Noen bruker gudene som figurer i en ny historie.
+							Andre bruker bare stemningen: skog, kulde, runer, sverd, og store spørsmål.
+						</p>
+						<p>
+							Når en myte blir brukt i noe nytt, skjer ofte to ting:
+							Den gamle historien blir enklere.
+							Og den nye historien får mer drama.
+							Det er normalt.
+							Det er slik myter lever.
+						</p>
+
+						<div class="callout" role="note" aria-label="Viktig om moderne bruk">
+							<strong>Viktig:</strong> Moderne versjoner er ofte inspirert av myter, men de er ikke alltid like de gamle tekstene.
+							Det er helt greit, så lenge vi vet hva vi ser på.
+						</div>
+
+						<h3>Myter som speil: følelser og valg</h3>
+						<p>
+							Hvorfor liker mange mennesker myter?
+							En grunn kan være at de viser sterke følelser.
+							Sinne.
+							Sjalusi.
+							Kjærlighet.
+							Frykt.
+							Og mot.
+						</p>
+						<p>
+							Myter viser også vanskelige valg.
+							Noen må velge mellom lojalitet og sannhet.
+							Noen må velge mellom trygghet og ære.
+							Noen må velge mellom hevn og fred.
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon om speil">
+							<strong>Refleksjon:</strong>
+							Hvilken følelse kjenner du mest igjen i mytene?
+							Frykt, sinne, håp, eller noe annet?
+						</div>
+
+						<h3>Myter som verktøy: tre lesespørsmål</h3>
+						<p>
+							Hvis du vil lese myter på en enkel, rolig måte, kan du bruke tre spørsmål.
+							Disse spørsmålene passer både for språk og for forståelse.
+						</p>
+						<ul>
+							<li><strong>1) Hvem snakker?</strong> Er det en gud, en helt, en forteller eller en skriver?</li>
+							<li><strong>2) Hva er konflikten?</strong> Handler det om makt, frykt, ære, eller en misforståelse?</li>
+							<li><strong>3) Hva er symbolet?</strong> Er det et dyr, et tre, en gave, et tegn, eller en reise?</li>
+						</ul>
+						<p>
+							Når du svarer på disse, får du ofte en klarere idé om hva teksten gjør.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om symbol">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “et symbol” = noe som betyr mer enn seg selv.
+							Eksempel: “Ulven kan være et symbol på en fare.”
+						</div>
+
+						<h3>Myteglimt: en myte i en moderne dag (eksempel)</h3>
+						<p>
+							Her er en liten scene.
+							Den er laget for læring.
+						</p>
+						<p>
+							En person står i kø.
+							Han får en melding.
+							Noen har skrevet noe stygt om ham.
+							Han kjenner varme i kroppen.
+							Han vil svare med en gang.
+						</p>
+						<p>
+							Da kan han tenke som i en myte:
+							“Dette er en test.”
+							Han kan velge ord som skaper mer konflikt.
+							Eller han kan velge ord som roer ned.
+						</p>
+						<p>
+							Myter kan minne oss på at ord har kraft.
+							Som vi så i kapittel 7.
+						</p>
+
+						<div class="callout" role="note" aria-label="Spørsmål om myter i dag">
+							<strong>Spørsmål:</strong>
+							Har du noen gang stoppet deg selv og valgt en roligere reaksjon?
+							Hva hjalp deg?
+						</div>
+
+						<h3>Øvelse: din egen mini-myte (5 setninger)</h3>
+						<p>
+							Nå lager du en mini-myte.
+							Den kan være morsom eller alvorlig.
+							Du trenger bare fem setninger.
+						</p>
+						<ul>
+							<li><strong>1)</strong> En person vil noe (et mål).</li>
+							<li><strong>2)</strong> Et tegn eller et problem kommer.</li>
+							<li><strong>3)</strong> Personen får et valg.</li>
+							<li><strong>4)</strong> Personen handler (modig eller dumt).</li>
+							<li><strong>5)</strong> En liten lærdom kommer til slutt.</li>
+						</ul>
+						<p>
+							Tips: Bruk minst tre ord fra mini-ordlistene i boka.
+							For eksempel: <em>et tegn</em>, <em>en gave</em>, <em>ære</em>, <em>et uhyre</em>, <em>skjebne</em>.
+						</p>
+
+						<div class="callout" role="note" aria-label="Norsk-tips om mål">
+							<strong>Norsk-tips:</strong>
+							Substantiv: “et mål” = noe du vil oppnå.
+							Verb: “å oppnå” (oppnår, oppnådde, har oppnådd) = å klare å få til.
+						</div>
+
+						<h3>Hva kan du ta med deg videre?</h3>
+						<p>
+							Kanskje du tar med deg noen figurer.
+							Kanskje du tar med deg noen temaer:
+							skjebne og valg, ord og ære, konflikt og håp.
+						</p>
+						<p>
+							Eller kanskje du bare tar med deg språk:
+							Du kan flere nye ord.
+							Du kan lese lengre tekster.
+							Og du kan tenke på en historie på norsk.
+						</p>
+
+						<div class="callout" role="note" aria-label="Refleksjon om læring">
+							<strong>Refleksjon:</strong>
+							Hva var lett i denne boka?
+							Hva var vanskelig?
+							Hvis du vil, kan du lese ett kapittel på nytt og merke nye ord.
+						</div>
+
+						<div class="callout" role="note" aria-label="Mini-ordliste kapittel 10">
+							<strong>Mini-ordliste:</strong>
+							<br /><strong>etterliv</strong> = at noe lever videre
+							<br /><strong>en arv</strong> = noe vi får fra fortiden
+							<br /><strong>et motiv</strong> = et tema eller bilde som går igjen
+							<br /><strong>et symbol</strong> = noe som betyr mer enn seg selv
+							<br /><strong>å påvirke</strong> = å endre litt
+							<br /><strong>å tolke</strong> = å forstå på en bestemt måte
+							<br /><strong>en reaksjon</strong> = hva du gjør når noe skjer
+							<br /><strong>et mål</strong> = noe du vil oppnå
+							<br /><strong>en lærdom</strong> = noe du lærer
+						</div>
+
+						<h3>Avslutning: takk for reisen</h3>
+						<p>
+							Norrøn mytologi kan være mørk, rar og vakker.
+							Den kan skremme og inspirere.
+							Og den kan gi deg et språk for store ting:
+							frykt, kjærlighet, tap og håp.
+						</p>
+						<p>
+							Hvis du vil gå videre, kan du bruke referanselista til å finne mer å lese.
+							Men du kan også bare fortsette å lese myter på din egen måte.
+							Litt om gangen.
+						</p>
+					</section>
+
+					<section id="refs" aria-label="Referanser">
+						<h2>Referanser</h2>
+						<ol>
+							<li id="ref-1"><strong>Den eldre Edda</strong> (Poetisk Edda): norrøne dikt nedskrevet i middelalderen, ofte knyttet til håndskriftet <em>Codex Regius</em> (GKS 2365 4to).</li>
+							<li id="ref-2"><strong>Snorre Sturlason:</strong> <em>Edda</em> (Den yngre Edda / Prosa-Edda), skrevet i middelalderen.</li>
+							<li id="ref-3"><strong>Stefan Brink og Neil Price (red.):</strong> <em>The Viking World</em> (oversiktsverk om vikingtid: arkeologi, historie, kultur).</li>
+							<li id="ref-4"><strong>John Lindow:</strong> <em>Norse Mythology: A Guide to Gods, Heroes, Rituals, and Beliefs</em> (moderne oversiktsbok).</li>
+							<li id="ref-5"><strong>Carolyne Larrington (overs.):</strong> <em>The Poetic Edda</em> (engelsk oversettelse med introduksjoner og noter).</li>
+							<li id="ref-6"><strong>Jesse L. Byock (overs.):</strong> <em>The Prose Edda</em> (engelsk oversettelse av Snorres Edda med forklaringer).</li>
+							<li id="ref-7"><strong>Anders Winroth:</strong> <em>The Age of the Vikings</em> (moderne introduksjon til vikingtidens samfunn og historie).</li>
+							<li id="ref-8"><strong>Else Roesdahl:</strong> <em>The Vikings</em> (klassisk oversikt over vikingtidens kultur og samfunn).</li>
+							<li id="ref-9"><strong>Rudolf Simek:</strong> <em>Dictionary of Northern Mythology</em> (oppslagsverk med begreper og navn).</li>
+							<li id="ref-10"><strong>Margaret Clunies Ross:</strong> <em>Prolonged Echoes</em> (studie av norrøn mytologi og etterklang i skrifttradisjon).</li>
+							<li id="ref-11"><strong>Neil Price:</strong> <em>Children of Ash and Elm: A History of the Vikings</em> (moderne oversikt over vikingtidens historie og samfunn).</li>
+							<li id="ref-12"><strong>H. R. Ellis Davidson:</strong> <em>Gods and Myths of Northern Europe</em> (klassisk introduksjon til myter og guder).</li>
+							<li id="ref-13"><strong>Snorre Sturlason:</strong> <em>Heimskringla</em> (kongesagaer; har også mytiske innslag, særlig i starten av <em>Ynglinga saga</em>).</li>
+							<li id="ref-14"><strong>Völsunga saga</strong> (heltesaga fra middelalderen; kjent for fortellingen om Sigurd og dragen Fåvne/Fafnir).</li>
+						</ol>
+					</section>
+				</article>
+			</div>
+		</main>
+
+		<footer>
+			<div>
+				Bygget som én enkel HTML-fil (ingen eksterne bibliotek).
+				<br />© Nima Zahiri (Halbmåne).
+			</div>
+		</footer>
+
+		<script>
+			(function () {
+				const root = document.documentElement;
+				const themeBtn = document.getElementById('themeBtn');
+				const printBtn = document.getElementById('printBtn');
+				const font = document.getElementById('font');
+				const topbar = document.querySelector('.topbar');
+				const book = document.querySelector('article.book');
+				const bookSections = book ? Array.from(book.querySelectorAll(':scope > section')) : [];
+
+				function getInitialTheme() {
+					const saved = localStorage.getItem('myt.theme');
+					if (saved === 'light' || saved === 'dark') return saved;
+					const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+					return prefersDark ? 'dark' : 'light';
+				}
+
+				function setTheme(theme) {
+					root.setAttribute('data-theme', theme);
+					localStorage.setItem('myt.theme', theme);
+					themeBtn.textContent = theme === 'dark' ? 'Tema: mørk' : 'Tema: lys';
+					themeBtn.setAttribute('aria-label', 'Bytt tema (nå: ' + theme + ')');
+				}
+
+				function setFontScale(scale) {
+					const clamped = Math.min(1.2, Math.max(0.9, scale));
+					root.style.setProperty('--fontScale', String(clamped));
+					localStorage.setItem('myt.fontScale', String(clamped));
+				}
+
+				function updateScrollPad() {
+					// Add a small buffer so headings are fully visible.
+					const h = topbar ? topbar.getBoundingClientRect().height : 74;
+					root.style.setProperty('--scrollPad', Math.ceil(h + 14) + 'px');
+				}
+
+				function showOnlySection(sectionToShow) {
+					if (!bookSections.length) return;
+					for (const section of bookSections) {
+						section.setAttribute('data-hidden', section !== sectionToShow ? 'true' : 'false');
+					}
+				}
+
+				function resolveSectionFromHash() {
+					if (!book) return null;
+					const hash = (location.hash || '').replace('#', '');
+					if (!hash) return book.querySelector('#intro') || bookSections[0] || null;
+
+					const target = document.getElementById(hash);
+					if (!target) {
+						// Unknown hash: fall back safely
+						return book.querySelector('#intro') || bookSections[0] || null;
+					}
+
+					// If the target itself is a top-level section, show it.
+					if (target.tagName === 'SECTION' && target.parentElement === book) return target;
+
+					// Otherwise (e.g. footnotes), show the containing top-level section.
+					const containing = target.closest('article.book > section');
+					return containing || (book.querySelector('#intro') || bookSections[0] || null);
+				}
+
+				function applyChapterView() {
+					const section = resolveSectionFromHash();
+					if (!section) return;
+					showOnlySection(section);
+
+					// If the hash points to an element inside the shown section, scroll to it.
+					const hash = (location.hash || '').replace('#', '');
+					if (!hash) return;
+					const target = document.getElementById(hash);
+					if (!target) return;
+					requestAnimationFrame(() => {
+						try {
+							target.scrollIntoView({ block: 'start', behavior: 'smooth' });
+						} catch {
+							// Ignore scroll errors
+						}
+					});
+				}
+
+				// Init
+				updateScrollPad();
+				setTheme(getInitialTheme());
+				const savedScale = Number(localStorage.getItem('myt.fontScale'));
+				if (!Number.isNaN(savedScale) && savedScale >= 0.9 && savedScale <= 1.2) {
+					font.value = String(savedScale);
+					setFontScale(savedScale);
+				} else {
+					setFontScale(Number(font.value));
+				}
+				applyChapterView();
+
+				themeBtn.addEventListener('click', () => {
+					const current = root.getAttribute('data-theme') || 'light';
+					setTheme(current === 'dark' ? 'light' : 'dark');
+				});
+				printBtn.addEventListener('click', () => window.print());
+				font.addEventListener('input', () => setFontScale(Number(font.value)));
+				window.addEventListener('hashchange', applyChapterView);
+				window.addEventListener('resize', updateScrollPad);
+			})();
+		</script>
+	</body>
+</html>
