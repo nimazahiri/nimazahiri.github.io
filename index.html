@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Nima Zahiri – CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sivilingeniør, ph.d. i trekonstruksjon">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <meta name="description" content="Byggingeniør, ph.d. i trekonstruksjon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <style>
     .job, .section#utdanning .job {
       transition: background 0.25s, box-shadow 0.25s, transform 0.18s;
@@ -14,12 +14,12 @@
       box-shadow: none;
     }
     .job:hover, .section#utdanning .job:hover {
-      background: rgba(59,130,246,0.08);
+      background: rgba(96,165,250,0.08);
       box-shadow: 0 6px 20px rgba(0,0,0,0.18);
       transform: translateY(-2px) scale(1.01);
     }
     .publikasjon { margin-bottom: 10px; margin-top: 0; transition: background 0.25s, box-shadow 0.25s, transform 0.18s; background: #0b1220; will-change: transform, box-shadow, background; padding: 18px 22px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: block; border: 1px solid #1f2937; }
-    .publikasjon:hover { background: rgba(59,130,246,0.08); box-shadow: 0 8px 28px rgba(2,6,23,0.35); transform: translateY(-2px) scale(1.01); }
+    .publikasjon:hover { background: rgba(96,165,250,0.08); box-shadow: 0 8px 28px rgba(2,6,23,0.35); transform: translateY(-2px) scale(1.01); }
     .edu-tight {
       margin-top: 0;
       margin-bottom: 0;
@@ -34,7 +34,9 @@
     }
     :root {
       --max: 1200px;
-      --accent: #3b82f6;
+      --accent: #7dd3fc;
+      --accent-rgb: 125, 211, 252;
+      --accent-glow: rgba(125,211,252,0.4);
       --accent-bg: #0b1220;
       --section-bg: #0f172a;
     }
@@ -42,13 +44,14 @@
     * { box-sizing: border-box; }
     body {
       margin: 0;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-weight: 300;
       line-height: 1.7;
       color: #e5e7eb;
       background: var(--accent-bg);
       min-height: 100vh;
     }
+    strong, b { font-weight: 800; }
     header {
       width: 100%;
       display: block;
@@ -124,8 +127,8 @@
   justify-content: flex-end;
   margin-bottom: 16px;
     }
-    a { color: #93c5fd; text-decoration: none; border-bottom: 1px solid #60a5fa33; transition: color 0.2s, border-color 0.2s; }
-    a:hover { color: #bfdbfe; border-color: #60a5fa; }
+    a { color: #bfdbfe; text-decoration: none; border-bottom: 1px solid rgba(var(--accent-rgb),0.35); transition: color 0.2s, border-color 0.2s, text-shadow 0.2s; }
+    a:hover { color: #e0f2fe; border-color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
     .hero {
       padding: 32px 0 16px 0;
       border-bottom: none;
@@ -161,9 +164,10 @@
       font-size: 1.15em;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 800;
       background: none;
       border: none;
+      text-shadow: 0 0 18px var(--accent-glow);
     }
     ul {
       padding-left: 18px;
@@ -174,7 +178,7 @@
       margin: 0 0 8px;
       font-size: 18px;
     }
-    .tag { display: inline-block; font-size: 12px; padding: 4px 10px; border: 1px solid #1f2937; border-radius: 999px; margin-right: 6px; background: rgba(59,130,246,0.12); color: #93c5fd; }
+    .tag { display: inline-block; font-size: 12px; padding: 4px 10px; border: 1px solid #1f2937; border-radius: 999px; margin-right: 6px; background: rgba(96,165,250,0.12); color: #bfdbfe; }
     .muted { color: #9ca3af; margin-top: 0; margin-bottom: 0; }
     .job .muted + .muted + .muted + p {
       margin-top: 0.7em;
@@ -198,7 +202,7 @@
       gap: 8px 16px;
     }
     .kvp div.label { color: #9ca3af; }
-    .job h3 { margin: 0 0 2px 0; font-size: 1em; font-weight: 500; color: #e5e7eb; }
+    .job h3 { margin: 0 0 2px 0; font-size: 1em; font-weight: 800; color: #e5e7eb; }
     .job {
   margin-bottom: 16px;
   background: none;
@@ -225,24 +229,82 @@
     .lang-bar nav { margin-bottom: 0; }
     .lang-bar .menu { flex: 1 1 auto; display: flex; gap: 6px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; justify-content: flex-start; border-bottom: 0 !important; margin-bottom: 0; }
     .lang-bar .menu::-webkit-scrollbar { display: none; }
-    .lang-bar .lang-controls { flex: 0 0 auto; display: flex; gap: 4px; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.35); padding: 4px; border-radius: 999px; }
+    .lang-bar .lang-controls { flex: 0 0 auto; display: flex; gap: 4px; background: rgba(var(--accent-rgb),0.12); border: 1px solid rgba(var(--accent-rgb),0.35); padding: 4px; border-radius: 999px; }
     .lang-bar .lang-controls button { border: 1px solid transparent; background: transparent; color: #e5e7eb; padding: 6px 12px; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s; }
     .lang-bar .lang-controls a.home-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 999px; color: #e5e7eb; border: 1px solid transparent; background: transparent; transition: background 0.2s, color 0.2s; }
-    .lang-bar .lang-controls a.home-btn:hover { background: rgba(255,255,255,0.06); color: #93c5fd; }
+    .lang-bar .lang-controls a.home-btn:hover { background: rgba(255,255,255,0.06); color: #bfdbfe; }
     html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 17px; }
     .lang-bar .lang-controls button:hover { background: rgba(255,255,255,0.06); }
-    .lang-bar .lang-controls button[aria-pressed="true"] { background: #3b82f6; color: #fff; border-color: #3b82f6; }
+    .lang-bar .lang-controls button[aria-pressed="true"] { background: #2563eb; color: #fff; border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
     .lang-bar .menu a { padding: 8px 12px; border-bottom: none !important; border-radius: 999px; color: #e5e7eb; transition: background 0.2s, color 0.2s; }
-    .lang-bar .menu a:hover { background: rgba(255,255,255,0.06); color: #93c5fd; }
-    .lang-bar .menu a.active { background: #1d4ed8; color: #fff; }
-    .lang-bar .menu a:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+    .lang-bar .menu a:hover { background: rgba(255,255,255,0.06); color: #bfdbfe; }
+    .lang-bar .menu a.active { background: #1d4ed8; color: #fff; box-shadow: 0 0 12px var(--accent-glow); }
+    .lang-bar .menu a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .hidden { display: none !important; }
+    .language-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 1001;
+      display: grid;
+      place-items: center;
+      padding: 32px 24px;
+      background: #0b1220;
+      color: #f8fafc;
+    }
+    .language-gate[hidden] { display: none; }
+    .language-gate__content {
+      width: min(100%, 560px);
+      padding: 40px 24px;
+      border-top: 4px solid var(--accent);
+      text-align: center;
+    }
+    .language-gate h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .language-gate__prompt { margin: 16px 0 32px; color: #cbd5e1; }
+    .language-gate__choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .language-gate__choices button {
+      min-height: 68px;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      background: #111827;
+      color: #f8fafc;
+      font: inherit;
+      font-weight: 400;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .language-gate__choices button:hover {
+      border-color: var(--accent);
+      background: #172554;
+    }
+    .language-gate__choices button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
     /* Offset anchors so sticky bar doesn't cover headings */
     .section { scroll-margin-top: 92px; }
     html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
+  <section class="language-gate" id="language-gate" role="dialog" aria-modal="true" aria-labelledby="language-gate-title">
+    <div class="language-gate__content">
+      <h1 id="language-gate-title">NIMA ZAHIRI CV</h1>
+      <p class="language-gate__prompt">Choose a language</p>
+      <div class="language-gate__choices" role="group" aria-label="Choose a language">
+        <button type="button" data-gate-lang="de" autofocus>Deutsch</button>
+        <button type="button" data-gate-lang="no">Norsk</button>
+      </div>
+    </div>
+  </section>
   <div class="lang-bar wrap" role="navigation" aria-label="Top navigation">
     <nav class="menu menu-no">
       <a href="#sammendrag">Sammendrag</a>
@@ -250,7 +312,7 @@
       <a href="#arbeidserfaring">Arbeidserfaring</a>
       <a href="#utdanning">Utdanning</a>
       <a href="#programvare">Programvare</a>
-      <a href="#sprak">Språk</a>
+      <a href="#sprak">Språkferdigheter</a>
       <a href="#publikasjoner">Publikasjoner</a>
       <a href="#referanser">Referanser</a>
     </nav>
@@ -265,7 +327,7 @@
       <a href="#referanser-de">Referenzen</a>
     </nav>
     <div class="lang-controls" role="group" aria-label="Language toggle">
-      <button type="button" data-lang="no" aria-pressed="true">NO</button>
+      <button type="button" data-lang="no" aria-pressed="false">NO</button>
       <button type="button" data-lang="de" aria-pressed="false">DE</button>
       <a class="home-btn" href="#" aria-label="Home" title="Home" onclick="event.preventDefault();history.replaceState(null,'',location.pathname+location.search);window.scrollTo({top:0,behavior:'smooth'});">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -288,7 +350,7 @@
       <img class="avatar" src="https://nimazahiri.github.io/assets/profile.jpg" alt="Nima Zahiri" width="160" height="160" loading="lazy" onerror="this.onerror=null;this.src='https://github.com/nimazahiri.png';" />
       <div class="titles">
         <h1>Nima Zahiri</h1>
-        <h1>Sivilingeniør, ph.d. i trekonstruksjon</h1>
+        <h1>Byggingeniør, ph.d. i trekonstruksjoner</h1>
       </div>
     </section>
   </header>
@@ -296,7 +358,7 @@
     <nav>
       <div class="inline-list">
         <span><a href="mailto:zahiri.nima@gmail.com">zahiri.nima@gmail.com</a></span>
-        <span><a href="tel:+4745915627">01735610043</a></span>
+        <span><a href="tel:01605008534">01605008534</a></span>
         <span><a href="https://linkedin.com/in/nimazahiri">LinkedIn</a></span>
         <span><a href="https://nimazahiri.github.io/Portfolio_eng.pdf">Portfolio</a></span>
       </div>
@@ -305,7 +367,7 @@
       <img class="avatar" src="https://nimazahiri.github.io/assets/profile.jpg" alt="Nima Zahiri" width="160" height="160" loading="lazy" onerror="this.onerror=null;this.src='https://github.com/nimazahiri.png';" />
       <div class="titles">
         <h1>Nima Zahiri</h1>
-        <h1>Dipl.-Ing., Ph.D. Timber Construction</h1>
+        <h1>Dipl.-Ing., Ph.D. Holzbau</h1>
       </div>
     </section>
   </header>
@@ -326,7 +388,7 @@
 -->
     <section id="sammendrag" class="section">
   <h2>Sammendrag</h2>
-  <p>Jeg er konstruktør og prosjektingeniør innen rådgivende ingeniør bygg (RIB) med spesialisering i trekonstruksjon, basert i Tyskland og tilgjengelig for samarbeid i Norge. Jeg har en doktorgrad i trekonstruksjon samt flere års internasjonal erfaring fra prosjektering og forskning i tverrfaglige miljøer. Min ekspertise ligger særlig innen computational design, integrerte teknologier og digital fabrikasjon, drevet av stor lidenskap for bærekraftige og innovative løsninger.</p>
+  <p>Jeg har en doktorgrad i ingeniørvitenskap med spesialisering i trekonstruksjon samt flere års internasjonal erfaring fra prosjektering og forskning i tverrfaglige miljøer. For tiden jobber jeg i Tyskland og er tilgjengelig for arbeid i Norge. Min ekspertise ligger særlig innen computational modellering, digitale byggprosesser og automatisert produksjon av trekonstruksjoner, med stor interesse for bærekraftige og innovative løsninger.</p>
     </section>
 
     <section id="kvalifikasjoner" class="section">
@@ -337,7 +399,7 @@
         <li><strong>Avansert teknologisk portefølje</strong> innen computational design og digital fabrikasjon</li>
         <li><strong>Bred programvarekunnskap</strong> fra BIM-prosjektering til programmering</li>
         <li><strong>Solid industriell produksjonskompetanse</strong> i trekonstruksjon</li>
-        <li><strong>Praktiske flerspråklige ferdigheter</strong> med gode kommunikasjonsevner</li>
+        <li><strong>Gode språkferdigheter</strong> med sterk kommunikasjonsevne</li>
       </ul>
     </section>
 
@@ -345,7 +407,7 @@
       <h2>Arbeidserfaring</h2>
 
       <div class="job">
-        <h3>Konstruktør (tre) – timpla GmbH, Eberswalde‑Berlin, Tyskland <span class="muted">(2023–d.d.)</span></h3>
+        <h3>Digitaliseringsingeniør (trebygg) – timpla GmbH, Eberswalde‑Berlin, Tyskland <span class="muted">(2023–d.d.)</span></h3>
         <ul>
           <li>Prosjektering av modulære trekonstruksjoner i cadwork (tidligere i SEMA)</li>
           <li>Utvikling av tilpassede cadwork‑plugins i Python for automatiserte prosesser</li>
@@ -380,19 +442,19 @@
     <section id="utdanning" class="section">
       <h2>Utdanning</h2>
       <div class="job">
-  <h3>Doktorgrad i trekonstruksjon – computational design og automatisert produksjon <span class="muted">(2020–2023)</span></h3>
-  <p class="edu-tight">Norges teknisk-naturvitenskapelige universitet (NTNU), Gjøvik, Norge </p>
-  <p class="edu-gap">Doktorgradsavhandling i samarbeid med Østlaft, Innlandet Treindustri: <em>Morphology of timber high-rises in the context of computational design, automated production, and augmented construction</em></p>
+      <h3>Doktorgrad i ingeniørvitenskap – byggteknikk av trekonstruksjoner</h3>
+      <p class="edu-tight">NTNU, Gjøvik, Norge (2020–2023)</p>
+      <p class="edu-gap">Avhandling i samarbeid med Østlaft og Innlandet Treindustri AS: <em>Morphology of timber high-rises in the context of computational design, automated production, and augmented construction</em></p>
       </div>
       <div class="job">
-  <h3>Master i ITECH – Integrative Technologies and Architectural Design Research <span class="muted">(2017–2019)</span></h3>
-  <p class="edu-tight">University of Stuttgart, Tyskland</p>
-  <p class="edu-gap">Masteroppgave i samarbeid med Fraunhofer Institute for Manufacturing Engineering and Automation (IPA): <em>Electroactive skin – towards bio-inspired soft responsive envelopes</em></p>
+      <h3>Mastergrad i ITECH – integrative technologies and architectural design research</h3>
+  <p class="edu-tight">University of Stuttgart, Tyskland (2017–2019)</p>
+      <p class="edu-gap">Masteroppgave i samarbeid med Fraunhofer Institute for Manufacturing Engineering and Automation (IPA): <em>Electroactive skin – towards bio-inspired soft responsive envelopes</em></p>
       </div>
       <div class="job">
-  <h3>Bachelor i ingeniørfag – byggteknikk og konstruksjon <span class="muted">(2006–2011)</span></h3>
-  <p class="edu-tight">Razi University, Kermanshah, Iran</p>
-  <p class="edu-gap">Bacheloroppgave: <em>Analysis of load-bearing capacity and optimization of steel truss systems</em></p>
+      <h3>Bachelorgrad i ingeniørfag – konstruksjonsteknikk</h3>
+  <p class="edu-tight">Razi University, Kermanshah, Iran (2006–2011)</p>
+      <p class="edu-gap">Bacheloroppgave: <em>Analysis of load-bearing capacity and optimization of steel truss systems</em></p>
       </div>
     </section>
 
@@ -401,7 +463,7 @@
       <ul>
         <li><strong>Parametrisk design:</strong> Rhino3D, Grasshopper (ekspert, underviser)</li>
         <li><strong>Programmering:</strong> Python (avansert, utvikler), C# (grunnleggende)</li>
-        <li><strong>Bygningsinformasjonsmodellering:</strong> Revit (avansert, sertifisert)</li>
+        <li><strong>BIM-modellering:</strong> Revit (avansert, sertifisert)</li>
         <li><strong>FEM‑analyse:</strong> Karamba3D (ekspert), Fusion (erfaren)</li>
         <li><strong>Trekonstruksjon:</strong> cadwork (ekspert, sertifisert), SEMA (ekspert, sertifisert)</li>
         <li><strong>Trebearbeiding:</strong> Hundegger Cambium (erfaren)</li>
@@ -412,14 +474,14 @@
       <h2>Språkferdigheter</h2>
       <ul>
         <li><strong>Persisk</strong> – morsmål</li>
-        <li><strong>Engelsk</strong> – flytende på akademisk nivå</li>
-        <li><strong>Tysk</strong> – avansert i arbeidssammenheng</li>
-        <li><strong>Norsk</strong> – selvstendig i kommunikasjon</li>
+        <li><strong>Engelsk</strong> – flytende på akademisk nivå (C2)</li>
+        <li><strong>Tysk</strong> – avansert i arbeidssammenheng (C1)</li>
+        <li><strong>Norsk</strong> – selvstendig i dagligtale (B2)</li>
       </ul>
     </section>
 
     <section id="publikasjoner" class="section">
-      <h2>Publikasjoner</h2>
+      <h2>PUBLIKASJONER</h2>
       <div>
         <a class="publikasjon" href="https://www.ingentaconnect.com/content/iass/jiass/2024/00000065/00000004/art00007;jsessionid=13hn1959ns8bm.x-ic-live-03" target="_blank" style="text-decoration:none;color:inherit;display:block;">
           <div style="font-size:1em;font-weight:400;line-height:1.2;">Sequential Augmented Assembly of Interlocking Timber Elements for Circular Wood Construction</div>
@@ -480,18 +542,18 @@
   <main id="cv-de" lang="de" class="wrap hidden">
     <section id="sammendrag-de" class="section">
       <h2>Zusammenfassung</h2>
-      <p>Ich bin Tragwerksplaner und Holzbaukonstrukteur. Ich verfüge über mehrere Jahre internationale Erfahrung in Planung und Forschung in interdisziplinären Umgebungen. Meine Expertise liegt insbesondere in computergestützter Modellierung, integrierten Gebäudetechnologien sowie der automatisierten und industriellen Fertigung im Holzbau. Ich habe ein starkes Interesse an nachhaltigen, technologisch orientierten und innovativen Konstruktionslösungen.</p>
+      <p>Ich bin promovierter Bauingenieur im Bereich Holzbau und habe mehrere Jahre Erfahrung in Planung und Forschung in interdisziplinären Umgebungen. Meine Expertise liegt insbesondere in computergestützter Modellierung, integrierten Planungsprozessen sowie der automatisierten und industriellen Fertigung im Holzbau. Ich habe ein starkes Interesse an nachhaltigen, digitalen und innovativen Konstruktionslösungen.</p>
     </section>
 
     <section id="kvalifikasjoner-de" class="section">
       <h2>Qualifikationen</h2>
       <ul>
-        <li>Mehrjährige internationale Erfahrung in Planung und Forschung</li>
-        <li>Akademische Ausbildung auf hohem Niveau an renommierten Universitäten</li>
-        <li>Technisch-fachliches Portfolio in technologie- und holzbasierten Projekten</li>
-        <li>Breite Softwarekenntnisse von BIM-Planung bis Programmierung</li>
-        <li>Solide industrielle Fertigungskompetenz in der Holzbaukonstruktion</li>
-        <li>Mehrsprachige Praxiserfahrung mit guter Kommunikationsfähigkeit</li>
+        <li><strong>Mehrjährige internationale Erfahrung</strong> in Planung und Forschung</li>
+        <li><strong>Akademische Ausbildung</strong> auf hohem Niveau an renommierten Universitäten</li>
+        <li><strong>Technisch-fachliches Portfolio</strong> mit technologie- und holzbasierten Projekten</li>
+        <li><strong>Breite Softwarekenntnisse</strong> von BIM-Planung bis Programmierung</li>
+        <li><strong>Fundierte industrielle Fertigungskompetenz</strong> in der Holzbaukonstruktion</li>
+        <li><strong>Gute Kommunikationsfähigkeit</strong> in mehreren Sprachen</li>
       </ul>
     </section>
 
@@ -517,8 +579,8 @@
       <div class="job">
         <h3>Wissenschaftlicher Mitarbeiter (HiWi) – Universität Stuttgart, Deutschland <span class="muted">(2017–2019)</span></h3>
         <ul>
-          <li>Forschungsunterstützung in Promotionsprojekten mit Simulation und Fertigung</li>
-          <li>Aufgaben in Forschung und Lehre des Instituts</li>
+          <li>Unterstützung von Promotionsprojekten in den Bereichen Simulation und Fertigung</li>
+          <li>Mitarbeit in Forschung und Lehre am Institut</li>
         </ul>
       </div>
 
@@ -534,14 +596,14 @@
     <section id="utdanning-de" class="section">
       <h2>Ausbildung</h2>
       <div class="job">
-        <h3>Ph.D. Timber Construction – Computational Design and Automated Production</h3>
+        <h3>Ph.D. Ingenieurwissenschaft – Bautechnik und Holzbaukonstruktionen</h3>
         <p class="edu-tight">Norwegian University of Science and Technology (NTNU), Gjøvik, Norwegen (2020–2023)</p>
         <p class="edu-gap">Dissertation in Industriekooperation mit Innlandet Treindustri: <em>Morphology of timber high-rises in the context of computational design, automated production, and augmented construction</em></p>
       </div>
       <div class="job">
         <h3>M.Sc. ITECH – Integrative Technologies and Architectural Design Research</h3>
         <p class="edu-tight">Universität Stuttgart, Deutschland (2017–2019)</p>
-        <p class="edu-gap">Masterarbeit in Zusammenarbeit mit Fraunhofer-Institut für Produktionstechnik und Automatisierung (IPA): <em>Electroactive skin – towards bio-inspired soft responsive envelopes</em></p>
+        <p class="edu-gap">Masterarbeit in Zusammenarbeit mit dem Fraunhofer-Institut für Produktionstechnik und Automatisierung (IPA): <em>Electroactive skin – towards bio-inspired soft responsive envelopes</em></p>
       </div>
       <div class="job">
         <h3>B.Sc. Bauingenieurwesen – Konstruktiver Ingenieurbau</h3>
@@ -565,15 +627,16 @@
     <section id="sprak-de" class="section">
       <h2>Sprachkenntnisse</h2>
       <ul>
-        <li>Persisch – Muttersprache</li>
-        <li>Englisch – fließend auf akademischem Niveau</li>
-        <li>Deutsch – fortgeschritten im beruflichen Kontext</li>
-        <li>Norwegisch – selbstständig in der Kommunikation</li>
+        <li><strong>Persisch</strong> – Muttersprache</li>
+        <li><strong>Englisch</strong> – fließend auf akademischem Niveau</li>
+        <li><strong>Deutsch</strong> – fortgeschritten im beruflichen Kontext</li>
+        <li><strong>Norwegisch</strong> – selbstständig in Alltagsgesprächen</li>
       </ul>
     </section>
 
     <section id="publikasjoner-de" class="section">
-      <h2>Publikationen</h2>
+      <h2>PUBLIKATIONEN</h2>
+      <p>Ausgewählte Publikationen. Vollständige Liste auf <a href="https://scholar.google.com/citations?user=kCWqL-MAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
       <div>
         <a class="publikasjon" href="https://www.ingentaconnect.com/content/iass/jiass/2024/00000065/00000004/art00007;jsessionid=13hn1959ns8bm.x-ic-live-03" target="_blank" style="text-decoration:none;color:inherit;display:block;">
           <div style="font-size:1em;font-weight:400;line-height:1.2;">Sequential Augmented Assembly of Interlocking Timber Elements for Circular Wood Construction</div>
@@ -600,7 +663,6 @@
           <div>MDPI Buildings 7(1), 2016: 4.</div>
         </a>
       </div>
-      <p>Vollständige Liste auf <a href="https://scholar.google.com/citations?user=kCWqL-MAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
     </section>
 
     <section id="referanser-de" class="section">
@@ -642,6 +704,8 @@
       const noMenu = document.querySelector('.lang-bar .menu-no');
       const deMenu = document.querySelector('.lang-bar .menu-de');
       const STORAGE_KEY = 'preferred-lang';
+      const gate = document.getElementById('language-gate');
+      const gateButtons = gate.querySelectorAll('[data-gate-lang]');
       const langBar = document.querySelector('.lang-bar');
       let observer;
 
@@ -655,18 +719,13 @@
         if (deMenu) deMenu.classList.toggle('hidden', !isDE);
         buttons.forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false'));
         try { localStorage.setItem(STORAGE_KEY, lang); } catch {}
+        gate.hidden = true;
         document.documentElement.setAttribute('lang', isDE ? 'de' : 'no');
         initScrollSpy(lang);
       }
 
       buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
-
-      let initial = 'no';
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved === 'de' || saved === 'no') initial = saved;
-      } catch {}
-      setLang(initial);
+      gateButtons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.gateLang)));
 
       // Enhance bar shadow on scroll
       window.addEventListener('scroll', () => {
